@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <title>Dashboard | hihelen </title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="vendors/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
+  <meta name="theme-color" content="#063372">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="vendors/datatables.net-bs4/dataTables.bootstrap4.html">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="css/horizontal-layout-light/style.css">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="../img/logo-icon-color.png" />
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'><link rel="stylesheet" href="./style.css">
+  <style>
+           .thatwhat {
+  z-index: 99999;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
+.thatwhat img {
+    height: 60px;
+    width: 60px;
+}
+            
+            * {
+  box-sizing: border-box;
+}
+
+#google_translate_element {
+    z-index: 9999999;
+  position: fixed;
+  bottom: 25px;
+  left: 15px;
+}
+
+.goog-te-gadget {
+  font-family: Roboto, "Open Sans", sans-serif !important;
+  text-transform: uppercase;
+}
+
+.goog-te-gadget-simple {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  padding: 3px !important;
+  border-radius: 4px !important;
+  font-size: 0.8rem !important;
+  line-height: 2rem !important;
+  display: inline-block;
+  cursor: pointer;
+  zoom: 1;
+  margin-bottom: 4px;
+}
+
+.goog-te-menu2 {
+  max-width: 100%;
+}
+
+.goog-te-menu-value {
+  color: #fff !important;
+}
+.goog-te-menu-value:before {
+  font-family: 'Material Icons';
+  content: "\E927";
+  margin-right: 16px;
+  font-size: 2rem;
+  vertical-align: -10px;
+}
+
+.goog-te-menu-value span:nth-child(5) {
+  display: none;
+}
+
+.goog-te-menu-value span:nth-child(3) {
+  border: none !important;
+  font-family: 'Material Icons';
+}
+.goog-te-menu-value span:nth-child(3):after {
+  font-family: 'Material Icons';
+  content: "\E5C5";
+  font-size: 1.5rem;
+  vertical-align: -6px;
+}
+
+.goog-te-gadget-icon {
+  background-position: 0px 0px;
+  height: 32px !important;
+  width: 32px !important;
+  margin-right: 8px !important;
+  display: none;
+}
+
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+
+body {
+  top: 0px !important;
+}
+
+/* ================================== *\
+    Mediaqueries
+\* ================================== */
+@media (max-width: 667px) {
+  #google_translate_element {
+  }
+  #google_translate_element goog-te-gadget {
+  }
+  #google_translate_element .skiptranslate {
+  }
+  #google_translate_element .goog-te-gadget-simple {
+    text-align: center;
+  }
+}
+        </style>
+        
+        <style>
+        .xp{
+            top: 60%;
+            width: 100%;
+            vertical-align: middle;
+            position: absolute;
+        }
+.xloader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  bottom: 0;
+  margin-top: -35px;
+  margin-left: -35px;
+  border: 5px solid #2154cf;
+  border-radius: 50%;
+  border-top: 5px solid #fec107;
+  width: 70px;
+  height: 70px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+<script type="text/javascript">
+        function hide_loader() {
+            document.getElementById("xxloader").style.display = "none";
+        }
+        
+        window.onload = hide_loader;
+        </script>
+</head>  <body >
+    
+      
+    <div class="container-scroller">
+        
+        <div id="xxloader">
+            
+        </div>
+
+<div class="horizontal-menu">
+      <nav class="navbar top-navbar col-lg-12 col-12 p-0">
+        <div class="container">
+          <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+              <a class="navbar-brand brand-logo" href="index.php"><img src="../img/logo.png" alt="logo"/></a>
+              <a class="navbar-brand brand-logo-mini" href="index.php"><img style="width: 30px; height: auto;" src="../img/logo-icon.png" alt="logo"/></a>
+          </div>
+          <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+            
+            <ul class="navbar-nav navbar-nav-right">
+              
+              <li class="nav-item dropdown mr-4">
+                <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
+                  <i class="fas fa-bell mx-0"></i>
+                  <span class="count bg-warning"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                  <p class="mb-0 font-weight-normal float-left dropdown-header">Notifications</p>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-warning">
+                        <i class="fa fa-btc mx-0"></i>
+                      </div>
+                    </div>
+                    <div class="preview-item-content">
+                      <h6 class="preview-subject font-weight-normal">BTC/USD</h6>
+                      <p class="font-weight-light small-text mb-0 text-muted">
+                        1 BTC = USD 38,601.44                      </p>
+                    </div>
+                  </a>
+                  <div class="text-center">
+                  <a href="deposit.php" class="btn btn-primary btn-icon-text">
+                          <i class="fas fa-upload btn-icon-prepend"></i>                                                    
+                          Deposit Now
+                        </a>
+                  </div>
+                  
+                </div>
+              </li>
+              <li class="nav-item nav-profile dropdown">
+                <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
+                    <i class="fas fa-user mx-0"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                  <a href="profile.php" class="dropdown-item">
+                    <i class="fa fa-cog text-primary"></i>
+                    Settings
+                  </a>
+                  <a href="?logout=1" class="dropdown-item">
+                    <i class="fas fa-sign-out-alt text-primary"></i>
+                    Logout
+                  </a>
+                </div>
+              </li>
+              
+              <li class="nav-item " style="margin-right: 0px;">
+                <a class=" btn btn-sm btn-success" href="deposit.php" >
+                    <i class="fas fa-upload mx-0"></i>
+                </a>
+              </li>
+              <li class="nav-item ">
+                <a class=" btn btn-sm btn-warning" href="withdraw.php" >
+                    <i class="fas fa-download text-white mx-0"></i>
+                </a>
+              </li>
+            </ul>
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="horizontal-menu-toggle">
+              <span class="fa fa-bars"></span>
+            </button>
+          </div>
+        </div>
+      </nav>
+      <nav class="bottom-navbar">
+        <div class="container">
+          <ul class="nav page-navigation">
+            <li class="nav-item">
+              <a class="nav-link" href="index.php">
+                <i class="fas fa-home menu-icon"></i>
+                <span class="menu-title">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="deposit.php">
+                <i class="fas fa-upload  menu-icon"></i>
+                <span class="menu-title">Deposit</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="withdraw.php">
+                <i class="fas fa-download  menu-icon"></i>
+                <span class="menu-title">Withdraw</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="transfer.php">
+                <i class="fa fa-exchange  menu-icon"></i>
+                <span class="menu-title">Transfer</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fa fa-file-alt menu-icon"></i>
+                <span class="menu-title">Transactions</span>
+                <i class="menu-arrow"></i></a>
+              <div class="submenu">
+                <ul class="submenu-item">
+                <li class="nav-item"><a class="nav-link" href="transaction.php">All Transaction</a></li>
+                <li class="nav-item"><a class="nav-link" href="transaction.php?d=1">Deposits</a></li>
+                <li class="nav-item"><a class="nav-link" href="transaction.php?w=1">Withdrawals</a></li>
+                <li class="nav-item"><a class="nav-link" href="transaction.php?t=1">Transfer</a></li>
+                <li class="nav-item"><a class="nav-link" href="transaction.php?b=1">Bonuses</a></li>
+                </ul>
+              </div>
+            </li>
+            
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="fa fa-user menu-icon"></i>
+                <span class="menu-title">Account</span>
+                <i class="menu-arrow"></i></a>
+              <div class="submenu">
+                <ul class="submenu-item">
+                <li class="nav-item"><a class="nav-link" href="profile.php">My Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="wallet.php">My Wallet</a></li>
+                <li class="nav-item"><a class="nav-link" href="ref.php?w=1">My Referral</a></li>
+                <li class="nav-item"><a class="nav-link" href="?logout=1">Sign Out</a></li>
+                </ul>
+              </div>
+            </li>
+            
+          </ul>
+        </div>
+      </nav>
+    </div>        
+      <div class="container-fluid page-body-wrapper">
+      <div class="main-panel">
+        <div class="content-wrapper" style="padding-top: 0;">
+          
+          
+
+    <div class="row py-3">
+            <div class="col-sm-6" style="width: 50%;">
+              <div class="">
+                  <div class="badge badge-primary"><i class="fas fa-home menu-icon"></i> Dashboard</div>
+              </div>
+            </div>
+    <div class="col-sm-6 " style="width: 50%; padding-top: 0px; margin-top: -5px;">
+                <div style="float: right;">
+                <small class="text-muted text-capitalize">Available Balance</small><br>
+                <b>USD 0.00</b><br>
+        </div>
+            </div>
+          </div>
+          <div class="alert  alert-solid alert-success" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+    Welcome, hihelen          </div>
+            <div class="row">
+            <div class="col-md-8 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body text-center">
+                  <h4 class="card-title ">Account Balance</h4>
+                  <div class="row">
+                    <div class="col-md-6 text-center">
+                      <h2 class="text-primary">USD 0.00</h2>
+                      <p class="text-primary">Available Balance</p>
+                    </div>
+                    <div class="col-md-6 text-center align-items-baseline">
+                      <h4 class="text-muted">USD 0.00</h4>
+                      <p class="text-muted">System Balance</p>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-md-6 offset-md-3 text-center py-3">
+                      <small class="text-muted mb-3">Your Available balance is the real balance you can withdraw from while your system balance is your potential balance that will become available when your deposit plan is completed.</small>
+                    </div>
+                  </div>
+                  <div class="col-md-12 text-center">
+                      <a href="deposit.php" class="btn btn-success text-white btn-md rounded-0 mb-4"><i class="fas fa-upload"></i> Deposit</a>
+                      <a href="withdraw.php" class="btn btn-warning text-white btn-md rounded-0 mb-4"><i class="fas fa-download"></i> Withdraw</a>
+                  </div>
+                 </div>
+              </div>
+            </div>
+                
+                <div class="col-md-4 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body text-center">
+                  <h4 class="card-title">Free Bitcoin</h4>
+                  <div class="row">
+                      <div class="col-md-12 text-center">
+                      <small class="text-muted ">Get bitcoin when you refer your friends to invest with us. The reward on our referral program is dependent on the deposit plans.</small>
+                    </div>
+                    <div class="col-md-12 text-center mb-3">
+                      <div class="template-demo">
+                          
+                                                    
+                    <div class="d-flex justify-content-between mt-3">
+                      <small>STANDARD</small>
+                      <small>7 %</small>
+                    </div>
+                    <div class="progress progress-sm mt-2">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                                                    
+                    <div class="d-flex justify-content-between mt-3">
+                      <small>500G GOLD BAR</small>
+                      <small>8 %</small>
+                    </div>
+                    <div class="progress progress-sm mt-2">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 32%" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                                                    
+                    <div class="d-flex justify-content-between mt-3">
+                      <small>PRIME</small>
+                      <small>5 %</small>
+                    </div>
+                    <div class="progress progress-sm mt-2">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                                              
+                  </div>
+                    </div>
+                    
+                  </div>
+                  
+                  <div class="form-group">
+                    <div class="input-group">
+                        <input type="text" readonly id='ref_cop' class="form-control" value="digitalstakers.com/signup.php?ref=hihelen">
+                      <div class="input-group-append">
+                          <button class="btn btn-sm btn-primary" id='ref_btn' type="button" onclick="copy_ref('ref_cop','#ref_btn');">Copy Ref. Link</button>
+                      </div>
+                    </div>
+                  </div>
+                 </div>
+              </div>
+            </div>
+                
+          </div>
+            <div class="row">
+            <div class="col-md-3 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex align-items-baseline">
+                    <i class="fas fa-circle text-success mr-2 fa-sm"></i>
+                    <p class="card-title mb-1">Total Deposits</p>
+                  </div>
+                  <h4 class="mb-2 mt-1">USD 0.00</h4>
+                  <div class="d-flex justify-content-between align-items-center flex-wrap">
+                    <p class="mb-0 text-warning">0.0000 BTC</p>
+                    <div class="d-flex align-items-center">
+                      <p class="mb-0 mr-2">0</p>
+                      <div class="badge badge-">NAN %</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex align-items-baseline">
+                    <i class="fas fa-circle text-warning mr-2 fa-sm"></i>
+                    <p class="card-title mb-1">Total Withdrawals</p>
+                  </div>
+                  <h4 class="mb-2 mt-1">USD 0.00</h4>
+                  <div class="d-flex justify-content-between align-items-center flex-wrap">
+                    <p class="mb-0 text-warning">0.0000 BTC</p>
+                    <div class="d-flex align-items-center">
+                      <p class="mb-0 mr-2">0</p>
+                      <div class="badge badge-">NAN %</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex align-items-baseline">
+                    <i class="fas fa-circle text-danger mr-2 fa-sm"></i>
+                    <p class="card-title mb-1">Total Bonuses</p>
+                  </div>
+                  <h4 class="mb-2 mt-1">USD 0.00</h4>
+                  <div class="d-flex justify-content-between align-items-center flex-wrap">
+                    <p class="mb-0 text-warning">0.0000 BTC</p>
+                    <div class="d-flex align-items-center">
+                      <p class="mb-0 mr-2">0</p>
+                      <div class="badge badge-">NAN %</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex align-items-baseline">
+                    <i class="fas fa-circle text-primary mr-2 fa-sm"></i>
+                    <p class="card-title mb-1">Total Transactions</p>
+                  </div>
+                  <h4 class="mb-2 mt-1">USD 0.00</h4>
+                  <div class="d-flex justify-content-between align-items-center flex-wrap">
+                    <p class="mb-0 text-warning">0.0000 BTC</p>
+                    <div class="d-flex align-items-center">
+                      <p class="mb-0 mr-2">0</p>
+                      <div class="badge badge-">NAN %</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            
+            <div class="row">
+                <div class="col-lg-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Recent Transactions</h4>
+                  <div class="table-responsive">
+                    <table class="table table-hover table-striped">
+                      <thead>
+                        <tr>
+                          <th>Type</th>
+                          <th>Amount</th>
+                          <th>View</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          
+                                                  
+                      </tbody>
+                    </table>
+                      
+                  </div>
+                  <br>
+                  <a href="transaction.php" class="btn btn-outline-primary btn-fw btn-sm">View All My Transaction History</a>
+                </div>
+              </div>
+            </div>
+                
+                <div class="col-lg-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Referral History</h4>
+                  <div class="table-responsive">
+                    <table class="table table-hover table-striped">
+                      <thead>
+                        <tr>
+                          <th>User</th>
+                          <th>Amount</th>
+                          <th>Bonus</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          
+                                                  
+                      </tbody>
+                    </table>
+                      
+                  </div>
+                  <br>
+                  <a href="ref.php" class="btn btn-outline-primary btn-fw btn-sm">View All Referral History</a>
+                </div>
+              </div>
+            </div>
+                
+            </div>
+
+        
+<div class="row ">
+    
+    <div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                    <div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/markets/cryptocurrencies/prices-all/" rel="noopener" target="_blank"><span class="blue-text">Cryptocurrency Markets</span></a> by TradingView</div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+  {
+  "width": "100%",
+  "height": "100%",
+  "defaultColumn": "overview",
+  "screener_type": "crypto_mkt",
+  "displayCurrency": "USD",
+  "colorTheme": "white",
+  "locale": "en",
+  "isTransparent": true
+}
+  </script>
+</div>
+                </div>
+              </div>
+            </div>
+
+    <div class="col-md-6 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Send Us A Message</h4>
+                  <p><small class="card-description">
+                    Basic form layout
+                      </small></p>
+                  <form class="forms-sample" action="" method="post">
+                    <div class="form-group">
+                      <input type="text" required="required" placeholder="Enter Name *" class="form-control" name="name">
+                    </div>
+                    <div class="form-group">
+                      <input type="email" required="required" placeholder="Enter Email *" class="form-control" name="email">
+                    </div>
+                    <div class="form-group">
+                      <input type="text" required="required" placeholder="Enter Subject" class="form-control" name="subject">
+                    </div>
+                    <div class="form-group">
+                      <textarea required="required" placeholder="Message *" class="form-control" name="msg" rows="3"></textarea>
+                    </div>
+                    <button class="btn btn-primary btn-block" name="send" type="submit">Send Message</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+    
+    
+        </div>
+      </div>
+      </div>
+      </div><!-- container -->
+    </div><!-- slim-mainpanel -->
+
+    <footer class="footer">
+          <div class="w-100 clearfix">
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018 - 2022 <a href="index.php" >Digital Stakers</a>. All rights reserved.</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">hihelen <i class="far fa-user text-primary"></i></span>
+            <p  class="text-success"></p>
+          </div>
+        </footer>
+
+<div id="google_translate_element"></div>
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE, autoDisplay: false}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+   <!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6006fb04c31c9117cb703757/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->    
+  <!-- plugins:js -->
+  <script src="vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="vendors/chart.js/Chart.min.js"></script>
+  <script src="vendors/datatables.net/jquery.dataTables.js"></script>
+  <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="js/off-canvas.js"></script>
+  <script src="js/hoverable-collapse.js"></script>
+  <script src="js/template.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page -->
+  <script src="js/dashboard.js"></script>
+  <script src="js/todolist.js"></script>
+  <script src="js/data-table.js"></script>
+  <!-- End custom js for this page -->
+  
+  <script src="lib/jquery/js/jquery.js"></script>
+    <script src="lib/popper.js/js/popper.js"></script>
+    <script src="lib/bootstrap/js/bootstrap.js"></script>
+    <script src="lib/jquery.cookie/js/jquery.cookie.js"></script>
+    <script src="lib/select2/js/select2.min.js"></script>
+    
+        <script src="lib/chartist/js/chartist.js"></script>
+    <script src="lib/d3/js/d3.js"></script>
+    <script src="lib/rickshaw/js/rickshaw.min.js"></script>
+    <script src="lib/jquery.sparkline.bower/js/jquery.sparkline.min.js"></script>
+    <script src="js/ResizeSensor.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/slim.js"></script>
+        <script>
+      $(function(){
+        'use strict';
+
+        $('#datatable1').DataTable({
+          responsive: true,
+          language: {
+            searchPlaceholder: 'Search...',
+            sSearch: '',
+            lengthMenu: '_MENU_ items/page',
+          }
+        });
+
+        $('#datatable2').DataTable({
+          bLengthChange: false,
+          searching: false,
+          responsive: true
+        });
+
+        // Select2
+        $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
+
+      });
+function hide_element(x) {
+        document.querySelector(x).style.display='none';
+}
+
+function show_element(x) {
+        document.querySelector(x).style.display='block';
+}      
+      function get_options(y,val,x) {
+        show_element('#loader');
+	$.ajax({
+	type: "POST",
+	url: 'includes/ajax.php',
+	data: y+'='+val,
+	success: function(data){
+		$(x).html(data);
+                hide_element('#loader');
+	}
+	});
+}
+
+function copy_ref(data,btn) {
+  var copyText = document.getElementById(data);
+  copyText.select();
+  document.execCommand("copy");
+  $(btn).addClass('btn-success');
+  $(btn).html('Copied <i class="fa fa-check"></i>');
+  
+}
+    </script>
+    <script>
+// WORK IN PROGRESS BELOW
+      	
+$('document').ready(function () {
+
+
+		// RESTYLE THE DROPDOWN MENU
+    $('#google_translate_element').on("click", function () {
+
+        // Change font family and color
+        $("iframe").contents().find(".goog-te-menu2-item div, .goog-te-menu2-item:link div, .goog-te-menu2-item:visited div, .goog-te-menu2-item:active div, .goog-te-menu2 *")
+            .css({
+                'color': '#544F4B',
+                'font-family': 'Roboto',
+								'width':'100%'
+            });
+        // Change menu's padding
+        $("iframe").contents().find('.goog-te-menu2-item-selected').css ('display', 'none');
+			
+				// Change menu's padding
+        $("iframe").contents().find('.goog-te-menu2').css ('padding', '0px');
+      
+        // Change the padding of the languages
+        $("iframe").contents().find('.goog-te-menu2-item div').css('padding', '20px');
+      
+        // Change the width of the languages
+        $("iframe").contents().find('.goog-te-menu2-item').css('width', '100%');
+        $("iframe").contents().find('td').css('width', '100%');
+      
+        // Change hover effects
+        $("iframe").contents().find(".goog-te-menu2-item div").hover(function () {
+            $(this).css('background-color', '#4385F5').find('span.text').css('color', 'white');
+        }, function () {
+            $(this).css('background-color', 'white').find('span.text').css('color', '#544F4B');
+        });
+
+        // Change Google's default blue border
+        $("iframe").contents().find('.goog-te-menu2').css('border', 'none');
+
+        // Change the iframe's box shadow
+        $(".goog-te-menu-frame").css('box-shadow', '0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3)');
+        
+      
+      
+        // Change the iframe's size and position?
+        $(".goog-te-menu-frame").css({
+            'height': '100%',
+            'width': '100%',
+            'top': '0px'
+        });
+        // Change iframes's size
+        $("iframe").contents().find('.goog-te-menu2').css({
+            'height': '100%',
+            'overflow': 'scroll',
+            'width': '100%'
+        });
+    });
+});
+</script>
+    
+    <!--Start of Tawk.to Script-->
+
+<!--End of Tawk.to Script-->  </body>
+</html>
