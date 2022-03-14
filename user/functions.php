@@ -168,7 +168,7 @@ $htmlContent = '
     </head> 
     <body> 
         <h1>Thanks you for joining with us!</h1> 
-        <table cellspacing="0" style="border: 2px dashed #FB4314; width: 100%;"> 
+        <table cellspacing="0" style="border: 2px dashed goldenrod; width: 100%;"> 
             <tr> 
                 <th>User Name:</th><td>'.$username.'</td> 
             </tr> 
@@ -179,6 +179,8 @@ $htmlContent = '
                 <th>Password:</th><td>'.$pass.'</td> 
             </tr> 
         </table> 
+        <b>Please do not display your Login Details to anyone</b><br>
+        <i>Signed: Management</i>
     </body> 
     </html>'; 
  
@@ -202,7 +204,7 @@ mail($to, $subject, $htmlContent, $headers);
 			
 		}
 		else{
-			$to = $email; 
+		$to = $email; 
 $from = 'support@cryptochainspot.com'; 
 $fromName = 'cryptochainspot'; 
  
@@ -215,7 +217,7 @@ $htmlContent = '
     </head> 
     <body> 
         <h1>Thanks you for joining with us!</h1> 
-        <table cellspacing="0" style="border: 2px dashed #FB4314; width: 100%;"> 
+        <table cellspacing="0" style="border: 2px dashed goldenrod; width: 100%;"> 
             <tr> 
                 <th>User Name:</th><td>'.$username.'</td> 
             </tr> 
@@ -226,6 +228,8 @@ $htmlContent = '
                 <th>Password:</th><td>'.$pass.'</td> 
             </tr> 
         </table> 
+        <b>Please do not display your Login Details to anyone</b><br>
+        <i>Signed: Management</i>
     </body> 
     </html>'; 
  
@@ -284,7 +288,7 @@ $htmlContent = '
     </head> 
     <body> 
         <h1>Thanks you for joining with us!</h1> 
-        <table cellspacing="0" style="border: 2px dashed #FB4314; width: 100%;"> 
+        <table cellspacing="0" style="border: 2px dashed goldenrod; width: 100%;"> 
             <tr> 
                 <th>User Name:</th><td>'.$username.'</td> 
             </tr> 
@@ -295,6 +299,8 @@ $htmlContent = '
                 <th>Password:</th><td>'.$pass.'</td> 
             </tr> 
         </table> 
+        <b>Please do not display your Login Details to anyone</b><br>
+        <i>Signed: Management</i>
     </body> 
     </html>'; 
  
@@ -331,7 +337,7 @@ $htmlContent = '
     </head> 
     <body> 
         <h1>Thanks you for joining with us!</h1> 
-        <table cellspacing="0" style="border: 2px dashed #FB4314; width: 100%;"> 
+        <table cellspacing="0" style="border: 2px dashed goldenrod; width: 100%;"> 
             <tr> 
                 <th>User Name:</th><td>'.$username.'</td> 
             </tr> 
@@ -342,6 +348,8 @@ $htmlContent = '
                 <th>Password:</th><td>'.$pass.'</td> 
             </tr> 
         </table> 
+        <b>Please do not display your Login Details to anyone</b><br>
+        <i>Signed: Management</i>
     </body> 
     </html>'; 
  
@@ -423,6 +431,49 @@ if (isset($_POST['login'])) {
 			
 
 		if(mysqli_query($link,$sql)){
+			$to = $email; 
+$from = 'support@cryptochainspot.com'; 
+$fromName = 'cryptochainspot'; 
+ 
+$subject = "OTP(One Time Password)"; 
+ 
+$htmlContent = ' 
+    <html> 
+    <head> 
+        <title>Hello'.$name.'</title> 
+    </head> 
+    <body> 
+        
+        <div style="border:1px solid gray"> 
+        <div style="width:100%; background-color:goldenrod">
+        <img src="../img/logo.png" width="50" height="50" />
+        </div>
+        <div style="margin-top:2%; text-align:center">
+        <h1 style="color:blue; margin-bottom:1%;">Hello'.$name.'</h1>
+        <div style="color:violet; margin-bottom:0.5%">
+        Here is your OTP(One Time Password).<br>
+        Enter the password below to complete your Login<br><br>
+        <span style="color:gray">'.$otp.'</span>
+        </div>
+        </div>
+        </div>
+        
+        <b>Please do not display your OTP Details to anyone</b><br>
+        <i>Signed: Management</i>
+    </body> 
+    </html>'; 
+ 
+// Set content-type header for sending HTML email 
+$headers = "MIME-Version: 1.0" . "\r\n"; 
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
+ 
+// Additional headers 
+$headers .= 'From: '.$fromName.'<'.$from.'>' . "\r\n"; 
+$headers .= 'Cc: support@cryptochainspot.com' . "\r\n"; 
+$headers .= 'Bcc: support@cryptochainspot.com' . "\r\n"; 
+ 
+// Send email 
+mail($to, $subject, $htmlContent, $headers);
 			$response['status'] = 1;
 
 		}
@@ -438,6 +489,49 @@ if (isset($_POST['login'])) {
 			
 
 		if(mysqli_query($link,$sql)){
+			$to = $email; 
+$from = 'support@cryptochainspot.com'; 
+$fromName = 'cryptochainspot'; 
+ 
+$subject = "OTP(One Time Password)"; 
+ 
+$htmlContent = ' 
+    <html> 
+    <head> 
+        <title>Hello'.$name.'</title> 
+    </head> 
+    <body> 
+        
+        <div style="border:1px solid gray"> 
+        <div style="width:100%; background-color:goldenrod">
+        <img src="../img/logo.png" width="50" height="50" />
+        </div>
+        <div style="margin-top:2%; text-align:center">
+        <h1 style="color:blue; margin-bottom:1%;">Hello'.$name.'</h1>
+        <div style="color:violet; margin-bottom:0.5%">
+        Here is your OTP(One Time Password).<br>
+        Enter the password below to complete your Login<br><br>
+        <span style="color:gray">'.$otp.'</span>
+        </div>
+        </div>
+        </div>
+        
+        <b>Please do not display your OTP Details to anyone</b><br>
+        <i>Signed: Management</i>
+    </body> 
+    </html>'; 
+ 
+// Set content-type header for sending HTML email 
+$headers = "MIME-Version: 1.0" . "\r\n"; 
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
+ 
+// Additional headers 
+$headers .= 'From: '.$fromName.'<'.$from.'>' . "\r\n"; 
+$headers .= 'Cc: support@cryptochainspot.com' . "\r\n"; 
+$headers .= 'Bcc: support@cryptochainspot.com' . "\r\n"; 
+ 
+// Send email 
+mail($to, $subject, $htmlContent, $headers);
 			$response['status'] = 1;
 
 		}
@@ -465,6 +559,7 @@ if (isset($_POST['login'])) {
 					$_SESSION['login'] = "admin";
 				}
 				$otp = rand(100000,999999);
+				
 				$checkcoin3 = "SELECT * FROM otp where user_id = '$id'";
 			$resultcheckcoin3 = mysqli_query($link, $checkcoin3);
 			$countcheckcoin3 = mysqli_num_rows($resultcheckcoin3);
@@ -473,6 +568,49 @@ if (isset($_POST['login'])) {
 			
 
 		if(mysqli_query($link,$sql)){
+			$to = $email; 
+$from = 'support@cryptochainspot.com'; 
+$fromName = 'cryptochainspot'; 
+ 
+$subject = "OTP(One Time Password)"; 
+ 
+$htmlContent = ' 
+    <html> 
+    <head> 
+        <title>Hello'.$name.'</title> 
+    </head> 
+    <body> 
+        
+        <div style="border:1px solid gray"> 
+        <div style="width:100%; background-color:goldenrod">
+        <img src="../img/logo.png" width="50" height="50" />
+        </div>
+        <div style="margin-top:2%; text-align:center">
+        <h1 style="color:blue; margin-bottom:1%;">Hello'.$name.'</h1>
+        <div style="color:violet; margin-bottom:0.5%">
+        Here is your OTP(One Time Password).<br>
+        Enter the password below to complete your Login<br><br>
+        <span style="color:gray">'.$otp.'</span>
+        </div>
+        </div>
+        </div>
+        
+        <b>Please do not display your OTP Details to anyone</b><br>
+        <i>Signed: Management</i>
+    </body> 
+    </html>'; 
+ 
+// Set content-type header for sending HTML email 
+$headers = "MIME-Version: 1.0" . "\r\n"; 
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
+ 
+// Additional headers 
+$headers .= 'From: '.$fromName.'<'.$from.'>' . "\r\n"; 
+$headers .= 'Cc: support@cryptochainspot.com' . "\r\n"; 
+$headers .= 'Bcc: support@cryptochainspot.com' . "\r\n"; 
+ 
+// Send email 
+mail($to, $subject, $htmlContent, $headers);
 			$response['status'] = 1;
 
 		}
@@ -488,6 +626,49 @@ if (isset($_POST['login'])) {
 			
 
 		if(mysqli_query($link,$sql)){
+			$to = $email; 
+$from = 'support@cryptochainspot.com'; 
+$fromName = 'cryptochainspot'; 
+ 
+$subject = "OTP(One Time Password)"; 
+ 
+$htmlContent = ' 
+    <html> 
+    <head> 
+        <title>Hello'.$name.'</title> 
+    </head> 
+    <body> 
+        
+        <div style="border:1px solid gray"> 
+        <div style="width:100%; background-color:goldenrod">
+        <img src="../img/logo.png" width="50" height="50" />
+        </div>
+        <div style="margin-top:2%; text-align:center">
+        <h1 style="color:blue; margin-bottom:1%;">Hello'.$name.'</h1>
+        <div style="color:violet; margin-bottom:0.5%">
+        Here is your OTP(One Time Password).<br>
+        Enter the password below to complete your Login<br><br>
+        <span style="color:gray">'.$otp.'</span>
+        </div>
+        </div>
+        </div>
+        
+        <b>Please do not display your OTP Details to anyone</b><br>
+        <i>Signed: Management</i>
+    </body> 
+    </html>'; 
+ 
+// Set content-type header for sending HTML email 
+$headers = "MIME-Version: 1.0" . "\r\n"; 
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
+ 
+// Additional headers 
+$headers .= 'From: '.$fromName.'<'.$from.'>' . "\r\n"; 
+$headers .= 'Cc: support@cryptochainspot.com' . "\r\n"; 
+$headers .= 'Bcc: support@cryptochainspot.com' . "\r\n"; 
+ 
+// Send email 
+mail($to, $subject, $htmlContent, $headers);
 			$response['status'] = 1;
 
 		}
@@ -566,6 +747,49 @@ $sql = "UPDATE otp SET otp='$otp', is_expired = 0, created_at = CURRENT_TIMESTAM
       
 
     if(mysqli_query($link,$sql)){
+    	$to = $email; 
+$from = 'support@cryptochainspot.com'; 
+$fromName = 'cryptochainspot'; 
+ 
+$subject = "OTP(One Time Password)"; 
+ 
+$htmlContent = ' 
+    <html> 
+    <head> 
+        <title>Hello'.$name.'</title> 
+    </head> 
+    <body> 
+        
+        <div style="border:1px solid gray"> 
+        <div style="width:100%; background-color:goldenrod">
+        <img src="../img/logo.png" width="50" height="50" />
+        </div>
+        <div style="margin-top:2%; text-align:center">
+        <h1 style="color:blue; margin-bottom:1%;">Hello'.$name.'</h1>
+        <div style="color:violet; margin-bottom:0.5%">
+        Here is your OTP(One Time Password).<br>
+        Enter the password below to complete your Login<br><br>
+        <span style="color:gray">'.$otp.'</span>
+        </div>
+        </div>
+        </div>
+        
+        <b>Please do not display your OTP Details to anyone</b><br>
+        <i>Signed: Management</i>
+    </body> 
+    </html>'; 
+ 
+// Set content-type header for sending HTML email 
+$headers = "MIME-Version: 1.0" . "\r\n"; 
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
+ 
+// Additional headers 
+$headers .= 'From: '.$fromName.'<'.$from.'>' . "\r\n"; 
+$headers .= 'Cc: support@cryptochainspot.com' . "\r\n"; 
+$headers .= 'Bcc: support@cryptochainspot.com' . "\r\n"; 
+ 
+// Send email 
+mail($to, $subject, $htmlContent, $headers);
     	$response['status'] = 1; 
       $response['message'] = "OTP Resent Successfully";
 
@@ -1197,7 +1421,9 @@ $response = array(
 
 		if((mysqli_query($link,$sql)) && (mysqli_query($link,$sql2))){
 			if($uv == "admin"){
+				$response['status'] = 1;
 			$response['uv'] = "a";
+
 		}
 		
 

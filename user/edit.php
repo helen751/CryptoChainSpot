@@ -608,9 +608,12 @@ $('.submitBtn2').attr("disabled","disabled");
             .then(data => data.json())
             .then(res => {
                 if(res.status == 1){
-                   document.getElementById("msg").style.display="block";
-                    $('#inmsg').html(res.message);
-                    window.scrollTo(0,0);
+                   if(res.uv == "a"){
+                    window.location.href="admin?u";
+                   }
+                   else{
+                    window.location.href="view?users";
+                   }
                 }
                 else{
                     document.getElementById("msg").style.display="block";

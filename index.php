@@ -306,7 +306,7 @@ As a global investment manager and fiduciary to our clients, our purpose at Cryp
 
                                         if($countcoincc != 0){
                                           $row = mysqli_fetch_array($coinresultcc, MYSQLI_ASSOC);
-                                          $coinid = $coinrow["coin_id"];
+                                          $coinid = $row["coin_id"];
 
 
                                            $coinsql = "SELECT * from plans where coin_id = '$coinid'";
@@ -315,7 +315,7 @@ As a global investment manager and fiduciary to our clients, our purpose at Cryp
                                             while($coinrow = $coinresult->fetch_assoc()) { 
                                              $n = rand(1,4);
 
-                                            $coinname = $coinrow["plan_name"];
+                                            $planname = $coinrow["plan_name"];
                                             $planid = $coinrow["plan_id"];
 
 
@@ -329,7 +329,7 @@ As a global investment manager and fiduciary to our clients, our purpose at Cryp
                                  }
                                      else{
                                         ?>
-                                        <div class='col-12'>No Coin Added yet!</div>
+                                        <div class='col-12'>No Plan Added yet!</div>
 
 
                                         <?php
