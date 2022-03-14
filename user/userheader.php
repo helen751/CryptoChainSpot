@@ -307,7 +307,7 @@ body {
         </div>
 
 <div class="horizontal-menu">
-      <nav class="navbar top-navbar col-lg-12 col-12 p-0">
+      <nav class="navbar top-navbar col-lg-12 col-12 p-0" style="background-color: goldenrod;">
         <div class="container">
           <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
               <a class="navbar-brand brand-logo" href="index.php"><img src="../img/logo.png" alt="logo"/></a>
