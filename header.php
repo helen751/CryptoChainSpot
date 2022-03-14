@@ -1,7 +1,13 @@
 <?php session_start();
 error_reporting(0);
+$ref = ' ';
 require_once("user/config.php");
+if(isset($_GET["ref"])){
+$ref = $_GET["ref"];
+$_SESSION['ref'] = $ref;
+    }
  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -413,7 +419,17 @@ body {
                                  <p class="info-subtitle">Send us mail</p>
                               </div>
                            </li>
-                           <li class="header-get-a-quote"><a class="btn btn-warning" href="user/login">Login</a></li>
+                           <?php 
+                           if(isset($_SESSION["login"])){
+                            ?>
+                           <li class="header-get-a-quote"><a class="btn btn-warning" href="user/logout">Logout</a></li>
+                       <?php } 
+                       else{
+                        ?>
+<li class="header-get-a-quote"><a class="btn btn-warning" href="user/login">Login</a></li>
+                        <?php
+                       }
+                       ?>
                         </ul>
                      </div>
                      <!-- Col End-->

@@ -245,7 +245,18 @@ body {
                     <input type="password" name="password2" class="form-control" placeholder="Retype your password" id="pass2">
                   </div>
                   <div class="form-group">
+                    <?php 
+                    if(isset($_SESSION['ref'])){
+                        ?>
+                    <input type="text" class="form-control" placeholder="Enter referrer username" name="ref" value="<?php echo $_SESSION['ref']  ?>" id="ref">
+                    <?php 
+                }
+                else{
+                    ?>
                     <input type="text" class="form-control" placeholder="Enter referrer username" name="ref" value="" id="ref">
+                    <?php
+                }
+                ?>
                   </div>
                     <div class="form-group">
                                     <div class="custom-checkbox" style='padding: 5px 28px;'>
