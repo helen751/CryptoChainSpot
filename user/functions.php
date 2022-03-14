@@ -1100,7 +1100,47 @@ if (isset($_POST['contact'])) {
     'status' => 0, 
     'message' => 'Failed to Send Message, Please try again!' 
 );
-	$email2 = "support@cryptochainspot.com";
+	session_start();
+	$email = $_SESSION['email'];
+	$from = $email; 
+$to = 'support@cryptochainspot.com'; 
+$fromName = $name; 
+ 
+$subject = "$topic"; 
+ 
+$htmlContent = ' 
+    <html> 
+    <head> 
+        <title>Hello Suppory</title> 
+    </head> 
+    <body> 
+        
+        <div style="border:1px solid gray"> 
+        <div style="width:100%; background-color:goldenrod">
+        <img src="../img/logo.png" width="50" height="50" />
+        </div>
+        <div style="margin-top:2%; text-align:center">
+        '.$message.'
+        </div>
+        </div>
+        
+         </body> 
+    </html>'; 
+ 
+// Set content-type header for sending HTML email 
+$headers = "MIME-Version: 1.0" . "\r\n"; 
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
+ 
+// Additional headers 
+$headers .= 'From: '.$fromName.'<'.$from.'>' . "\r\n"; 
+$headers .= 'Cc: '.$email . "\r\n"; 
+$headers .= 'Bcc: '.$email . "\r\n"; 
+ 
+// Send email 
+if(mail($to, $subject, $htmlContent, $headers)){
+$response['status'] = 1; 
+			$response['message'] = "Message Sent Successfully:)";	
+}
 
 
 
