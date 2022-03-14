@@ -299,23 +299,30 @@ As a global investment manager and fiduciary to our clients, our purpose at Cryp
                 
                 <div class="row text-center">
                    <?php
-     $col = array(" ","#ff9900","#c58916","#0f2765","#2154cf","#222","#666");
-                                    $coinsql = "SELECT * from coins";
+     $col = array(" ","goldenrod","#2154cf","#222","#666");
+                                    $coinsqlcc = "SELECT * from coins limit 1";
+                                    $coinresultcc = mysqli_query($link,$coinsqlcc);
+                                    $countcoincc = mysqli_num_rows($coinresultcc);
+
+                                        if($countcoincc != 0){
+                                          $row = mysqli_fetch_array($coinresultcc, MYSQLI_ASSOC);
+                                          $coinid = $coinrow["coin_id"];
+
+
+                                           $coinsql = "SELECT * from plans where coin_id = '$coinid'";
                                     $coinresult = mysqli_query($link,$coinsql);
                                     $countcoin = mysqli_num_rows($coinresult);
-
-                                        if($countcoin != 0){
                                             while($coinrow = $coinresult->fetch_assoc()) { 
-                                             $n = rand(1,6);
+                                             $n = rand(1,4);
 
-                                            $coinname = $coinrow["coin_name"];
-                                            $coinid = $coinrow["coin_id"];
+                                            $coinname = $coinrow["plan_name"];
+                                            $planid = $coinrow["plan_id"];
 
 
 
                                      ?>
                                      <div class='col-12 mt-2'>
-                                  <a  href="plans?p=<?php echo $coinid; ?>" class="btn btn-primary" style='background-color: <?php $col[$n]; ?>;'> <?php echo $coinname; ?> PLANS</a>
+                                  <a  href="plans?p=<?php echo $coinid; ?>" class="btn btn-primary" style='background-color: <?php echo $col[$n]; ?>;'> <?php echo $planname; ?></a>
                               </div>
                                     
                                      <?php } 

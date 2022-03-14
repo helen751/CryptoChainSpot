@@ -97,8 +97,8 @@
          </div>
          <!-- Footer Main-->
          <div class="copyright">
-            <div class="container">
-               <div class="row">
+            <div class="container" style="background-color: goldenrod;">
+               <div class="row" style="background-color: goldenrod;">
                   <div class="col-lg-6 col-md-12">
                      <div class="copyright-info"><span>Copyright © <?php echo date('Y'); ?> CryptochainSpot  All Rights Reserved.</span></div>
                   </div>
