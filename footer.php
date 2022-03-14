@@ -96,9 +96,9 @@
             <!-- Container end-->
          </div>
          <!-- Footer Main-->
-         <div class="copyright">
+         <div class="copyright" style="background-color: goldenrod;">
             <div class="container" style="background-color: goldenrod;">
-               <div class="row" style="background-color: goldenrod;">
+               <div class="row text-light" style="background-color: goldenrod;">
                   <div class="col-lg-6 col-md-12">
                      <div class="copyright-info"><span>Copyright © <?php echo date('Y'); ?> CryptochainSpot  All Rights Reserved.</span></div>
                   </div>
