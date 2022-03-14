@@ -1,9 +1,9 @@
 <?php
 
-define('HOST', 'localhost:3308');
-define('USER', 'root');
-define('PASSWORD', '');
-define('DBNAME', 'cryptochainspot');
+define('HOST', 'localhost');
+define('USER', 'crypdvww_cryptochain');
+define('PASSWORD', 'cryptochain911');
+define('DBNAME', 'crypdvww_cryptochainspot');
 
 $link = mysqli_connect(HOST, USER, PASSWORD, DBNAME);
 
