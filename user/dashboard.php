@@ -93,7 +93,7 @@
                      
                     </div>
                     <div class="progress progress-sm mt-2">
-                        <div class="progress-bar bg-danger" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: <?php echo $ref3; ?>%;" aria-valuenow="<?php echo $ref3; ?>" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <?php } ?>                                
                                                                         
