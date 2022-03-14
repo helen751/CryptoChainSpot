@@ -105,11 +105,11 @@
                   <div class="col-lg-6 col-md-12">
                      <div class="footer-menu">
                         <ul class="nav unstyled">
-                            <li><a href="about">About</a></li>
-                           <li><a href="privacy">Privacy Policy</a></li>
-                           <li><a href="buy-btc">Buy Digital Currency</a></li>
-                           <li><a href="legal">Legals</a></li>
-                           <li><a href="contact">Contact</a></li>
+                            <li><a href="about" class="text-light">About</a></li>
+                           <li><a href="privacy" class="text-light">Privacy Policy</a></li>
+                           <li><a href="buy-btc" class="text-light">Buy Digital Currency</a></li>
+                           <li><a href="legal" class="text-light">Legals</a></li>
+                           <li><a href="contact" class="text-light">Contact</a></li>
                         </ul>
                      </div>
                   </div>
