@@ -16,7 +16,10 @@
     <div class="col-sm-6 " style="width: 50%; padding-top: 0px; margin-top: -5px;">
                 <div style="float: right;">
                 <small class="text-muted text-capitalize">Total Users</small><br>
-                <b>100</b><br>
+                <b><?php $plansql = "SELECT * from users";
+                                    $planresult = mysqli_query($link,$plansql);
+                                    $countplan = mysqli_num_rows($planresult);
+ echo $countplan ?></b><br>
         </div>
             </div>
           </div>
@@ -37,7 +40,8 @@
                     <i class="fas fa-circle text-success mr-2 fa-sm"></i>
                     <p class="card-title mb-1 text-capitalize">Total Users</p>
                   </div>
-                  <h4 class="mb-2 mt-1 text-center " id="countuser">100</h4>
+                  <h4 class="mb-2 mt-1 text-center " id="countuser">
+                    <?php echo $countplan ?></h4>
                   
                 </div>
               </div>
@@ -49,7 +53,11 @@
                     <i class="fas fa-circle text-warning mr-2 fa-sm"></i>
                     <p class="card-title mb-1">Pending withdrawals</p>
                   </div>
-                  <h4 class="mb-2 mt-1  text-center" id="countpw">100</h4>
+                  <h4 class="mb-2 mt-1  text-center" id="countpw">
+                    <?php $plansql2 = "SELECT * from withdrawals where transaction_status = 0";
+                                    $planresult2 = mysqli_query($link,$plansql2);
+                                    $countplan2 = mysqli_num_rows($planresult2);
+ echo $countplan2 ?></h4>
                                   </div>
               </div>
             </div>
@@ -60,7 +68,11 @@
                     <i class="fas fa-circle text-danger mr-2 fa-sm"></i>
                     <p class="card-title mb-1">Total Referals</p>
                   </div>
-                  <h4 class="mb-2 mt-1  text-center" id="counttr">100</h4>
+                  <h4 class="mb-2 mt-1  text-center" id="counttr">
+                    <?php $plansql3 = "SELECT * from referals";
+                                    $planresult3 = mysqli_query($link,$plansql3);
+                                    $countplan3 = mysqli_num_rows($planresult3);
+ echo $countplan3 ?></h4>
                                   </div>
               </div>
             </div>
@@ -71,7 +83,13 @@
                     <i class="fas fa-circle text-danger mr-2 fa-sm"></i>
                     <p class="card-title mb-1">Pending Deposits</p>
                   </div>
-                  <h4 class="mb-2 mt-1 text-center" id="countpd">100</h4>
+                  <h4 class="mb-2 mt-1 text-center" id="countpd">
+                  <?php $plansql4 = "SELECT * from deposits where approve = 0";
+                                    $planresult4 = mysqli_query($link,$plansql4);
+                                    $countplan4 = mysqli_num_rows($planresult4);
+ echo $countplan4 ?>
+   
+ </h4>
                 </div>
               </div>
             </div>
@@ -82,7 +100,13 @@
                     <i class="fas fa-circle text-danger mr-2 fa-sm"></i>
                     <p class="card-title mb-1 ">Total Coins</p>
                   </div>
-                  <h4 class="mb-2 mt-1 text-center" id="counttc">100</h4>
+                  <h4 class="mb-2 mt-1 text-center" id="counttc">
+                    <?php $plansql5 = "SELECT * from coins";
+                                    $planresult5 = mysqli_query($link,$plansql5);
+                                    $countplan5 = mysqli_num_rows($planresult5);
+ echo $countplan5 ?>
+
+                  </h4>
                                   </div>
               </div>
             </div>
@@ -102,19 +126,106 @@
                           <th>User Name</th>
                           <th>Email Address</th>
                           <th>Phone Number</th>
-                          <th>Date Registered</th>
+                          <th>Last Active</th>
                           <th>Status</th>
+                          <th>Account Balance</th>
+                          <th>System Balance</th>
+                          <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                          
+                       <?php
+                                    $plansql = "SELECT * from users ORDER BY date_registered DESC LIMIT 10";
+                                    $planresult = mysqli_query($link,$plansql);
+                                    $countplan = mysqli_num_rows($planresult);
+
+                                        if($countplan != 0){
+                                          while($planrow = $planresult->fetch_assoc()) {
+                                     $acc_bal = 0;
+                                     $sys_bal = 0; 
+                                     $status2 = ' ';                                       
+                                            $fullname = $planrow["fullname"];
+                                            $userid = $planrow["user_id"];
+                                            $email = $planrow["email_address"];
+                                            $uname = $planrow["username"];
+                                        $phone = $planrow["phone_number"];
+                                            $access = $planrow["last_access"];
+                                            $datereg = $planrow["date_registered"];
+
+                                       $status=' ';
+
+                        $plansql2 = "SELECT * from accounts where user_id='$userid'";
+                          $planresult2 = mysqli_query($link,$plansql2);
+                             $countplan2 = mysqli_num_rows($planresult2);
+                  if($countplan2 != 0){
+                      $rowplan = mysqli_fetch_array($planresult2, MYSQLI_ASSOC);
+                      $status2 = $rowplan["status"];
+                       $acc_bal = round($rowplan["account_balance"],2);
+                        $sys_bal = round($rowplan["system_balance"],2);
+                      if($status2 == 1){
+                        $status = "<i class='fa fa-circle text-success'></i>"."Active";
+
+
+                      }
+                      else{
+                        $status = "<i class='fa fa-circle text-danger'></i>"."Blocked";
+                      }
+                                    }
+
+
+
+                                     ?>
+                                        <tr>
+                      
+          <td><?php echo $fullname; ?></td>
+          <td><?php echo $uname; ?></td>
+             <td><?php echo $email; ?></td>
+
+             <td><?php echo $phone; ?></td>
+
+            <td><?php echo $access; ?></td>
+            <td><?php echo $status; ?></td>
+            <td><?php echo $acc_bal; ?></td>
+            <td><?php echo $sys_bal; ?></td>
+                   
+
+              <td>
+               <form method="POST" action="edit.php">
+                  <input type="hidden" hidden name="uid" value="<?php echo $userid; ?>">
+                      <input type="hidden" hidden name="uv" value="admin">
+                      <input type="hidden" hidden name="fullname" value="<?php echo $fullname; ?>">
+                      <input type="hidden" hidden name="username" value="<?php echo $uname; ?>">
+                      <input type="hidden" hidden name="email" value="<?php echo $email; ?>">
+                      <input type="hidden" hidden name="phone" value="<?php echo $phone; ?>">
+                      <input type="hidden" hidden name="acc" value="<?php echo $acc_bal; ?>">
+      <button class="btn btn-success" type="submit" name="edituser"><i class="fa fa-edit"></i></button>
+
+                <?php 
+                if($status2 == 1){
+                  ?>
+               <button class="btn btn-warning text-light" type="submit" name="blockuser"><i class="fa fa-ban"></i></button>
+<?php }
+else{
+  ?>
+               <button class="btn btn-warning text-light" type="submit" name="unblockuser"><i class="fa fa-unlock"></i></button>
+<?php } ?>
+               <button class="btn btn-danger" type="submit" name="deleteuser"><i class="fa fa-trash"></i></button>
+                  </form>                        
+                   </td>                       
+                                        </tr>
+                                        
+                                     
+                                     <?php
+                                     } 
+                                   }
+                                   ?>    
                                                   
                       </tbody>
                     </table>
                       
                   </div>
                   <br>
-                  <a href="ref" class="btn btn-outline-primary btn-fw btn-sm">View All Users</a>
+                  <a href="view?users" class="btn btn-outline-primary btn-fw btn-sm">View All Users</a>
                 </div>
               </div>
             </div>
@@ -273,6 +384,7 @@ else if(isset($_GET["c"])){
     
     
         </div>
+      <?php } ?>
         
 
       </div>

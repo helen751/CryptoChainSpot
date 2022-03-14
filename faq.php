@@ -95,7 +95,7 @@
                         </div>
                         <div class="collapse " id="collapse5" aria-labelledby="heading5" data-parent="#accordion">
                            <div class="card-body">
-                              <p>To make a withdrawal request click the WITHDRAW button at the top center of your zenith trade account dashboard and input the required details to withdraw</p>
+                              <p>To make a withdrawal request click the WITHDRAW button at the top center of your CryptochainSpot dashboard and input the required details to withdraw</p>
                            </div>
                         </div>
                      </div>

@@ -1,19 +1,130 @@
 <?php
 require_once("config.php");
 session_start();
-
 if(empty(isset($_SESSION['log']))){
   echo ("<script LANGUAGE='JavaScript'>
     window.location.href='logout';
     </script>");
 }
 else if(!empty(isset($_SESSION['login']))){
-if ($_SESSION['login'] != "admin") {
+if ($_SESSION['login'] != "user") {
  echo ("<script LANGUAGE='JavaScript'>
     window.location.href='logout';
     </script>");
 }
 }
+$id=$_SESSION['user'];
+$dd = date('Y-m-d');
+$sqlex = "SELECT * FROM deposits WHERE user_id = '$id'";
+$resultex = mysqli_query($link,$sqlex);
+$countex = mysqli_num_rows($resultex);
+if($countex > 0){
+while($rowex = $resultex->fetch_assoc()) {
+  $e_date = $rowex['expiry_date'];
+$dep_s = $rowex['status'];
+$trans_id = $rowex['transaction_id'];
+$d_amt = $rowex['deposit_amount'];
+$d_id = $rowex['deposit_id'];
+$pl_id = $rowex['plan_id'];
+$income = 0;
+
+$e_date = strtotime($e_date);
+$d_date = strtotime($dd);
+
+if($dep_s == 1){
+
+if($d_date >= $e_date){
+   echo "<script> alert('hi'); </script>";
+
+   $coinsql5555 = "SELECT * from plans where plan_id ='$pl_id'";
+                                    $coinresult5555 = mysqli_query($link,$coinsql5555);
+                                    $countcoin5555 = mysqli_num_rows($coinresult5555);
+                                     $row2 = mysqli_fetch_array($coinresult5555, MYSQLI_ASSOC);
+        $prof = $row2['percentage_profit'];
+        $per = $row2['period'];
+        $totadd = $prof * $per;
+        $bon = ($totadd/100) * $d_amt; 
+
+        $sql = "INSERT INTO bonus(user_id,bonus_type,bonus_amount) values('$id','Plan Bonus','$bon')";
+
+    if(mysqli_query($link,$sql)){
+      $refacc = "UPDATE accounts SET account_balance = account_balance+$bon, system_balance = system_balance-$d_amt WHERE user_id='$id'";
+    if(mysqli_query($link,$refacc)){
+echo "<script> alert('account $id'); </script>";
+       $sql4 = "UPDATE transactions SET transaction_status = 2 WHERE transaction_id = '$trans_id'";
+if(mysqli_query($link,$sql4)){ 
+echo "<script> alert('trans $trans_id'); </script>";
+   $sql5 = "UPDATE deposits SET status = 2 WHERE deposit_id = '$d_id'";
+
+if(mysqli_query($link,$sql5)){ 
+  echo "<script> alert('deposit $d_id'); </script>";
+    }
+
+    }
+
+    }
+  }
+
+}
+}
+else if ($dep_s == 0) {
+  $sql3 = "DELETE FROM deposits WHERE deposit_id = '$d_id'";
+
+    if(mysqli_query($link,$sql3)){
+     $sql4 = "UPDATE transactions set transaction_status=3 WHERE transaction_id = '$trans_id'";
+if(mysqli_query($link,$sql4)){ 
+
+    }
+}
+}
+}
+}
+
+
+$details = "SELECT * FROM users where user_id = $id";
+      $detailsresult = mysqli_query($link, $details);
+      $countdetails = mysqli_num_rows($detailsresult);
+$username = ' ';
+$name = ' ';
+$email = ' ';
+$rank = ' ';
+$ref = ' ';
+$last = ' ';
+$phone = ' ';
+$accbal = 0;
+$sysbal = 0;
+$status = '';
+      if($countdetails > 0){
+         
+        $row = mysqli_fetch_array($detailsresult, MYSQLI_ASSOC);
+        $username = $row['username'];
+        $email = $row['email_address'];
+        $rank = $row["rank"];
+        $name = $row['fullname'];
+        $phone = $row["phone_number"];
+        $ref = $row['referal_link'];
+        $last = $row["last_access"];
+      }
+
+      $account = "SELECT * FROM accounts where user_id = $id";
+      $accountresult = mysqli_query($link, $account);
+      $accountdetails = mysqli_num_rows($accountresult);
+
+      if($accountdetails > 0){
+$row = mysqli_fetch_array($accountresult, MYSQLI_ASSOC);
+        $sysbal = $row['system_balance'];
+        $accbal = $row['account_balance'];
+        $status = $row['status'];
+
+        if($status == 0){
+ echo ("<script LANGUAGE='JavaScript'>
+    window.alert('Sorry this account is disabled contact the support center!');
+    window.location.href='logout';
+    </script>");
+        }
+      }
+      
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +132,7 @@ if ($_SESSION['login'] != "admin") {
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
-  <title>Dashboard | ADMIN </title>
+  <title>Dashboard | <?php echo $_SESSION['name'] ?></title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
@@ -178,7 +289,6 @@ body {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
 </style>
 <script type="text/javascript">
         function hide_loader() {
@@ -197,11 +307,11 @@ body {
         </div>
 
 <div class="horizontal-menu">
-      <nav class="navbar top-navbar col-lg-12 col-12 p-0"  style="background-color: goldenrod;">
+      <nav class="navbar top-navbar col-lg-12 col-12 p-0">
         <div class="container">
           <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-              <a class="navbar-brand brand-logo" href="../index"><img src="../img/logo.png" alt="logo"/></a>
-              <a class="navbar-brand brand-logo-mini" href="../index"><img style="width: 30px; height: auto;" src="../img/logo-icon.png" alt="logo"/></a>
+              <a class="navbar-brand brand-logo" href="index.php"><img src="../img/logo.png" alt="logo"/></a>
+              <a class="navbar-brand brand-logo-mini" href="index.php"><img style="width: 30px; height: auto;" src="../img/logo-icon.png" alt="logo"/></a>
           </div>
           <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
             
@@ -244,7 +354,7 @@ body {
                     <i class="fa fa-cog text-primary"></i>
                     Settings
                   </a>
-                  <a href="?logout=1" class="dropdown-item">
+                  <a href="logout" class="dropdown-item">
                     <i class="fas fa-sign-out-alt text-primary"></i>
                     Logout
                   </a>
@@ -272,41 +382,41 @@ body {
         <div class="container">
           <ul class="nav page-navigation">
             <li class="nav-item">
-              <a class="nav-link" href="admin?u">
+              <a class="nav-link" href="dashboard">
                 <i class="fas fa-home menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="view?wallet">
+              <a class="nav-link" href="deposit">
                 <i class="fas fa-upload  menu-icon"></i>
-                <span class="menu-title">Wallets</span>
+                <span class="menu-title">Deposit</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="admin?c">
+              <a class="nav-link" href="withdraw">
                 <i class="fas fa-download  menu-icon"></i>
-                <span class="menu-title">Add Coin</span>
+                <span class="menu-title">Withdraw</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="admin?p">
-                <i class="fa fa-download  menu-icon"></i>
-                <span class="menu-title">Add Plan</span>
+              <a class="nav-link" href="transfer">
+                <i class="fa fa-exchange  menu-icon"></i>
+                <span class="menu-title">Transfer</span>
               </a>
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="fa fa-file-alt menu-icon"></i>
-                <span class="menu-title">View All</span>
+                <span class="menu-title">Transactions</span>
                 <i class="menu-arrow"></i></a>
               <div class="submenu">
                 <ul class="submenu-item">
-                  <li class="nav-item"><a class="nav-link" href="view?users">All Users</a></li>
-                <li class="nav-item"><a class="nav-link" href="view?coins">All Coins</a></li>
-                <li class="nav-item"><a class="nav-link" href="view?plans">All Plans</a></li>
-                <li class="nav-item"><a class="nav-link" href="view?ad">All Deposits</a></li>
-                <li class="nav-item"><a class="nav-link" href="view?pd">Pending Deposits</a></li>
+                <li class="nav-item"><a class="nav-link" href="transactions">All Transaction</a></li>
+                <li class="nav-item"><a class="nav-link" href="transactions?d">Deposits</a></li>
+                <li class="nav-item"><a class="nav-link" href="transactions?w">Withdrawals</a></li>
+                <li class="nav-item"><a class="nav-link" href="transactions?t">Transfer</a></li>
+                <li class="nav-item"><a class="nav-link" href="transactions?b">Bonuses</a></li>
                 </ul>
               </div>
             </li>
@@ -314,13 +424,14 @@ body {
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="fa fa-user menu-icon"></i>
-                <span class="menu-title">Withdrawals</span>
+                <span class="menu-title">Account</span>
                 <i class="menu-arrow"></i></a>
               <div class="submenu">
                 <ul class="submenu-item">
-                <li class="nav-item"><a class="nav-link" href="view?aw">All Withdrawals</a></li>
-                <li class="nav-item"><a class="nav-link" href="view?pw">Pending Withdrawals</a></li>
-                               <li class="nav-item"><a class="nav-link" href="logout">Sign Out</a></li>
+                <li class="nav-item"><a class="nav-link" href="profile">My Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="wallet">My Wallet</a></li>
+                <li class="nav-item"><a class="nav-link" href="referals">My Referral</a></li>
+                <li class="nav-item"><a class="nav-link" href="logout">Sign Out</a></li>
                 </ul>
               </div>
             </li>

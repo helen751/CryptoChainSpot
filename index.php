@@ -11,7 +11,7 @@
                     
                      </p>
                      <p>
-                         <a href="user/signup" class="slider btn btn-success">Get Started</a>
+                         <a href="user/signup" class="slider btn btn-warning">Get Started</a>
                          <a href="about" class="slider btn btn-border">Know More</a>
                      </p>
                   </div>
@@ -90,11 +90,11 @@
                      With the industry’s longest track record, Cryptochainspot is the trusted partner for institutional and individual investors interested in digital currencies and the growing digital economy.
                      This platform has taken many to a higher finance level and so much more secured.
                   </p>
-                  <a href="about" class="btn btn-primary">Read More</a>
+                  <a href="about" class="btn btn-warning">Read More</a>
                </div>
                <!-- Col end-->
                <div class="col-lg-4">
-                  <div class="ts-feature text-center box-primary">
+                  <div style="background-color: goldenrod;" class="ts-feature text-center">
                      <div class="ts-feature-info"><i class="icon icon-chart2"></i>
                         <h3 class="ts-feature-title">Trading Made Easy</h3>
                         <p>Investors can seamlessly purchase Cryptochainspot products in their IRA or other investment accounts directly via brokerage platforms.</p>
@@ -104,7 +104,7 @@
                </div>
                <!-- Col end-->
                <div class="col-lg-4">
-                  <div class="ts-feature text-center box-secondary">
+                  <div style="background-color: goldenrod;" class="ts-feature text-center">
                      <div class="ts-feature-info"><i class="icon icon-layers"></i>
                         <h3 class="ts-feature-title">Investment Experts</h3>
                         <p>Cryptochainspot is a digitally-native company, and has unique, early insight into innovations with growth potential in the digital economy.</p>
@@ -182,7 +182,7 @@
                </div>
                
                <div class="col-md-12 align-self-center">
-                   <a class="btn btn-primary" href="about"> Read More</a>
+                   <a class="btn btn-warning" href="about"> Read More</a>
                </div>
                <!-- Col end-->
             </div>
@@ -676,7 +676,7 @@ As a global investment manager and fiduciary to our clients, our purpose at Cryp
                         </div>
                         <div class="collapse " id="collapse5" aria-labelledby="heading5" data-parent="#accordion">
                            <div class="card-body">
-                              <p>To make a withdrawal request click the WITHDRAW button at the top center of your zenith trade account dashboard and input the required details to withdraw</p>
+                              <p>To make a withdrawal request click the WITHDRAW button at the top center of your CryptochainSpot dashboard and input the required details to withdraw</p>
                            </div>
                         </div>
                      </div>
@@ -748,8 +748,8 @@ As a global investment manager and fiduciary to our clients, our purpose at Cryp
                </div>
                <!-- col end-->
                <div class="col-lg-4">
-                  <div class="help-box">
-                     <div class="help mrb-40">
+                  <div class="help-box"  style="background-color: goldenrod;">
+                     <div class="help mrb-40"  style="background-color: goldenrod;">
                         <h2>Need any help!</h2>
                         <p>
                            Find answers to frequently asked questions about CryptochainSpot                       </p><a class="btn btn-primary" href="contact">Contact us</a>

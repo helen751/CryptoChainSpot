@@ -71,21 +71,20 @@ echo $countcoin;  ?></b><br>
           <td><?php echo $abbrev; ?></td>
              <td><img src="../uploads/<?php echo $image; ?>" width="25" height="20"></td>
 
-             <td><?php echo date('Y:m:d', strtotime($coindate)); ?></td>
+             <td><?php echo date('Y-m-d', strtotime($coindate)); ?></td>
              <td><?php echo $countcoin2; ?></td>
 
             <td><?php echo $wallet; ?></td>
               <td>
-                <form name="form" method="POST" id="coinform">
+                <form name="form" method="POST" action="edit.php">
            <input type="hidden" hidden name="coinid" value="<?php echo $coinid; ?>">
            <input type="hidden" hidden name="coinimg" value="<?php echo $image; ?>">
            <input type="hidden" hidden name="coinname" value="<?php echo $coinname; ?>">
            <input type="hidden" hidden name="abbrev" value="<?php echo $abbrev; ?>">
-           <input type="hidden" hidden name="coindate" value="<?php echo $coindate; ?>">
            <input type="hidden" hidden name="wallet" value="<?php echo $wallet; ?>">
 
-                <button class="btn btn-primary" type="submit" name="edit"><i class="fa fa-edit"></i></button>
-               <button class="btn btn-primary" type="submit" name="delete"><i class="fa fa-trash"></i></button>
+                <button class="btn btn-success" type="submit" name="editcoin"><i class="fa fa-edit"></i></button>
+               <button class="btn btn-danger" type="submit" name="deletecoin"><i class="fa fa-trash"></i></button>
                                           </form>
                    </td>                       
                                         </tr>
@@ -208,8 +207,8 @@ echo $countcoin2;
            <input type="hidden" hidden name="profit" value="<?php echo $profit; ?>">
             <input type="hidden" hidden name="ref" value="<?php echo $ref; ?>">
 
-                <button class="btn btn-primary" type="submit" name="editplan"><i class="fa fa-edit"></i></button>
-               <button class="btn btn-primary" type="submit" name="deleteplan"><i class="fa fa-trash"></i></button>
+                <button class="btn btn-success" type="submit" name="editplan"><i class="fa fa-edit"></i></button>
+               <button class="btn btn-danger" type="submit" name="deleteplan"><i class="fa fa-trash"></i></button>
                                           </form>
                    </td>                       
                                         </tr>
@@ -270,27 +269,31 @@ echo $countcoin2;
                   <h4 class="card-title">Registered Users</h4>
                   <p class=" text-info">All Users</p>
                   <div class="table-responsive">
-                    <table id="order-listing3" class="table table-hover table-striped">
+                    <table id="order-listing6" class="table table-hover table-striped">
                       <thead>
                         <tr>
                           <th>Full Name</th>
                           <th>User Name</th>
                           <th>Email Address</th>
                           <th>Phone Number</th>
-                          <th>Date Registered</th>
                           <th>Last Active</th>
                           <th>Status</th>
+                          <th>Account Balance</th>
+                          <th>System Balance</th>
                           <th>Action</th>
                         </tr>
                       </thead>
-                      <tbody>
+                                <tbody>
                        <?php
-                                    $plansql = "SELECT * from users";
+                                    $plansql = "SELECT * from users ORDER BY date_registered DESC LIMIT 10";
                                     $planresult = mysqli_query($link,$plansql);
                                     $countplan = mysqli_num_rows($planresult);
 
                                         if($countplan != 0){
-                                          while($planrow = $planresult->fetch_assoc()) {                                         
+                                          while($planrow = $planresult->fetch_assoc()) {
+                                           $acc_bal = 0;
+                                     $sys_bal = 0;
+                                      $status2 = ' ';                                         
                                             $fullname = $planrow["fullname"];
                                             $userid = $planrow["user_id"];
                                             $email = $planrow["email_address"];
@@ -307,13 +310,15 @@ echo $countcoin2;
                   if($countplan2 != 0){
                       $rowplan = mysqli_fetch_array($planresult2, MYSQLI_ASSOC);
                       $status2 = $rowplan["status"];
+                       $acc_bal = $rowplan["account_balance"];
+                        $sys_bal = $rowplan["system_balance"];
                       if($status2 == 1){
                         $status = "<i class='fa fa-circle text-success'></i>"."Active";
 
 
                       }
                       else{
-                        $status = "<i class='fa fa-circle text-danger'></i>"."Inactive";
+                        $status = "<i class='fa fa-circle text-danger'></i>"."Blocked";
                       }
                                     }
 
@@ -327,22 +332,32 @@ echo $countcoin2;
              <td><?php echo $email; ?></td>
 
              <td><?php echo $phone; ?></td>
-             <td><?php echo $datereg; ?></td>
 
             <td><?php echo $access; ?></td>
             <td><?php echo $status; ?></td>
+            <td><?php echo $acc_bal; ?></td>
+            <td><?php echo $sys_bal; ?></td>
               <td>
-                <form name="form2" method="POST" id="coinform2">
-           <input type="hidden" hidden name="fullname" value="<?php echo $fullname; ?>">
-           <input type="hidden" hidden name="access" value="<?php echo $access; ?>">
-           <input type="hidden" hidden name="userid" value="<?php echo $userid; ?>">
-           <input type="hidden" hidden name="phone" value="<?php echo $phone; ?>">
-           <input type="hidden" hidden name="email" value="<?php echo $email; ?>">
-            <input type="hidden" hidden name="uname" value="<?php echo $uname; ?>">
-
-                <button class="btn btn-primary" type="submit" name="edituser"><i class="fa fa-check-circle"></i></button>
-               <button class="btn btn-primary" type="submit" name="deleteuser"><i class="fa fa-ban"></i></button>
-                                          </form>
+            <form method="POST" action="edit.php">
+                  <input type="hidden" hidden name="uid" value="<?php echo $userid; ?>">
+                      <input type="hidden" hidden name="uv" value="v">
+                      <input type="hidden" hidden name="fullname" value="<?php echo $fullname; ?>">
+                      <input type="hidden" hidden name="username" value="<?php echo $uname; ?>">
+                      <input type="hidden" hidden name="email" value="<?php echo $email; ?>">
+                      <input type="hidden" hidden name="phone" value="<?php echo $phone; ?>">
+                      <input type="hidden" hidden name="acc" value="<?php echo $acc_bal; ?>">
+      <button class="btn btn-success" type="submit" name="edituser"><i class="fa fa-edit"></i></button>
+                <?php 
+                if($status2 == 1){
+                  ?>
+               <button class="btn btn-warning text-light" type="submit" name="blockuser"><i class="fa fa-ban"></i></button>
+<?php }
+else{
+  ?>
+               <button class="btn btn-warning text-light" type="submit" name="unblockuser"><i class="fa fa-unlock"></i></button>
+<?php } ?>
+               <button class="btn btn-danger" type="submit" name="deleteuser"><i class="fa fa-trash"></i></button>
+                  </form>      
                    </td>                       
                                         </tr>
                                         
@@ -386,7 +401,7 @@ echo $countcoin2;
     <div class="col-sm-6 " style="width: 50%; padding-top: 0px; margin-top: -5px;">
                 <div style="float: right;">
                 <small class="text-muted text-capitalize">Total Pending Deposits</small><br>
-                <b><?php $coinsql2 = "SELECT * from transactions where transaction_type='deposit' and transaction_status=0";
+                <b><?php $coinsql2 = "SELECT * from deposits where status = 0";
                                     $coinresult2 = mysqli_query($link,$coinsql2);
                                     $countcoin2 = mysqli_num_rows($coinresult2);
 echo $countcoin2; 
@@ -418,23 +433,22 @@ echo $countcoin2;
                       </thead>
                       <tbody>
                        <?php
-                                    $plansql = "SELECT * from transactions where transaction_type='deposit' and transaction_status=0";
+                                    $plansql = "SELECT * from deposits where status=0";
                                     $planresult = mysqli_query($link,$plansql);
                                     $countplan = mysqli_num_rows($planresult);
 
                                         if($countplan != 0){
                                           while($planrow = $planresult->fetch_assoc()) {                                         
-                                            $tid = $planrow["transaction_id"];
-                                            $pid = $planrow["plan"];
+                                            $tid = $planrow["deposit_id"];
+                                            $pid = $planrow["plan_id"];
                                             $userid = $planrow["user_id"];
-                                        $ttype = $planrow["transaction_type"];
-                                        $amt = $planrow["transaction_amount"];
+                                        $amt = $planrow["deposit_amount"];
                                         $date = $planrow["date"];
-                                      $status = $planrow["transaction_status"];
+                                       
                                       $uname=' ';
                                       $coin = '';
                                             
-                                       $status="<i class='fa fa-circle text-success'></i>"."Active";
+                                       $status="<i class='fa fa-circle text-danger'></i>"."pending";
 
                         $plansql2 = "SELECT * from users where user_id='$userid'";
                           $planresult2 = mysqli_query($link,$plansql2);
@@ -449,14 +463,15 @@ echo $countcoin2;
                           $planresult3 = mysqli_query($link,$plansql3);
                              $countplan3 = mysqli_num_rows($planresult3);
                   if($countplan3 != 0){
-                      $rowplan = mysqli_fetch_array($planresult2, MYSQLI_ASSOC);
+                      $rowplan = mysqli_fetch_array($planresult3, MYSQLI_ASSOC);
                       $coinid = $rowplan["coin_id"];
+                       $plan = $rowplan["plan_name"];
 
                       $plansql4 = "SELECT * from coins where coin_id='$coinid'";
                           $planresult4 = mysqli_query($link,$plansql4);
                              $countplan4 = mysqli_num_rows($planresult4);
                   if($countplan4 != 0){
-                      $rowplan = mysqli_fetch_array($planresult2, MYSQLI_ASSOC);
+                      $rowplan = mysqli_fetch_array($planresult4, MYSQLI_ASSOC);
                       $coin = $rowplan["coin_name"];
                      
                                     }
@@ -471,7 +486,7 @@ echo $countcoin2;
           <td><?php echo $uname; ?></td>
           <td><?php echo $coin; ?></td>
              <td><?php echo $plan; ?></td>
-
+<td><?php echo $amt; ?></td>
              <td><?php echo $date; ?></td>
              <td><?php echo $status; ?></td>
               <td>
@@ -479,8 +494,8 @@ echo $countcoin2;
            <input type="hidden" hidden name="tid" value="<?php echo $tid; ?>">
            
 
-                <button class="btn btn-primary" type="submit" name="editpd"><i class="fa fa-check-circle"></i></button>
-               <button class="btn btn-primary" type="submit" name="deletepd"><i class="fa fa-trash"></i></button>
+                <button class="btn btn-success" type="submit" name="editpd"><i class="fa fa-check-circle"></i></button>
+               <button class="btn btn-danger" type="submit" name="deletepd"><i class="fa fa-trash"></i></button>
                                           </form>
                    </td>                       
                                         </tr>
@@ -510,7 +525,564 @@ echo $countcoin2;
 
  <?php 
  }
-?>
+if(isset($_GET["pw"])){
+ ?>
+
+<div class="content-wrapper" style="padding-top: 0;">
+
+    <div class="row py-3">
+            <div class="col-sm-6" style="width: 50%;">
+              <div class="">
+                  <div class="badge badge-primary"><i class="fa fa-file-alt menu-icon"></i> All Pending Withdrawals</div>
+              </div>
+            </div>
+    <div class="col-sm-6 " style="width: 50%; padding-top: 0px; margin-top: -5px;">
+                <div style="float: right;">
+                <small class="text-muted text-capitalize">Total Pending Withdrawals</small><br>
+                <b><?php $coinsql2 = "SELECT * from withdrawals where transaction_status = 0";
+                                    $coinresult2 = mysqli_query($link,$coinsql2);
+                                    $countcoin2 = mysqli_num_rows($coinresult2);
+echo $countcoin2; 
+?></b><br>
+        </div>
+            </div>
+          </div>
+            
+            <div class="row">
+                <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Pending Withdrawals</h4>
+                  <p class=" text-info">Withdrawals</p>
+                  <div class="table-responsive">
+                    <table id="order-listing5" class="table table-hover table-striped">
+                      <thead>
+                        <tr>
+                          <th>User Name</th>
+
+                          
+                          <th>Wallet</th>
+                          <th>Wallet Coin</th>
+                          <th>Amount</th>
+                          <th>Date</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                       <?php
+                                    $plansql = "SELECT * from withdrawals where transaction_status=0";
+                                    $planresult = mysqli_query($link,$plansql);
+                                    $countplan = mysqli_num_rows($planresult);
+
+                                        if($countplan != 0){
+                                          while($planrow = $planresult->fetch_assoc()) {                                         
+                                            $wtid = $planrow["withdrawal_id"];
+                                            $wid = $planrow["wallet_id"];
+                                            $userid = $planrow["user_id"];
+                                        $amt = $planrow["amount"];
+                                        $date = $planrow["date"];
+                                       
+                                      $wallet=' ';
+                                      $coin = ' ';
+                                      $uname = ' ';
+                                            
+                                       $status="<i class='fa fa-circle text-danger'></i>"."pending";
+
+                        $plansql2 = "SELECT * from wallets where wallet_id='$wid'";
+                          $planresult2 = mysqli_query($link,$plansql2);
+                             $countplan2 = mysqli_num_rows($planresult2);
+                  if($countplan2 != 0){
+                      $rowplan = mysqli_fetch_array($planresult2, MYSQLI_ASSOC);
+                      $wallet = $rowplan["wallet_address"];
+                      $cid = $rowplan["coin_id"];
+                     
+                                  
+                      $plansql4 = "SELECT * from coins where coin_id='$cid'";
+                          $planresult4 = mysqli_query($link,$plansql4);
+                             $countplan4 = mysqli_num_rows($planresult4);
+                  if($countplan4 != 0){
+                      $rowplan = mysqli_fetch_array($planresult4, MYSQLI_ASSOC);
+                      $coin = $rowplan["coin_name"];
+                     
+                                    }
+                                     $plansql22 = "SELECT * from users where user_id='$userid'";
+                          $planresult22 = mysqli_query($link,$plansql22);
+                             $countplan22 = mysqli_num_rows($planresult22);
+                  if($countplan22 != 0){
+                      $rowplan = mysqli_fetch_array($planresult22, MYSQLI_ASSOC);
+                      $uname = $rowplan["username"];
+                     
+                                    }
+                     
+                                    }
+
+
+
+                                     ?>
+                                        <tr>
+                      
+          <td><?php echo $uname; ?></td>
+          <td><?php echo $wallet; ?></td>
+             <td><?php echo $coin; ?></td>
+<td><?php echo $amt; ?></td>
+             <td><?php echo $date; ?></td>
+             <td><?php echo $status; ?></td>
+              <td>
+                <form name="form2" method="POST" id="coinform2">
+           <input type="hidden" hidden name="tid" value="<?php echo $tid; ?>">
+           
+
+                <button class="btn btn-success" type="submit" name="editpd"><i class="fa fa-check-circle"></i></button>
+               <button class="btn btn-danger" type="submit" name="deletepd"><i class="fa fa-trash"></i></button>
+                                          </form>
+                   </td>                       
+                                        </tr>
+                                        
+                                     
+                                     <?php
+                                     } 
+                                   }
+                                   ?>    
+                                                  
+                      </tbody>
+                    </table>
+                      
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+                
+            </div>
+            
+        
+
+        
+      </div><!-- container -->
+
+
+ <?php 
+ }
+if(isset($_GET["aw"])){
+ ?>
+
+<div class="content-wrapper" style="padding-top: 0;">
+
+    <div class="row py-3">
+            <div class="col-sm-6" style="width: 50%;">
+              <div class="">
+                  <div class="badge badge-primary"><i class="fa fa-file-alt menu-icon"></i> All Active Withdrawals</div>
+              </div>
+            </div>
+    <div class="col-sm-6 " style="width: 50%; padding-top: 0px; margin-top: -5px;">
+                <div style="float: right;">
+                <small class="text-muted text-capitalize">Total Active Withdrawals</small><br>
+                <b><?php $coinsql2 = "SELECT * from withdrawals";
+                                    $coinresult2 = mysqli_query($link,$coinsql2);
+                                    $countcoin2 = mysqli_num_rows($coinresult2);
+echo $countcoin2; 
+?></b><br>
+        </div>
+            </div>
+          </div>
+            
+            <div class="row">
+                <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Active Withdrawals</h4>
+                  <p class=" text-info">Withdrawals</p>
+                  <div class="table-responsive">
+                    <table id="order-listing4" class="table table-hover table-striped">
+                      <thead>
+                        <tr>
+                          <th>User Name</th>
+
+                          
+                          <th>Wallet</th>
+                          <th>Wallet Coin</th>
+                          <th>Amount</th>
+                          <th>Date</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                       <?php
+                                    $plansql = "SELECT * from withdrawals ORDER BY date desc";
+                                    $planresult = mysqli_query($link,$plansql);
+                                    $countplan = mysqli_num_rows($planresult);
+
+                                        if($countplan != 0){
+                                          while($planrow = $planresult->fetch_assoc()) {                                         
+                                            $wtid = $planrow["withdrawal_id"];
+                                            $wid = $planrow["wallet_id"];
+                                            $userid = $planrow["user_id"];
+                                            $st = $planrow["transaction_status"];
+                                        $amt = $planrow["amount"];
+                                        $date = $planrow["date"];
+                                       
+                                      $wallet=' ';
+                                      $coin = ' ';
+                                      $uname = ' ';
+                                            if($st == 0){
+                                       $status="<i class='fa fa-circle text-danger'></i>"."pending";
+                                     }
+                                     else if($st == 1){
+$status="<i class='fa fa-circle text-success'></i>"."Approved";
+                                     }
+
+                        $plansql2 = "SELECT * from wallets where wallet_id='$wid'";
+                          $planresult2 = mysqli_query($link,$plansql2);
+                             $countplan2 = mysqli_num_rows($planresult2);
+                  if($countplan2 != 0){
+                      $rowplan = mysqli_fetch_array($planresult2, MYSQLI_ASSOC);
+                      $wallet = $rowplan["wallet_address"];
+                      $cid = $rowplan["coin_id"];
+                     
+                                  
+                      $plansql4 = "SELECT * from coins where coin_id='$cid'";
+                          $planresult4 = mysqli_query($link,$plansql4);
+                             $countplan4 = mysqli_num_rows($planresult4);
+                  if($countplan4 != 0){
+                      $rowplan = mysqli_fetch_array($planresult4, MYSQLI_ASSOC);
+                      $coin = $rowplan["coin_name"];
+                     
+                                    }
+                                     $plansql22 = "SELECT * from users where user_id='$userid'";
+                          $planresult22 = mysqli_query($link,$plansql22);
+                             $countplan22 = mysqli_num_rows($planresult22);
+                  if($countplan22 != 0){
+                      $rowplan = mysqli_fetch_array($planresult22, MYSQLI_ASSOC);
+                      $uname = $rowplan["username"];
+                     
+                                    }
+                     
+                                    }
+
+
+
+                                     ?>
+                                        <tr>
+                      
+          <td><?php echo $uname; ?></td>
+          <td><?php echo $wallet; ?></td>
+             <td><?php echo $coin; ?></td>
+<td><?php echo $amt; ?></td>
+             <td><?php echo $date; ?></td>
+             <td><?php echo $status; ?></td>
+              <td>
+                <form name="form2" method="POST" id="coinform2">
+           <input type="hidden" hidden name="tid" value="<?php echo $tid; ?>">
+           
+
+                <button class="btn btn-success" type="submit" name="editpd"><i class="fa fa-check-circle"></i></button>
+               <button class="btn btn-danger" type="submit" name="deletepd"><i class="fa fa-trash"></i></button>
+                                          </form>
+                   </td>                       
+                                        </tr>
+                                        
+                                     
+                                     <?php
+                                     } 
+                                   }
+                                   ?>    
+                                                  
+                      </tbody>
+                    </table>
+                      
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+                
+            </div>
+            
+        
+
+        
+      </div><!-- container -->
+
+
+ <?php 
+ }
+
+ if(isset($_GET["ad"])){
+ ?>
+
+<div class="content-wrapper" style="padding-top: 0;">
+
+    <div class="row py-3">
+            <div class="col-sm-6" style="width: 50%;">
+              <div class="">
+                  <div class="badge badge-primary"><i class="fa fa-file-alt menu-icon"></i> All Active Deposits</div>
+              </div>
+            </div>
+    <div class="col-sm-6 " style="width: 50%; padding-top: 0px; margin-top: -5px;">
+                <div style="float: right;">
+                <small class="text-muted text-capitalize">Total Active Deposits</small><br>
+                <b><?php $coinsql2 = "SELECT * from deposits";
+                                    $coinresult2 = mysqli_query($link,$coinsql2);
+                                    $countcoin2 = mysqli_num_rows($coinresult2);
+echo $countcoin2; 
+?></b><br>
+        </div>
+            </div>
+          </div>
+            
+            <div class="row">
+                <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Active Deposits</h4>
+                  <p class=" text-info">Deposits</p>
+                  <div class="table-responsive">
+                    <table id="order-listing7" class="table table-hover table-striped">
+                      <thead>
+                        <tr>
+                          <th>User Name</th>
+
+                          <th>Coin</th>
+                          <th>Plan</th>
+                          <th>Amount</th>
+                          <th>Date</th>
+                          <th>Status</th>
+                          
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                       <?php
+                                    $plansql = "SELECT * from deposits order by date desc";
+                                    $planresult = mysqli_query($link,$plansql);
+                                    $countplan = mysqli_num_rows($planresult);
+
+                                        if($countplan != 0){
+                                          while($planrow = $planresult->fetch_assoc()) {                                         
+                                            $tid = $planrow["deposit_id"];
+                                            $pid = $planrow["plan_id"];
+                                            $userid = $planrow["user_id"];
+                                             $st = $planrow["status"];
+                                        $amt = $planrow["deposit_amount"];
+                                        $date = $planrow["date"];
+                                        $trid = $planrow["transaction_id"];
+                                       
+                                      $uname=' ';
+                                      $coin = '';
+                                            
+                                      if($st == 0){
+                                       $status="<i class='fa fa-circle text-warning'></i>"."pending";
+                                     }
+                                     else if($st == 1){
+$status="<i class='fa fa-circle text-success'></i>"."Active";
+                                     }
+                                     else if($st == 2){
+$status="<i class='fa fa-circle text-danger'></i>"."Expired";
+                                     }
+                        $plansql2 = "SELECT * from users where user_id='$userid'";
+                          $planresult2 = mysqli_query($link,$plansql2);
+                             $countplan2 = mysqli_num_rows($planresult2);
+                  if($countplan2 != 0){
+                      $rowplan = mysqli_fetch_array($planresult2, MYSQLI_ASSOC);
+                      $uname = $rowplan["username"];
+                     
+                                    }
+
+                                    $plansql3 = "SELECT * from plans where plan_id='$pid'";
+                          $planresult3 = mysqli_query($link,$plansql3);
+                             $countplan3 = mysqli_num_rows($planresult3);
+                  if($countplan3 != 0){
+                      $rowplan = mysqli_fetch_array($planresult3, MYSQLI_ASSOC);
+                      $coinid = $rowplan["coin_id"];
+                       $plan = $rowplan["plan_name"];
+
+                      $plansql4 = "SELECT * from coins where coin_id='$coinid'";
+                          $planresult4 = mysqli_query($link,$plansql4);
+                             $countplan4 = mysqli_num_rows($planresult4);
+                  if($countplan4 != 0){
+                      $rowplan = mysqli_fetch_array($planresult4, MYSQLI_ASSOC);
+                      $coin = $rowplan["coin_name"];
+                     
+                                    }
+                     
+                                    }
+
+
+
+                                     ?>
+                                        <tr>
+                      
+          <td><?php echo $uname; ?></td>
+          <td><?php echo $coin; ?></td>
+             <td><?php echo $plan; ?></td>
+<td><?php echo $amt; ?></td>
+             <td><?php echo $date; ?></td>
+             <td><?php echo $status; ?></td>
+              <td>
+                <form name="form2" method="POST" action="functions.php">
+           <input type="hidden" hidden name="did" value="<?php echo $tid; ?>">
+            <input type="hidden" hidden name="tid" value="<?php echo $trid; ?>">
+           
+
+                <button class="btn btn-success" type="submit" name="apdep"><i class="fa fa-check-circle"></i></button>
+               <button class="btn btn-danger" type="submit" name="deldep"><i class="fa fa-trash"></i></button>
+                                          </form>
+                   </td>                       
+                                        </tr>
+                                        
+                                     
+                                     <?php
+                                     } 
+                                   }
+                                   ?>    
+                                                  
+                      </tbody>
+                    </table>
+                      
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+                
+            </div>
+            
+        
+
+        
+      </div><!-- container -->
+
+
+ <?php 
+ }
+if(isset($_GET["wallet"])){
+ ?>
+
+<div class="content-wrapper" style="padding-top: 0;">
+
+    <div class="row py-3">
+            <div class="col-sm-6" style="width: 50%;">
+              <div class="">
+                  <div class="badge badge-primary"><i class="fa fa-file-alt menu-icon"></i> All Wallets</div>
+              </div>
+            </div>
+    <div class="col-sm-6 " style="width: 50%; padding-top: 0px; margin-top: -5px;">
+                <div style="float: right;">
+                <small class="text-muted text-capitalize">Total Wallets</small><br>
+                <b><?php $coinsql2 = "SELECT * from wallets";
+                                    $coinresult2 = mysqli_query($link,$coinsql2);
+                                    $countcoin2 = mysqli_num_rows($coinresult2);
+echo $countcoin2; 
+?></b><br>
+        </div>
+            </div>
+          </div>
+            
+            <div class="row">
+                <div class="col-lg-12 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Added Wallets</h4>
+                  <p class=" text-info">Wallets</p>
+                  <div class="table-responsive">
+                    <table id="order-listing8" class="table table-hover table-striped">
+                      <thead>
+                        <tr>
+                          <th>S/N</th>
+                          <th>User Name</th>
+
+                          <th>Coin</th>
+                          <th>Wallet Address</th>
+                          <th>Date</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                       <?php
+                       $num = 1;
+                                    $plansql = "SELECT * from wallets order by date_added desc";
+                                    $planresult = mysqli_query($link,$plansql);
+                                    $countplan = mysqli_num_rows($planresult);
+
+                                        if($countplan != 0){
+                                          while($planrow = $planresult->fetch_assoc()) {                                         
+                                            $wid = $planrow["wallet_id"];
+                                            $cid = $planrow["coin_id"];
+                                            $userid = $planrow["user_id"];
+                                             $wad = $planrow["wallet_address"];
+                                        $date = $planrow["date_added"];
+                                       
+                                      $uname=' ';
+                                      $coin = '';
+                                            
+                                     
+                        $plansql2 = "SELECT * from users where user_id='$userid'";
+                          $planresult2 = mysqli_query($link,$plansql2);
+                             $countplan2 = mysqli_num_rows($planresult2);
+                  if($countplan2 != 0){
+                      $rowplan = mysqli_fetch_array($planresult2, MYSQLI_ASSOC);
+                      $uname = $rowplan["username"];
+                     
+                                    }
+
+                                    $plansql3 = "SELECT * from coins where coin_id='$cid'";
+                          $planresult3 = mysqli_query($link,$plansql3);
+                             $countplan3 = mysqli_num_rows($planresult3);
+                  if($countplan3 != 0){
+                      $rowplan = mysqli_fetch_array($planresult3, MYSQLI_ASSOC);
+                       $coin = $rowplan["coin_name"];
+                     
+                                    }
+
+
+
+                                     ?>
+                                        <tr>
+                      
+          
+          <td><?php echo $num; ?></td>
+          <td><?php echo $uname; ?></td>
+             <td><?php echo $coin; ?></td>
+<td><?php echo $wad; ?></td>
+             <td><?php echo date('Y:m:d', strtotime($date)); ?></td>
+                          <td>
+                <form name="form2" method="POST" id="coinform2">
+           <input type="hidden" hidden name="tid" value="<?php echo $tid; ?>">
+           
+
+  <button class="btn btn-success" type="submit" name="addw"><i class="fa fa-plus"></i></button>
+               <button class="btn btn-danger" type="submit" name="deletew"><i class="fa fa-trash"></i></button>
+                                          </form>
+                   </td>                       
+                                        </tr>
+                                        
+                                     
+                                     <?php
+                                     } 
+                                   }
+                                   ?>    
+                                                  
+                      </tbody>
+                    </table>
+                      
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+                
+            </div>
+            
+        
+
+        
+      </div><!-- container -->
+
+
+ <?php 
+ }
+
+ ?> 
     </div>
     </div>
       </div><!-- slim-mainpanel -->
@@ -564,13 +1136,35 @@ function googleTranslateElementInit() {
         <script src="lib/datatables/js/jquery.dataTables.js"></script>
     <script src="lib/datatables-responsive/js/dataTables.responsive.js"></script>
     <script type="text/javascript">
-      $(document).ready( function () {
+       $(document).ready( function () {
+    $('#order-listing3').DataTable();
+} );
+
+       $(document).ready( function () {
     $('#order-listing2').DataTable();
 } );
 
        $(document).ready( function () {
-    $('#order-listing3').DataTable();
+    $('#order-listing4').DataTable();
 } );
+
+       $(document).ready( function () {
+    $('#order-listing5').DataTable();
+} );
+
+       $(document).ready( function () {
+    $('#order-listing6').DataTable();
+} );
+
+       $(document).ready( function () {
+    $('#order-listing7').DataTable();
+} );
+
+        $(document).ready( function () {
+    $('#order-listing8').DataTable();
+} );
+
+      
     </script>
         <script>
       $(function(){

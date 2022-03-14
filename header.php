@@ -50,6 +50,7 @@ require_once("user/config.php");
     <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'><link rel="stylesheet" href="style.html">
         <style>
+
             .lead {
     font-size: 1rem;
     font-weight: 300;
@@ -387,13 +388,13 @@ body {
            
         </div>
 
-<div class="site-top">
-         <header class="header nav-down header-solid" id="header-2">
+<div class="site-top all">
+         <header  class="header nav-down header-solid" id="header-2">
             <div class="container">
                <div class="row">
                   <div class="logo-area clearfix logo-wrapper logo-absolute">
                       <div class="logo col-lg-3 col-md-12" style="text-align: left;">
-                         <a href="/index" style="z-index: 999999999;">
+                         <a href="index" style="z-index: 999999999;">
                             <img src="img/logo.png" alt="" style="width: auto; height: 45px; margin-top: -10px;">
                         </a>
                      </div>
@@ -412,7 +413,7 @@ body {
                                  <p class="info-subtitle">Send us mail</p>
                               </div>
                            </li>
-                           <li class="header-get-a-quote"><a class="btn btn-primary" href="user/login">Login</a></li>
+                           <li class="header-get-a-quote"><a class="btn btn-warning" href="user/login">Login</a></li>
                         </ul>
                      </div>
                      <!-- Col End-->
@@ -424,8 +425,8 @@ body {
             <div class="site-nav-inner site-navigation navdown nav-transparent">
                <div class="container">
                   <nav class="navbar navbar-expand-lg justify-content-end">
-                      <a class="btn btn-primary d-md-none" style='padding: 6px 10px; border-radius: 5px; margin-right: 3px;' href="user/login"><i class='fa fa-sign-in'></i> Login</a>
-                      <a class="btn btn-success d-md-none" style='padding: 6px 10px; border-radius: 5px;' href="user/signup"><i class='fa fa-user-plus'></i></a>
+                      <a class="btn btn-warning d-md-none" style='padding: 6px 10px; border-radius: 5px; margin-right: 3px;' href="user/login"><i class='fa fa-sign-in'></i> Login</a>
+                      <a class="btn btn-primary d-md-none" style='padding: 6px 10px; border-radius: 5px;' href="user/signup"><i class='fa fa-user-plus'></i></a>
                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                          <span class="navbar-toggler-icon"><i class="icon icon-menu"></i></span>
@@ -493,7 +494,7 @@ body {
                            </li>
                            
                            <li class="nav-item">
-                            <?php if ($_SESSION['login']=="logged") {
+                            <?php if ($_SESSION['login']=="user") {
                                 // code...
 
 

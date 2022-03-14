@@ -1,23 +1,11 @@
+
 <?php
-if(isset($_SESSION['login'])){
-  session_start();
-  $id = $_SESSION['user'];
-  $mes=' ';
-  if(isset($_GET["res"])){
-    $otp = rand(100000,999999);
-$sql = "UPDATE otp SET otp='$otp' where user_id='$id'";
-      
+ session_start();
+ require_once("config.php");
 
-    if(mysqli_query($link,$sql)){
-      $mes = "OTP Resent Successfully"
-
-    }
-
-    else{
-      $mes = "Failed to Resend OTP, please try again!";
-
-    }
-  }
+if(isset($_SESSION['login']) and empty(isset($_SESSION['log']))){
+ 
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -195,14 +183,13 @@ body {
       <div id="xxloader"  class="text-center xcon"  style="position: fixed; left: 0; right: 0; top: 0; bottom: 0; z-index: 9999; width: 100%; height: 100%; background-color: #fff; opacity: 1; overflow: hidden;">
             <div class="xloader"></div>
         </div>
-      <div class="alert  container alert-solid alert-success" role="alert" id="msg" style="display: none;">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-    <span id="inmsg"></span>        </div>
+      
       <div class="container-scroller">
+
     <div class="container-fluid page-body-wrapper full-page-wrapper">
-        <div class="main-panel" style="padding-top: 0px;">
+
+        <div class="main-panel pt-3" style="padding-top: 0px;">
+           
         <div class="content-wrapper d-flex align-items-center auth px-0">
           <div class="row w-100 mx-0">
             <div class="col-lg-4 mx-auto">
@@ -210,28 +197,28 @@ body {
                 <div class="brand-logo">
                     <a href="../index"><img src="../img/logo.png" alt="logo"></a>
                 </div>
+                 <div class="alert container alert-solid alert-success" role="alert" id="msg" style="display: none;">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+    <span id="inmsg"></span>        </div>
                 <h4>Confirm Login (Enter OTP)</h4>
-                <h6 class="font-weight-light">Your login password has been sent to <b><?php $_SESSION["email"]; ?></b>. Enter OTP to continue</h6>
+                <h6 class="font-weight-light">Your login password has been sent to <b><?php echo $_SESSION['email']; ?></b>. Enter OTP to continue</h6>
                                 <form class="pt-3" action='' method="post" id="paddForm">
                   <div class="form-group">
                     <input type="text" class="form-control" name='otp' placeholder="OTP(One Time Password)*" id="otp">
                   </div>
-                  <input type="number" name="id" id="id" value="<?php echo $id ?>">
+                  <input type="hidden" hidden name="id" id="id" value="<?php echo $id ?>">
                   <div class="mt-3">
-                    <button class="submitBtn2 btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit" name="confirm" id="otp">CONFIRM LOGIN</button>
+                    <button class="submitBtn2 btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit" name="confirm">CONFIRM LOGIN</button>
                   </div>
-                  <?php if(isset(res)){
-                    ?>
-                 
-                  <div class="mt-3 text-danger">
-                    <?php echo $mes; ?>
-                  </div>
-
-                <?php } ?>
+                  </form>
+                   <form method="post" id="addForm">
                   <div class="text-center mt-4 font-weight-light">
-                      Didn't get OTP? <a href="otp?res=1" class="text-primary">Resend</a>
+                      Didn't get OTP?<button type="submit" style="border: hidden; background-color:none;" id="bt" class="text-primary">Resend</button>
                   </div>
-                </form>
+                  </form>
+                
               </div>
             </div>
           </div>
@@ -274,6 +261,46 @@ body {
     <script type="text/javascript">
         $(document).ready(function(e){
     // Submit form data via Ajax
+    $("#addForm").on('submit', function(e){
+        e.preventDefault();
+        var msg = document.getElementById("msg");
+const formData = new FormData();
+    formData.append('send', '')
+
+    const options = {
+        method: "Post",
+        body: formData,
+    }
+$('#bt').attr("disabled","disabled");
+                $('#paddForm').css("opacity",".5");
+
+        fetch('./functions.php', options)
+            .then(data => data.json())
+            .then(res => {
+                if(res.status == 1){
+                    document.getElementById("msg").style.display="block";
+                    $('#inmsg').html(res.message);
+                     window.scrollTo(0,0);
+                   
+                }
+                else{
+                    document.getElementById("msg").style.display="block";
+                     $('#inmsg').html(res.message);
+                     window.scrollTo(0,0);
+                }
+                $('#paddForm').css("opacity","");
+                $("#bt").removeAttr("disabled");
+                
+            });
+    
+})
+
+});
+
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(e){
+    // Submit form data via Ajax
     $("#paddForm").on('submit', function(e){
         e.preventDefault();
     var otp = document.getElementById("otp").value;
@@ -307,7 +334,7 @@ $('.submitBtn2').attr("disabled","disabled");
                    
                 }
                 else if(res.status == 2){
-                    window.location.href="admin";
+                    window.location.href="admin?u";
                    
                 }
                 else{

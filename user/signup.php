@@ -3,6 +3,11 @@
 
 <?php session_start();
 require_once("config.php");
+if(isset($_SESSION['login'])){
+ echo ("<script LANGUAGE='JavaScript'>
+    window.location.href='logout';
+    </script>");
+}
  ?>
 
 <!DOCTYPE html>
@@ -185,11 +190,7 @@ body {
       <div class="container-scroller">
     <div class="container-fluid page-body-wrapper ">
         <div class="main-panel" style="padding-top: 20px;">
-            <div class="alert  container alert-solid alert-success" role="alert" id="msg" style="display: none;">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-    <span id="inmsg"></span>        </div>
+            
              
         <div class="content-wrapper d-flex align-items-center auth px-0">
             
@@ -201,6 +202,11 @@ body {
                 </div>
                 <h4>Get Started!</h4>
                 <h6 class="font-weight-light">It's free to signup and only takes a minute.</h6>
+                <div class="alert  container alert-solid alert-success" role="alert" id="msg" style="display: none;">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+    <span id="inmsg"></span>        </div>
                                 <form class="pt-3" action='' method="post" id="paddForm">
                                     <div class="form-group">
                     <input type="text" class="form-control" placeholder="Enter your FullName" name="fullname" value="" id="fullname" >

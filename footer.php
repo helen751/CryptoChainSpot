@@ -1,8 +1,8 @@
 
 <footer class="footer" id="footer">
          <div class="footer-top">
-            <div class="container">
-               <div class="footer-top-bg row">
+            <div class="container"  style="background-color: goldenrod;">
+               <div class="footer-top-bg row"  style="background-color: goldenrod;">
                   <div class="col-md-4 footer-box"><i class="icon icon-users"></i>
                      <div class="footer-box-content">
                         <h3>56,895</h3>
@@ -43,7 +43,7 @@
                         <ul>
                            <li><a href="https://t.me/MichealNorris"><i class="fa fa-telegram"></i></a></li>
                                  <li><a href="https://wa.me/17377583956"><i class="fa fa-whatsapp"></i></a></li>
-                                 <li><a href="mailto:support@digitalstakers.com"><i class="fa fa-envelope"></i></a></li>
+                                 <li><a href="mailto:support@cryptochainspot.com"><i class="fa fa-envelope"></i></a></li>
                         </ul>
                      </div>
                      <!-- Footer social end-->
@@ -100,7 +100,7 @@
             <div class="container">
                <div class="row">
                   <div class="col-lg-6 col-md-12">
-                     <div class="copyright-info"><span>Copyright © <?php date('Y'); ?> CryptochainSpot  All Rights Reserved.</span></div>
+                     <div class="copyright-info"><span>Copyright © <?php echo date('Y'); ?> CryptochainSpot  All Rights Reserved.</span></div>
                   </div>
                   <div class="col-lg-6 col-md-12">
                      <div class="footer-menu">

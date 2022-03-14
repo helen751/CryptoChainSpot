@@ -1,4 +1,11 @@
-
+<?php 
+session_start();
+if(isset($_SESSION['login'])){
+ echo ("<script LANGUAGE='JavaScript'>
+    window.location.href='logout';
+    </script>");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -175,15 +182,13 @@ body {
       <div id="xxloader"  class="text-center xcon"  style="position: fixed; left: 0; right: 0; top: 0; bottom: 0; z-index: 9999; width: 100%; height: 100%; background-color: #fff; opacity: 1; overflow: hidden;">
             <div class="xloader"></div>
         </div>
-        <div class="alert  container alert-solid alert-success" role="alert" id="msg" style="display: none;">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-    <span id="inmsg"></span>        </div>
+        
       
       <div class="container-scroller">
+
     <div class="container-fluid page-body-wrapper full-page-wrapper">
-        <div class="main-panel" style="padding-top: 0px;">
+        <div class="main-panel pt-3" style="padding-top: 0px;">
+            
         <div class="content-wrapper d-flex align-items-center auth px-0">
           <div class="row w-100 mx-0">
             <div class="col-lg-4 mx-auto">
@@ -194,7 +199,11 @@ body {
                 <h4>Hello!</h4>
                 <h6 class="font-weight-light">Sign in to continue.</h6>
 
-
+<div class="alert  container alert-solid alert-success" role="alert" id="msg" style="display: none;">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+    <span id="inmsg"></span>        </div>
                                 <form class="pt-3" action='' method="post" id="paddForm">
                   <div class="form-group">
                     <input type="text" class="form-control" id="username" name=username placeholder="Username or Email*" >
