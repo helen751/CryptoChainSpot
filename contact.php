@@ -26,39 +26,62 @@
          <!-- container end-->
          <div class="ts-form form-boxed" id="ts-form">
             <div class="container">
+               <div class="alert  alert-solid alert-success" id="msg" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button><span id="inmsg"> </span>       </div>
                <div class="row">
                   <div class="col-lg-12">
                      <div class="contact-wrapper">
                         <div class="contact-box form-box">
-                            <form class="contact-form" action="https://digitalstakers.com/contact.php" method="POST">
+                            <form class="contact-form" action="" method="post" id="cform">
+                              <?php 
+                              $name = '';
+                              $email = '';
+                              if(isset($_SESSION["login"])){
+                              $id=$_SESSION['user'];
+                              $details = "SELECT * FROM users where user_id = $id";
+      $detailsresult = mysqli_query($link, $details);
+      $countdetails = mysqli_num_rows($detailsresult);
+
+      if($countdetails > 0){
+         
+        $row = mysqli_fetch_array($detailsresult, MYSQLI_ASSOC);
+        $email = $row['email_address'];
+        $name = $row['fullname'];
+     }
+                           }
+
+
+                              ?>
                               <div class="error-container"></div>
                               <div class="row">
                                  <div class="col-lg-12">
                                     <div class="form-group">
-                                       <input class="form-control form-name" type="text" required="required" placeholder="Enter Name *" name="name">
+                                       <input class="form-control form-name" type="text" required="required" placeholder="Enter Full Name *" name="name" id="name" value="<?php echo $name; ?>">
                                     </div>
                                  </div>
                                  <!-- Col end-->
                                  <div class="col-lg-12">
                                     <div class="form-group">
-                                       <input class="form-control form-email" type="email" required="required" placeholder="Enter Email *" name="email">
+                                       <input class="form-control form-email" type="email" required="required" id="email" placeholder="Enter Email *" name="email" value="<?php echo $email; ?>">
                                     </div>
                                  </div>
                                  <div class="col-lg-12">
                                     <div class="form-group">
-                                       <input class="form-control form-name" type="text" required="required" placeholder="Enter Subject" name="subject">
+                                       <input class="form-control form-name" type="text" required="required" id="topic" placeholder="Enter Subject" name="subject">
                                     </div>
                                  </div>
                                  <div class="col-lg-12">
                                     <div class="form-group">
-                                       <textarea class="form-control form-message required-field" required="required" placeholder="Message *" name="msg" rows="8"></textarea>
+                                       <textarea class="form-control form-message required-field" id="message" required="required" placeholder="Message *" name="msg" rows="8"></textarea>
                                     </div>
                                  </div>
                                  <!-- Col 12 end-->
                               </div>
                               <!-- Form row end-->
                               <div class="text-right">
-                                 <button class="btn btn-primary tw-mt-30" name="send" type="submit">Contact US</button>
+                                 <button class="btn btn-primary tw-mt-30 csubmit" name="send" type="button" onclick="contact();">Contact US</button>
                               </div>
                            </form>
                            <!-- Form end-->
@@ -78,7 +101,7 @@ EC2N 2DL</p>
                               <div class="ts-contact-info"><span class="ts-contact-icon float-left"><i class="icon icon-phone3"></i></span>
                                  <div class="ts-contact-content">
                                     <h3 class="ts-contact-title">Call Us</h3>
-                                    <p>+14046981292</p>
+                                    <p>+16673549402</p>
                                  </div>
                                  <!-- Contact content end-->
                               </div>

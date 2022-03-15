@@ -829,7 +829,7 @@ EC2N 2DL</p>
                               <div class="ts-contact-info"><span class="ts-contact-icon float-left"><i class="icon icon-phone3"></i></span>
                                  <div class="ts-contact-content">
                                     <h3 class="ts-contact-title">Call Us</h3>
-                                    <p>+14046981292</p>
+                                    <p>+16673549402</p>
                                  </div>
                                  <!-- Contact content end-->
                               </div>

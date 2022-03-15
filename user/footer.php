@@ -387,13 +387,14 @@ $(document).ready(function(e){
     }
     
     else{
+        period2 = period*7;
 
     const formData = new FormData();
     formData.append('pname', pname)
     formData.append('pcoin', pcoin)
     formData.append('min', min)
     formData.append('max', max)
-    formData.append('period', period)
+    formData.append('period', period2)
     formData.append('refp', refp)
     formData.append('profit', profit)
     formData.append('addplan', '')

@@ -1101,17 +1101,16 @@ if (isset($_POST['contact'])) {
     'message' => 'Failed to Send Message, Please try again!' 
 );
 	session_start();
-	$email = $_SESSION['email'];
 	$from = $email; 
 $to = 'support@cryptochainspot.com'; 
 $fromName = $name; 
  
-$subject = "$topic"; 
+$subject = $topic; 
  
 $htmlContent = ' 
     <html> 
     <head> 
-        <title>Hello Suppory</title> 
+        <title>Hello Support</title> 
     </head> 
     <body> 
         
@@ -1802,7 +1801,7 @@ $response = array(
 
 				}
 				else{
-				$sql = "UPDATE coins SET coin_name = '$coinname', abbrev = '$abbrev', image= '$img', coin_wallet = '$wallet' where coin_id = '$coinid'";
+$sql = "UPDATE coins SET coin_name = '$coinname', abbrev = '$abbrev', coin_wallet = '$wallet' where coin_id = '$coinid'";
 
 		if(mysqli_query($link,$sql)){
 			

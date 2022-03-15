@@ -244,7 +244,7 @@ echo ("<script LANGUAGE='JavaScript'>
                   </div>
                    <div class="form-group">
                     <label class="form-control-label">Upload New Coin Image: <span class="tx-danger">*</span></label>
-                    <input type="text" id="aimg"> hidden value="<?php echo $coinimg; ?>" name="">
+                    <input type="text" id="aimg" hidden value="<?php echo $coinimg; ?>" name="">
                 <input type="file" name='file' id="img" class="form-control">
                 <p><strong>Note:</strong> Only .jpg, .jpeg, .gif, .png images allowed to a max size of 5 MB.</p>
                     </div>
@@ -328,7 +328,7 @@ function googleTranslateElementInit() {
     var coinname = document.getElementById("coinname").value;
     var coinid = document.getElementById("coinid").value;
     var msg = document.getElementById("msg");
-    var mainimg = ' ';
+    var mainimg = '';
     
     if (coinname.length==0) {
         alert("please enter the Coin name")
@@ -338,9 +338,6 @@ function googleTranslateElementInit() {
     }
     else if(abbrev.length==0){
         alert("please enter the Coin Name Abbreviation")
-    }
-    else if(image==""){
-       mainimg = document.getElementById("aimg")
     }
     
     else{
@@ -362,7 +359,8 @@ else{
     formData.append('abbrev', abbrev)
     formData.append('editcoin', ' ')
     if(image==""){
-      formData.append('img', mainimg)
+        mainimg = document.getElementById("aimg");
+      formData.append('img', mainimg);
 
     }
     else{
@@ -380,14 +378,16 @@ $('.submitBtnc').attr("disabled","disabled");
             .then(data => data.json())
             .then(res => {
                 if(res.status == 1){
-                   document.getElementById("msg").style.display="block";
-                    $('#inmsg').html(res.message);
-                    window.scrollTo(0,0);
+                    alert("good");
+                   // document.getElementById("msg").style.display="block";
+                   //  $('#inmsg').html(res.message);
+                   //  window.scrollTo(0,0);
                 }
                 else{
-                    document.getElementById("msg").style.display="block";
-                     $('#inmsg').html(res.message);
-                     window.scrollTo(0,0);
+                    alert("bad");
+                    // document.getElementById("msg").style.display="block";
+                    //  $('#inmsg').html(res.message);
+                    //  window.scrollTo(0,0);
                 }
                 $('#addForm').css("opacity","");
                 $(".submitBtnc").removeAttr("disabled");

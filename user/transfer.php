@@ -40,7 +40,7 @@
                   <input class="form-control" type="number" id='amount' name='amount' placeholder="0000.00" onkeyup="add();">
               </div>
                       
-                      <div class="modal fade" id="trns" tabindex="-1" role="dialog" aria-labelledby="trns" aria-hidden="true">
+                      <div id="mymodal" class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-labelledby="mymodal" aria-hidden="true">
                     <div class="modal-dialog modal-sm" role="document">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -71,7 +71,7 @@
                     </div>
                   </div>
                       <button id='send_m' type='submit' name='send_m' style="display: none;"></button>
-              <a href="#" class="btn btn-primary btn-block"  data-toggle="modal" data-target="#trns">Make Transfer</a>
+              <a href="#" class="btn btn-primary btn-block"  data-toggle="modal" data-target="#mymodal">Make Transfer</a>
               </form>
                 </div>
               </div>
@@ -212,7 +212,7 @@ var msg = document.getElementById("msg");
         body: formData,
     }
 $('.csubmit').attr("disabled","disabled");
-                $('#trns').css("opacity",".5");
+                $('#mymodal').css("opacity",".5");
 
         fetch('./functions.php', options)
             .then(data => data.json())
@@ -234,10 +234,9 @@ $('.csubmit').attr("disabled","disabled");
                      window.scrollTo(0,0);
                      
                 }
-                $('#trns').css("opacity","");
+                $('#mymodal').css("opacity","");
                 $(".csubmit").removeAttr("disabled");
-                document.getElementById("trns").style.display="none";
-                $(".modal").hide(); $(".modal-dialog").hide();
+                $("#myModal").modal('hide');
             });
     
 }

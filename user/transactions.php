@@ -59,7 +59,7 @@
 <tr>
   <td><?php echo $ty; ?></td>
   <td>$<?php echo round($amt, 2); ?></td>
-  <td><?php echo date('Y:m:d', strtotime($date)); ?></td>
+  <td><?php echo date('Y-m-d', strtotime($date)); ?></td>
   
 
    <div id="d<?php echo $did; ?>" class="modal fade">
@@ -224,7 +224,7 @@
 <tr>
   <td><?php echo $n; ?></td>
   <td>$<?php echo round($amt, 2); ?></td>
-  <td><?php echo date('Y:m:d', strtotime($date)); ?></td>
+  <td><?php echo date('Y-m-d', strtotime($date)); ?></td>
   
 
    <div id="w<?php echo $wid; ?>" class="modal fade">

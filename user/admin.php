@@ -361,7 +361,7 @@ else if(isset($_GET["c"])){
                 <input type="text" name='refp' id="refp" placeholder="5" class="form-control" oninput="validref(this)">
                     </div>
                     <div class="form-group">
-                    <label class="form-control-label">Enter Plan Period in days: <span class="tx-danger">*</span></label>
+                    <label class="form-control-label">Enter Plan Period in Weeks: <span class="tx-danger">*</span></label>
                 <input type="number" name='period' id="period" placeholder="30" class="form-control">
                     </div>
 

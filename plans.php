@@ -80,14 +80,14 @@ if (isset($_GET["p"])) {
               <div class="pricing-header border-left" style='background-color: #ff9900;'>
                   <h2 class="plan-name"><?php echo $planname; ?></h2>
                           <h3 class="plan-price">
-                                    <strong>$<?php echo $min; ?></strong>
+                                    <strong>$<?php echo round($min,2); ?></strong>
                                  </h3>
                               </div>
                                <ul class="list-unstyled">
-<li><h6 class='text-muted'><b>$<?php echo $min; ?> - $<?php echo $max; ?></b></h6></li>
+<li><h6 class='text-muted'><b>$<?php echo round($min,2); ?> - $<?php echo round($max,2); ?></b></h6></li>
  <li><span style="color: #ff9900;">Daily Profit: </span><b><?php echo $profit; ?> %</b></li>
     <li><span style="color: #ff9900;">Total Profit: </span><b><?php echo $profit*$period; ?> %</b></li>
-<li><span style="color: #ff9900;">Contract Life: </span><b><?php echo $period; ?> Day(s)</b></li>
+<li><span style="color: #ff9900;">Contract Life: </span><b><?php echo $period/7; ?> week(s)</b></li>
 <li><span style="color: #ff9900;">Referral Bonus: </span><b><?php echo $ref; ?> %</b></li>
 <li><span style="color: #ff9900;">Business Day: </span><b>Mon - Friday</b></li>
 <li><span style="color: #ff9900;">Withdrawal: </span><b>Weekly</b></li>

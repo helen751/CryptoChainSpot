@@ -178,7 +178,70 @@ s0.parentNode.insertBefore(s1,s0);
       <script type="text/javascript" src="js/gmap3.js"></script>
       <!-- Template custom-->
       <script type="text/javascript" src="js/custom.js"></script>
+<script type="text/javascript">
+   function contact(){
+    var name = document.getElementById("name").value;
+     var topic = document.getElementById("topic").value;
+      var email = document.getElementById("email").value;
+     var message = document.getElementById("message").value;
+     var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
+var msg = document.getElementById("msg");
+    if (name.length==0) {
+        alert("Please enter your Name");
+    }
+    else if (email.length==0) {
+        alert("Please enter your Email Address");
+    }
+    
+    else if(!(email.match(mailformat)))
+    {
+        alert("Please enter a Recognized Email");
+    }
+    else if (topic.length==0) {
+        alert("Please Specify a Topic");
+    }
+    else if (message.length==0) {
+        alert("Please Enter a Message");
+    }
+    else{
+
+    const formData = new FormData();
+    formData.append('name', name)
+    formData.append('email', email)
+    formData.append('topic', topic)
+    formData.append('message', message)
+    formData.append('contact', '')
+
+    const options = {
+        method: "Post",
+        body: formData,
+    }
+$('.csubmit').attr("disabled","disabled");
+                $('#cform').css("opacity",".5");
+
+        fetch('./functions.php', options)
+            .then(data => data.json())
+            .then(res => {
+                if(res.status == 1){
+                   document.getElementById("msg").style.display="block";
+                     $('#inmsg').html(res.message);
+                     window.scrollTo(0,0);
+                }
+                else{
+                    document.getElementById("msg").style.display="block";
+                     $('#inmsg').html(res.message);
+                     window.scrollTo(0,0);
+                }
+                $('#cform').css("opacity","");
+                $(".csubmit").removeAttr("disabled");
+                
+            });
+    
+}
+
+ }
+</script>
 
 <script>
 function showTime(){

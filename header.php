@@ -1,4 +1,5 @@
-<?php session_start();
+<?php 
+session_start();
 error_reporting(0);
 $ref = ' ';
 require_once("user/config.php");
@@ -409,7 +410,7 @@ body {
                         <ul class="top-info top-info-wrraper">
                            <li><span class="info-icon"><i class="icon icon-phone3"></i></span>
                               <div class="info-wrapper">
-                                 <p class="info-title">+14046981292</p>
+                                 <p class="info-title">+16673549402</p>
                                  <p class="info-subtitle">Call us now</p>
                               </div>
                            </li>
