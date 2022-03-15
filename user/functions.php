@@ -857,17 +857,17 @@ if(isset($_POST["deposit"])){
      $countdep = mysqli_num_rows($depresult);
 
    if($countdep != 0){
-$sql2 = "INSERT INTO transactions(user_id,transaction_type,transaction_amount,transaction_status) values('$id','deposit','$amount','1')";
+$sql9 = "INSERT INTO transactions(user_id,transaction_type,transaction_amount,transaction_status) values('$id','deposit','$amount','1')";
 
-		if(mysqli_query($link,$sql2)){
-			$tlid = mysqli_insert_id($link);
+		if(mysqli_query($link,$sql9)){
+			$tlid1 = mysqli_insert_id($link);
 			$edate = date('Y-m-d H:i:s', strtotime($today. ' + ' . $period . 'days'));
-			$sql2 = "INSERT INTO deposits(user_id,plan_id,deposit_amount,deposit_type,expiry_date,status,approve,transaction_id) values('$id','$plan','$amount','account_balance','$edate','1','1','$tlid')";
+			$sql8 = "INSERT INTO deposits(user_id,plan_id,deposit_amount,deposit_type,expiry_date,status,approve,transaction_id) values('$id','$plan','$amount','account_balance','$edate','1','1','$tlid1')";
 
-		if(mysqli_query($link,$sql2)){
+		if(mysqli_query($link,$sql8)){
 
-			$uacc = "UPDATE accounts SET account_balance = $new, system_balance = system_balance+$amount WHERE user_id='$id'";
-		if(mysqli_query($link,$uacc)){
+			$uacc1 = "UPDATE accounts SET account_balance = $new, system_balance = system_balance+$amount WHERE user_id='$id'";
+		if(mysqli_query($link,$uacc1)){
 			$response['status'] = 2; 
 			$response['message'] = "Deposit Successful ";
 		}
@@ -892,17 +892,17 @@ $depsql2 = "SELECT * from users where user_id='$id'";
       $referer = $deprow["referer_id"];
 
       if(is_null($referer)){
-$sql2 = "INSERT INTO transactions(user_id,transaction_type,transaction_amount,transaction_status) values('$id','deposit','$amount','1')";
+$sql0 = "INSERT INTO transactions(user_id,transaction_type,transaction_amount,transaction_status) values('$id','deposit','$amount','1')";
 
-		if(mysqli_query($link,$sql2)){
-			$tlid = mysqli_insert_id($link);
+		if(mysqli_query($link,$sql0)){
+			$tlid3 = mysqli_insert_id($link);
 			$edate = date('Y-m-d H:i:s', strtotime($today. ' + ' . $period . 'days'));
-			$sql2 = "INSERT INTO deposits(user_id,plan_id,deposit_amount,deposit_type,expiry_date,status,approve,transaction_id) values('$id','$plan','$amount','account_balance','$edate','1','1','$tlid')";
+			$sql09 = "INSERT INTO deposits(user_id,plan_id,deposit_amount,deposit_type,expiry_date,status,approve,transaction_id) values('$id','$plan','$amount','account_balance','$edate','1','1','$tlid3')";
 
-		if(mysqli_query($link,$sql2)){
+		if(mysqli_query($link,$sql09)){
 
-			$uacc = "UPDATE accounts SET account_balance = $new, system_balance = system_balance+$amount WHERE user_id='$id'";
-		if(mysqli_query($link,$uacc)){
+			$uacc9 = "UPDATE accounts SET account_balance = $new, system_balance = system_balance+$amount WHERE user_id='$id'";
+		if(mysqli_query($link,$uacc9)){
 			$response['status'] = 2; 
 			$response['message'] = "Deposit Successful ";
 		}
@@ -931,17 +931,17 @@ $sql = "INSERT INTO bonus(user_id,bonus_type,bonus_amount) values('$referer','re
 
 		if(mysqli_query($link,$sqlr)){
 
-			$sql2 = "INSERT INTO transactions(user_id,transaction_type,transaction_amount,transaction_status) values('$id','deposit','$amount','1')";
+			$sql12 = "INSERT INTO transactions(user_id,transaction_type,transaction_amount,transaction_status) values('$id','deposit','$amount','1')";
 
-		if(mysqli_query($link,$sql2)){
-			$tlid = mysqli_insert_id($link);
+		if(mysqli_query($link,$sql12)){
+			$tlid12 = mysqli_insert_id($link);
 			$edate = date('Y-m-d H:i:s', strtotime($today. ' + ' . $period . 'days'));
-			$sql2 = "INSERT INTO deposits(user_id,plan_id,deposit_amount,deposit_type,expiry_date,status,approve,transaction_id) values('$id','$plan','$amount','account_balance','$edate','1','1','$tlid')";
+			$sql98 = "INSERT INTO deposits(user_id,plan_id,deposit_amount,deposit_type,expiry_date,status,approve,transaction_id) values('$id','$plan','$amount','account_balance','$edate','1','1','$tlid12')";
 
-		if(mysqli_query($link,$sql2)){
+		if(mysqli_query($link,$sql98)){
 
-			$uacc = "UPDATE accounts SET account_balance = $new, system_balance = system_balance+$amount WHERE user_id='$id'";
-		if(mysqli_query($link,$uacc)){
+			$uaccl = "UPDATE accounts SET account_balance = $new, system_balance = system_balance+$amount WHERE user_id='$id'";
+		if(mysqli_query($link,$uaccl)){
 			$response['status'] = 2; 
 			$response['message'] = "Deposit Successful:)";
 		}
@@ -985,12 +985,12 @@ $sql = "INSERT INTO bonus(user_id,bonus_type,bonus_amount) values('$referer','re
 
       	else if($choose2 == 1){
       		
-			$depsql2 = "SELECT * from plans where plan_id='$plan'";
-     $depresult2 = mysqli_query($link,$depsql2);
-     $countdep2 = mysqli_num_rows($depresult2);
+			$depsql22 = "SELECT * from plans where plan_id='$plan'";
+     $depresult22 = mysqli_query($link,$depsql22);
+     $countdep22 = mysqli_num_rows($depresult22);
 
-   if($countdep2 != 0){
-   	$deprow = mysqli_fetch_array($depresult2, MYSQLI_ASSOC); 
+   if($countdep22 != 0){
+   	$deprow = mysqli_fetch_array($depresult22, MYSQLI_ASSOC); 
       $coin = $deprow["coin_id"];
 
       $depsql3 = "SELECT * from coins where coin_id='$coin'";
@@ -1001,14 +1001,14 @@ $sql = "INSERT INTO bonus(user_id,bonus_type,bonus_amount) values('$referer','re
    	$deprow = mysqli_fetch_array($depresult3, MYSQLI_ASSOC); 
       $wallet = $deprow["coin_wallet"];
       $coinname = $deprow["coin_name"];
-$sql2 = "INSERT INTO transactions(user_id,transaction_type,transaction_amount,transaction_status) values('$id','deposit','$amount','0')";
+$sql29 = "INSERT INTO transactions(user_id,transaction_type,transaction_amount,transaction_status) values('$id','deposit','$amount','0')";
 
-		if(mysqli_query($link,$sql2)){
-			$tlid = mysqli_insert_id($link);
+		if(mysqli_query($link,$sql29)){
+			$tlid78 = mysqli_insert_id($link);
 			$edate = date('Y-m-d H:i:s', strtotime($today. ' + ' . $period . 'days'));
-			$sql2 = "INSERT INTO deposits(user_id,plan_id,deposit_amount,deposit_type,expiry_date,status,approve,transaction_id) values('$id','$plan','$amount','wallet','$edate','0','0','$tlid')";
+			$sql24 = "INSERT INTO deposits(user_id,plan_id,deposit_amount,deposit_type,expiry_date,status,approve,transaction_id) values('$id','$plan','$amount','wallet','$edate','0','0','$tlid78')";
 
-		if(mysqli_query($link,$sql2)){
+		if(mysqli_query($link,$sql24)){
 	$response['coin'] = $wallet;
 	$response['coinn'] = $coinname;
 	$response['status'] = 1; 
@@ -1139,6 +1139,9 @@ $headers .= 'Bcc: '.$email . "\r\n";
 if(mail($to, $subject, $htmlContent, $headers)){
 $response['status'] = 1; 
 			$response['message'] = "Message Sent Successfully:)";	
+}
+else{
+$response['message'] = "Error contacting us please try again!";		
 }
 
 
