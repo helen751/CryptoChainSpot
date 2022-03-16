@@ -198,7 +198,7 @@ echo $countcoin2;
             <td><?php echo $ref; ?></td>
             <td><?php echo $profit; ?></td>
               <td>
-                <form name="form2" method="POST" id="coinform2">
+                <form name="form2" method="POST" id="coinform2" action="edit.php">
            <input type="hidden" hidden name="coin" value="<?php echo $coin; ?>">
            <input type="hidden" hidden name="planid" value="<?php echo $planid; ?>">
            <input type="hidden" hidden name="planname" value="<?php echo $planname; ?>">
@@ -934,9 +934,13 @@ $status="<i class='fa fa-circle text-danger'></i>"."Expired";
              <td><?php echo $date; ?></td>
              <td><?php echo $status; ?></td>
               <td>
-                <form name="form2" method="POST" action="functions.php">
-           <input type="hidden" hidden name="did" value="<?php echo $tid; ?>">
-            <input type="hidden" hidden name="tid" value="<?php echo $trid; ?>">
+                <form name="form2" method="POST" id="coinform2" action="functions.php">
+           <input type="hidden" hidden name="tid" value="<?php echo $dtid; ?>">
+            <input type="hidden" hidden name="did" value="<?php echo $tid; ?>">
+            <input type="hidden" hidden name="userid" value="<?php echo $userid; ?>">
+            <input type="hidden" hidden name="pid" value="<?php echo $plan; ?>">
+            <input type="hidden" hidden name="amount" value="<?php echo $amt; ?>">
+            <input type="hidden" hidden name="uv" value="p">
            
 
                 <button class="btn btn-success" type="submit" name="apdep"><i class="fa fa-check-circle"></i></button>
