@@ -584,7 +584,6 @@ const formData = new FormData();
     formData.append('abbrev', abbrev)
     formData.append('editcoin', ' ')
     
-    else{
     const options = {
         method: "Post",
         body: formData,
@@ -610,7 +609,7 @@ $('.submitBtnc').attr("disabled","disabled");
                 
             });
 }
-   }
+
   })
 })
 
