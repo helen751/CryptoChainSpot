@@ -145,6 +145,72 @@ echo ("<script LANGUAGE='JavaScript'>
 }
 
 
+if (isset($_POST['delwal'])) {
+$accsql = "SELECT * from withdrawals where wallet_id='$walid'";
+     $accresult = mysqli_query($link,$accsql);
+     $countacc = mysqli_num_rows($accresult);
+
+   if($countacc == 0){
+$sql = "DELETE FROM wallets where wallet_id = '$walid'";
+
+        if(mysqli_query($link,$sql)){
+            echo ("<script LANGUAGE='JavaScript'>
+                alert('Wallet Deleted Successfully');
+    window.location.href='wallet';
+    </script>");
+        }
+        else{
+            echo ("<script LANGUAGE='JavaScript'>
+                alert('Error Deleting Wallet Please try again');
+    window.location.href='wallet';
+    </script>");
+    
+}
+}
+else{
+    
+    $accrow = mysqli_fetch_array($accresult, MYSQLI_ASSOC); 
+      $ts = $accrow["transaction_status"];
+      if($ts == 0){
+        echo ("<script LANGUAGE='JavaScript'>
+                alert('A Pending Withdrawal is depending on this wallet. please contact the support team for Help');
+    window.location.href='wallet';
+    </script>");
+
+      }
+      else{
+$sql = "UPDATE withdrawals set wallet_id = null where wallet_id = '$walid'";
+
+        if(mysqli_query($link,$sql)){
+            $sql2 = "DELETE FROM wallets where wallet_id = '$walid'";
+
+        if(mysqli_query($link,$sql2)){
+            echo ("<script LANGUAGE='JavaScript'>
+                alert('Wallet Deleted Successfully');
+    window.location.href='wallet';
+    </script>");
+        }
+        else{
+            echo ("<script LANGUAGE='JavaScript'>
+                alert('Error Deleting Wallet Please try again');
+    window.location.href='wallet';
+    </script>");
+    
+}
+        }
+        else{
+            echo ("<script LANGUAGE='JavaScript'>
+                alert('Error Deleting Wallet Please try again');
+    window.location.href='wallet';
+    </script>");
+    
+}
+      }
+
+}
+}
+
+
  ?>  
       <div class="container-fluid page-body-wrapper">
       <div class="main-panel">
@@ -204,7 +270,8 @@ echo ("<script LANGUAGE='JavaScript'>
           </div>
         </div>
 
- <?php } if(isset($_POST["editcoin"])){
+ <?php } 
+ else if(isset($_POST["editcoin"])){
           ?>
            <div class="row py-3">
             <div class="col-sm-6" style="width: 50%;">
@@ -242,14 +309,145 @@ echo ("<script LANGUAGE='JavaScript'>
                     <div class="form-group">
                     <input type="text" class="form-control" placeholder="Enter email address" name="abbrev" value="<?php echo $abbrev; ?>" id="abbrev" required>
                   </div>
-                   <div class="form-group">
-                    <label class="form-control-label">Upload New Coin Image: <span class="tx-danger">*</span></label>
-                    <input type="text" id="aimg" hidden value="<?php echo $coinimg; ?>" name="">
-                <input type="file" name='file' id="img" class="form-control">
-                <p><strong>Note:</strong> Only .jpg, .jpeg, .gif, .png images allowed to a max size of 5 MB.</p>
-                    </div>
+                  
               
               <button class="btn btn-primary btn-block submitBtnc" name='editcoin' type="submit">Edit Coin</button>
+          </form>
+            </div>
+          </div>
+        </div>
+
+ <?php }
+
+ else if(isset($_POST["editplan"])){
+          ?>
+           <div class="row py-3">
+            <div class="col-sm-6" style="width: 50%;">
+              <div class="">
+                  <div class="badge badge-primary"><i class="fas fa-home menu-icon"></i> Edit Plan</div>
+              </div>
+            </div>
+    <div class="col-sm-6 " style="width: 50%; padding-top: 0px; margin-top: -5px;">
+                <div style="float: right;">
+                <small class="text-muted text-capitalize">Coin Name</small><br>
+                <b><?php echo $planname ?></b><br>
+        </div>
+            </div>
+          </div>
+          <div class="alert  alert-solid alert-success" role="alert" id="msg" style="display: none;">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="close();">
+              <span aria-hidden="true">×</span>
+            </button>
+    <span id="inmsg"></span>        </div>
+     <div class="row mb-3">
+          <div class="col-md-8">
+          <div class="card card-body pd-20 mg-t-10">
+              <h3 class="card-title">Update Plan Details</h3>
+              <p><small class="card-description">
+                      </small></p>
+              <form action="functions.php" method="post" id="paddForm">
+                   <input type="text" hidden id="planid" name="planid" value="<?php echo $planid; ?>">
+                     
+            
+
+                      <div class="form-group">
+                      <label class="form-control-label">Enter Plan Name: <span class="tx-danger">*</span></label>
+                <input type="text" name='pname' value="<?php echo $planname; ?>" id="pname" placeholder="Beginner Plan" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label class="form-control-label">Enter Plan Daily Profit(%): <span class="tx-danger">*</span></label>
+                <input type="text" name='profit' value="<?php echo $profit; ?>" id="profit" placeholder="12" class="form-control" oninput="valid(this)">
+                    </div>
+                    <div class="form-group">
+                      <label class="form-control-label">Enter Referral Bonus  Profit(%): <span class="tx-danger">*</span></label>
+                <input type="text" name='ref' value="<?php echo $ref; ?>" id="refp" placeholder="5" class="form-control" oninput="validref(this)">
+                    </div>
+                    <div class="form-group">
+                    <label class="form-control-label">Enter Plan Period in Weeks: <span class="tx-danger">*</span></label>
+                <input type="number" value="<?php echo $period; ?>" name='period' id="period" placeholder="30" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                    <label class="form-control-label">Plan Minimum Deposit Amount: <span class="tx-danger">*</span></label>
+                <input type="text" name='min' value="<?php echo $min; ?>" id="min" placeholder="100" class="form-control" oninput="validmin(this)">
+                    </div>
+
+                    <div class="form-group">
+                    <label class="form-control-label">Plan Maximum Deposit Amount: <span class="tx-danger">*</span></label>
+                <input type="text" name='max' value="<?php echo $max; ?>" id="max" placeholder="1000" class="form-control" oninput="validmax(this)">
+                    </div>
+                    
+                    
+                    <input type="submit" class="submitBtn btn btn-success btn-block" value="Update Plan>>>" name='editplan'>
+          </form>
+            </div>
+          </div>
+        </div>
+
+ <?php }
+ else if(isset($_POST["editwal"])){
+          ?>
+           <div class="row py-3">
+            <div class="col-sm-6" style="width: 50%;">
+              <div class="">
+                  <div class="badge badge-primary"><i class="fas fa-home menu-icon"></i> Edit Wallet</div>
+              </div>
+            </div>
+    <div class="col-sm-6 " style="width: 50%; padding-top: 0px; margin-top: -5px;">
+                <div style="float: right;">
+                <small class="text-muted text-capitalize">Wallet ID</small><br>
+                <b><?php echo $walid ?></b><br>
+        </div>
+            </div>
+          </div>
+          <div class="alert  alert-solid alert-success" role="alert" id="msg" style="display: none;">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="close();">
+              <span aria-hidden="true">×</span>
+            </button>
+    <span id="inmsg"></span>        </div>
+     <div class="row mb-3">
+          <div class="col-md-8">
+          <div class="card card-body pd-20 mg-t-10">
+              <h3 class="card-title">Update Wallet Details</h3>
+              <p><small class="card-description">
+                      </small></p>
+              <form action="functions.php" method="post" id="waddForm">
+                   <input type="text" hidden id="walid" name="walid" value="<?php echo $waliid; ?>">
+
+                   <div class="form-group">
+                      <label class="form-control-label">Choose Wallet Type <span class="tx-danger">*</span></label>
+                <select name="coin" id="coin" class="form-control select2">
+                    <option value="<?php echo $cid  ?>"><?php echo $coinname; ?></option>
+                  <?php
+                                    $coinsql = "SELECT * from coins";
+                                    $coinresult = mysqli_query($link,$coinsql);
+                                    $countcoin = mysqli_num_rows($coinresult);
+
+                                          while($coinrow = $coinresult->fetch_assoc()) {                                         
+                                            $coinname = $coinrow["coin_name"];
+                                            $coinid = $coinrow["coin_id"];
+
+
+
+                                     ?>
+                    <option value="<?php echo $coinid; ?>"><?php echo $coinname; ?></option>
+                    <?php
+                                     } 
+                                   ?>
+                                    
+               
+                    
+                  </select>
+                    </div>
+                     
+               <div class="form-group mg-b-20">
+                        <label class="form-control-label">Enter Your Wallet Address <span class="tx-danger">*</span></label>
+                      <input type="text" placeholder="Wallet Address" value="<?php echo $wad; ?>" id="wallet" name="wallet" class="form-control" >
+                    </div><!-- form-group -->
+
+                  
+              
+              <button class="btn btn-primary btn-block submitBtnl" name='editwal' type="submit">Edit Wallet</button>
           </form>
             </div>
           </div>
@@ -317,14 +515,54 @@ function googleTranslateElementInit() {
     <script src="js/dashboard.js"></script>
     <script src="js/slim.js"></script>
     <script type="text/javascript">
+        var RegExp = new RegExp(/^\d*\.?\d*$/);
+         var val = document.getElementById("profit").value;
+         var val2 = document.getElementById("refp").value;
+         var val3 = document.getElementById("min").value;
+           var val4 = document.getElementById("max").value;
+        
+
+  
+        function valid(elem) {
+           
+            if (RegExp.test(elem.value)) {
+                val = elem.value;
+            } else {
+                elem.value = val;
+            }
+        }
+        function validref(elem) {
+            
+            if (RegExp.test(elem.value)) {
+                val2 = elem.value;
+            } else {
+                elem.value = val2;
+            }
+        }
+        function validmin(elem) {
+            
+            if (RegExp.test(elem.value)) {
+                val3 = elem.value;
+            } else {
+                elem.value = val3;
+            }
+        }
+        function validmax(elem) {
+          
+            if (RegExp.test(elem.value)) {
+                val4 = elem.value;
+            } else {
+                elem.value = val4;
+            }
+        }
+    </script>
+    <script type="text/javascript">
       $(document).ready(function(e){
     // Submit form data via Ajax
     $("#addForm").on('submit', function(e){
         e.preventDefault();
     var abbrev = document.getElementById("abbrev").value;
      var wallet = document.getElementById("wallet").value;
- var image = document.getElementById("img").value;
-     const file = document.querySelector('#img');
     var coinname = document.getElementById("coinname").value;
     var coinid = document.getElementById("coinid").value;
     var msg = document.getElementById("msg");
@@ -347,26 +585,8 @@ const formData = new FormData();
     formData.append('wallet', wallet)
     formData.append('abbrev', abbrev)
     formData.append('editcoin', ' ')
-    if(image==""){
-        mainimg = document.getElementById("aimg");
-      formData.append('img', mainimg);
-
-    }
+    
     else{
-    var allowedExtensions = 
-                    /(\.jpg|\.jpeg|\.png|\.gif)$/i;
-              
-            if (!allowedExtensions.exec(filePath)) {
-                alert('Please Upload a valid image file \n only .png, .jpg, .jpeg and .gif images allowed');
-                image = '';
-                return;
-                
-            } 
-            
-else{
-    formData.append('file', file.files[0])
-}
-
     const options = {
         method: "Post",
         body: formData,
@@ -378,16 +598,14 @@ $('.submitBtnc').attr("disabled","disabled");
             .then(data => data.json())
             .then(res => {
                 if(res.status == 1){
-                    alert(res.message);
-                   // document.getElementById("msg").style.display="block";
-                   //  $('#inmsg').html(res.message);
-                   //  window.scrollTo(0,0);
+                   document.getElementById("msg").style.display="block";
+                    $('#inmsg').html(res.message);
+                    window.scrollTo(0,0);
                 }
                 else{
-                    alert(res.message);
-                    // document.getElementById("msg").style.display="block";
-                    //  $('#inmsg').html(res.message);
-                    //  window.scrollTo(0,0);
+                    document.getElementById("msg").style.display="block";
+                     $('#inmsg').html(res.message);
+                     window.scrollTo(0,0);
                 }
                 $('#addForm').css("opacity","");
                 $(".submitBtnc").removeAttr("disabled");
@@ -399,48 +617,7 @@ $('.submitBtnc').attr("disabled","disabled");
 })
 
     </script>
-    <script type="text/javascript">
-        // var RegExp = new RegExp(/^\d*\.?\d*$/);
-        //  var val = document.getElementById("profit").value;
-        //  var val2 = document.getElementById("refp").value;
-        //  var val3 = document.getElementById("min").value;
-        //    var val4 = document.getElementById("max").value;
-        
-
-  
-        // function valid(elem) {
-           
-        //     if (RegExp.test(elem.value)) {
-        //         val = elem.value;
-        //     } else {
-        //         elem.value = val;
-        //     }
-        // }
-        // function validref(elem) {
-            
-        //     if (RegExp.test(elem.value)) {
-        //         val2 = elem.value;
-        //     } else {
-        //         elem.value = val2;
-        //     }
-        // }
-        // function validmin(elem) {
-            
-        //     if (RegExp.test(elem.value)) {
-        //         val3 = elem.value;
-        //     } else {
-        //         elem.value = val3;
-        //     }
-        // }
-        // function validmax(elem) {
-          
-        //     if (RegExp.test(elem.value)) {
-        //         val4 = elem.value;
-        //     } else {
-        //         elem.value = val4;
-        //     }
-        // }
-    </script>
+    
         <script>
       $(function(){
         'use strict';
@@ -620,6 +797,84 @@ $('.submitBtn2').attr("disabled","disabled");
                      window.scrollTo(0,0);
                 }
                 $('#uForm').css("opacity","");
+                $(".submitBtn2").removeAttr("disabled");
+                
+            });
+    
+   }
+  })
+});
+
+</script>
+<script type="text/javascript">
+    $(document).ready(function(e){
+    // Submit form data via Ajax
+    $("#paddForm").on('submit', function(e){
+        e.preventDefault();
+    var pname = document.getElementById("pname").value;
+     var pcoin = document.getElementById("pcoin").value;
+    var min = document.getElementById("min").value;
+    var max = document.getElementById("max").value;
+    var period = document.getElementById("period").value;
+    var profit = document.getElementById("profit").value;
+ var refp = document.getElementById("refp").value;
+
+    var msg = document.getElementById("msg");
+    
+    if (pname.length==0) {
+        alert("please enter the Plan name")
+    }
+    else if(profit.length==0){
+        alert("please enter the Plan profit")
+    }
+    else if(refp.length==0){
+        alert("please enter the Referal Bonus Profit")
+    }
+    else if(period.length==0){
+        alert("please enter the Plan Duration in days")
+    }
+    else if(min.length==0){
+        alert("please enter the Minimum Deposit Amount")
+    }
+    else if(max.length==0){
+        alert("please enter the Maximum Deposit Amount")
+    }
+    
+    else{
+        period2 = period*7;
+
+    const formData = new FormData();
+    formData.append('pname', pname)
+    formData.append('pcoin', pcoin)
+    formData.append('min', min)
+    formData.append('max', max)
+    formData.append('period', period2)
+    formData.append('refp', refp)
+    formData.append('profit', profit)
+    formData.append('editplan', '')
+
+    const options = {
+        method: "Post",
+        body: formData,
+    }
+$('.submitBtn2').attr("disabled","disabled");
+                $('#paddForm').css("opacity",".5");
+
+        fetch('./functions.php', options)
+            .then(data => data.json())
+            .then(res => {
+                if(res.status == 1){
+                   document.getElementById("msg").style.display="block";
+                    $('#inmsg').html(res.message);
+                    document.getElementById("paddForm").reset();
+                    window.scrollTo(0,0);
+                }
+                else{
+                    document.getElementById("msg").style.display="block";
+                     $('#inmsg').html(res.message);
+                     window.scrollTo(0,0);
+                }
+                $('#paddForm').css("opacity","");
                 $(".submitBtn2").removeAttr("disabled");
                 
             });

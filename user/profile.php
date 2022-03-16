@@ -18,7 +18,7 @@
             </div>
           </div>
           <div class="alert  container alert-solid alert-success" role="alert" id="msg" style="display: none;">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="close();">
               <span aria-hidden="true">×</span>
             </button>
     <span id="inmsg"></span>        </div>
@@ -207,6 +207,10 @@ $('.submitBtn2').attr("disabled","disabled");
     </script>
 
     <script type="text/javascript">
+         function close(){
+    document.getElementById("msg").style.display="none";
+  }
+
       $(document).ready(function(e){
     // Submit form data via Ajax
     $("#addForm").on('submit', function(e){

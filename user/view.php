@@ -84,7 +84,7 @@ echo $countcoin;  ?></b><br>
            <input type="hidden" hidden name="wallet" value="<?php echo $wallet; ?>">
 
                 <button class="btn btn-success" type="submit" name="editcoin"><i class="fa fa-edit"></i></button>
-               <button class="btn btn-danger" type="submit" name="deletecoin"><i class="fa fa-trash"></i></button>
+              
                                           </form>
                    </td>                       
                                         </tr>
@@ -200,6 +200,7 @@ echo $countcoin2;
               <td>
                 <form name="form2" method="POST" id="coinform2">
            <input type="hidden" hidden name="coin" value="<?php echo $coin; ?>">
+           <input type="hidden" hidden name="planid" value="<?php echo $planid; ?>">
            <input type="hidden" hidden name="planname" value="<?php echo $planname; ?>">
            <input type="hidden" hidden name="min" value="<?php echo $min; ?>">
            <input type="hidden" hidden name="max" value="<?php echo $max; ?>">
@@ -208,7 +209,7 @@ echo $countcoin2;
             <input type="hidden" hidden name="ref" value="<?php echo $ref; ?>">
 
                 <button class="btn btn-success" type="submit" name="editplan"><i class="fa fa-edit"></i></button>
-               <button class="btn btn-danger" type="submit" name="deleteplan"><i class="fa fa-trash"></i></button>
+              
                                           </form>
                    </td>                       
                                         </tr>
@@ -444,6 +445,7 @@ echo $countcoin2;
                                             $userid = $planrow["user_id"];
                                         $amt = $planrow["deposit_amount"];
                                         $date = $planrow["date"];
+                                        $dtid = $planrow["transaction_id"];
                                        
                                       $uname=' ';
                                       $coin = '';
@@ -486,16 +488,21 @@ echo $countcoin2;
           <td><?php echo $uname; ?></td>
           <td><?php echo $coin; ?></td>
              <td><?php echo $plan; ?></td>
-<td><?php echo $amt; ?></td>
+<td><?php echo round($amt,2); ?></td>
              <td><?php echo $date; ?></td>
              <td><?php echo $status; ?></td>
               <td>
-                <form name="form2" method="POST" id="coinform2">
-           <input type="hidden" hidden name="tid" value="<?php echo $tid; ?>">
+               <form name="form2" method="POST" id="coinform2" action="functions.php">
+           <input type="hidden" hidden name="tid" value="<?php echo $dtid; ?>">
+            <input type="hidden" hidden name="did" value="<?php echo $tid; ?>">
+            <input type="hidden" hidden name="userid" value="<?php echo $userid; ?>">
+            <input type="hidden" hidden name="pid" value="<?php echo $plan; ?>">
+            <input type="hidden" hidden name="amount" value="<?php echo $amt; ?>">
+            <input type="hidden" hidden name="uv" value="p">
            
 
-                <button class="btn btn-success" type="submit" name="editpd"><i class="fa fa-check-circle"></i></button>
-               <button class="btn btn-danger" type="submit" name="deletepd"><i class="fa fa-trash"></i></button>
+                <button class="btn btn-success" type="submit" name="apdep"><i class="fa fa-check-circle"></i></button>
+               <button class="btn btn-danger" type="submit" name="deldep"><i class="fa fa-trash"></i></button>
                                           </form>
                    </td>                       
                                         </tr>
@@ -581,6 +588,7 @@ echo $countcoin2;
                                             $userid = $planrow["user_id"];
                                         $amt = $planrow["amount"];
                                         $date = $planrow["date"];
+                                        $tid = $planrow["transaction_id"];
                                        
                                       $wallet=' ';
                                       $coin = ' ';
@@ -628,12 +636,15 @@ echo $countcoin2;
              <td><?php echo $date; ?></td>
              <td><?php echo $status; ?></td>
               <td>
-                <form name="form2" method="POST" id="coinform2">
+                <form name="form2" method="POST" id="coinform2" action="functions.php">
            <input type="hidden" hidden name="tid" value="<?php echo $tid; ?>">
+            <input type="hidden" hidden name="wid" value="<?php echo $wtid; ?>">
+            <input type="hidden" hidden name="userid" value="<?php echo $userid; ?>">
+            <input type="hidden" hidden name="uv" value="p">
            
 
-                <button class="btn btn-success" type="submit" name="editpd"><i class="fa fa-check-circle"></i></button>
-               <button class="btn btn-danger" type="submit" name="deletepd"><i class="fa fa-trash"></i></button>
+                <button class="btn btn-success" type="submit" name="apwit"><i class="fa fa-check-circle"></i></button>
+               <button class="btn btn-danger" type="submit" name="delwit"><i class="fa fa-trash"></i></button>
                                           </form>
                    </td>                       
                                         </tr>
@@ -720,6 +731,7 @@ echo $countcoin2;
                                             $st = $planrow["transaction_status"];
                                         $amt = $planrow["amount"];
                                         $date = $planrow["date"];
+                                        $tid = $planrow["transaction_id"];
                                        
                                       $wallet=' ';
                                       $coin = ' ';
@@ -771,12 +783,15 @@ $status="<i class='fa fa-circle text-success'></i>"."Approved";
              <td><?php echo $date; ?></td>
              <td><?php echo $status; ?></td>
               <td>
-                <form name="form2" method="POST" id="coinform2">
+                <form name="form2" method="POST" id="coinform2" action="functions.php">
            <input type="hidden" hidden name="tid" value="<?php echo $tid; ?>">
+            <input type="hidden" hidden name="wid" value="<?php echo $wtid; ?>">
+            <input type="hidden" hidden name="userid" value="<?php echo $userid; ?>">
+            <input type="hidden" hidden name="uv" value="aw">
            
 
-                <button class="btn btn-success" type="submit" name="editpd"><i class="fa fa-check-circle"></i></button>
-               <button class="btn btn-danger" type="submit" name="deletepd"><i class="fa fa-trash"></i></button>
+                <button class="btn btn-success" type="submit" name="apwit"><i class="fa fa-check-circle"></i></button>
+               <button class="btn btn-danger" type="submit" name="delwit"><i class="fa fa-trash"></i></button>
                                           </form>
                    </td>                       
                                         </tr>
@@ -1046,12 +1061,15 @@ echo $countcoin2;
 <td><?php echo $wad; ?></td>
              <td><?php echo date('Y:m:d', strtotime($date)); ?></td>
                           <td>
-                <form name="form2" method="POST" id="coinform2">
-           <input type="hidden" hidden name="tid" value="<?php echo $tid; ?>">
+                <form name="form2" method="POST" id="coinform2" action="edit.php">
+           <input type="hidden" hidden name="walid" value="<?php echo $wid; ?>">
+           <input type="hidden" hidden name="wad" value="<?php echo $wad; ?>">
+           <input type="hidden" hidden name="cid" value="<?php echo $cid; ?>">
+           <input type="hidden" hidden name="coinname" value="<?php echo $coin; ?>">
            
 
-  <button class="btn btn-success" type="submit" name="addw"><i class="fa fa-plus"></i></button>
-               <button class="btn btn-danger" type="submit" name="deletew"><i class="fa fa-trash"></i></button>
+  <button class="btn btn-success" type="submit" name="editwal"><i class="fa fa-edit"></i></button>
+               <button class="btn btn-danger" type="submit" name="delwal"><i class="fa fa-trash"></i></button>
                                           </form>
                    </td>                       
                                         </tr>

@@ -179,6 +179,10 @@ s0.parentNode.insertBefore(s1,s0);
       <!-- Template custom-->
       <script type="text/javascript" src="js/custom.js"></script>
 <script type="text/javascript">
+     function close(){
+    document.getElementById("msg").style.display="none";
+  }
+
    function contact(){
     var name = document.getElementById("name").value;
      var topic = document.getElementById("topic").value;
@@ -220,7 +224,7 @@ var msg = document.getElementById("msg");
 $('.csubmit').attr("disabled","disabled");
                 $('#cform').css("opacity",".5");
 
-        fetch('./functions.php', options)
+        fetch('user/functions.php', options)
             .then(data => data.json())
             .then(res => {
                 if(res.status == 1){

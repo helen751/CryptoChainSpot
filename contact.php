@@ -26,10 +26,7 @@
          <!-- container end-->
          <div class="ts-form form-boxed" id="ts-form">
             <div class="container">
-               <div class="alert  alert-solid alert-success" id="msg" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button><span id="inmsg"> </span>       </div>
+               
                <div class="row">
                   <div class="col-lg-12">
                      <div class="contact-wrapper">
@@ -54,7 +51,10 @@
 
 
                               ?>
-                              <div class="error-container"></div>
+                              <div class="alert  alert-solid alert-success" id="msg" style="display: none;" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="close();">
+              <span aria-hidden="true">×</span>
+            </button><span id="inmsg"> </span>       </div>
                               <div class="row">
                                  <div class="col-lg-12">
                                     <div class="form-group">

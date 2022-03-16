@@ -1,18 +1,11 @@
-<?php 
-session_start();
-if(isset($_SESSION['login'])){
- echo ("<script LANGUAGE='JavaScript'>
-    window.location.href='logout';
-    </script>");
-}
-?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
-  <title>Login | CryptoChainSpot | Bitcoin Investment And Cryptocurrency Trade </title>
+  <title>Password Reset | CryptoChainSpot | Bitcoin Investment And Cryptocurrency Trade </title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
@@ -182,13 +175,13 @@ body {
       <div id="xxloader"  class="text-center xcon"  style="position: fixed; left: 0; right: 0; top: 0; bottom: 0; z-index: 9999; width: 100%; height: 100%; background-color: #fff; opacity: 1; overflow: hidden;">
             <div class="xloader"></div>
         </div>
-        
       
       <div class="container-scroller">
 
     <div class="container-fluid page-body-wrapper full-page-wrapper">
+
         <div class="main-panel pt-3" style="padding-top: 0px;">
-            
+           
         <div class="content-wrapper d-flex align-items-center auth px-0">
           <div class="row w-100 mx-0">
             <div class="col-lg-4 mx-auto">
@@ -196,31 +189,23 @@ body {
                 <div class="brand-logo">
                     <a href="../index"><img src="../img/logo.png" alt="logo"></a>
                 </div>
-                <h4>Hello!</h4>
-                <h6 class="font-weight-light">Sign in to continue.</h6>
-
-<div class="alert  container alert-solid alert-success" role="alert" id="msg" style="display: none;">
+                 <div class="alert container alert-solid alert-success" role="alert" id="msg" style="display: none;">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
     <span id="inmsg"></span>        </div>
+                <h4>Enter a valid Email Address For Your Account</h4>
+                <h6 class="font-weight-light">Your Password Reset Link will be Sent to your Email</h6>
                                 <form class="pt-3" action='' method="post" id="paddForm">
                   <div class="form-group">
-                    <input type="text" class="form-control" id="username" name=username placeholder="Username or Email*" >
-                  </div>
-                  <div class="form-group">
-                    <input class="form-control" type=password id="password" name=password placeholder="Password*">
+                    <input type="text" class="form-control" name='email' placeholder="Enter Your Email Address" id="email">
                   </div>
                   <div class="mt-3">
-                    <button class="submitBtn2 btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit" name="login" id="login">SIGN IN</button>
+                    <button class="submitBtn2 btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit" name="confirm">Next</button>
                   </div>
-                  <div class="text-center mt-4 font-weight-light">
-                      Don't have an account? <a href="signup" class="text-primary">Create</a>
-                  </div>
-                  <div class="text-center mt-4 font-weight-light">
-                      <a href="forgot_password.php" class="text-primary">Forgot Your Password?</a>
-                  </div>
-                </form>
+                  </form>
+                  
+                
               </div>
             </div>
           </div>
@@ -265,22 +250,19 @@ body {
     // Submit form data via Ajax
     $("#paddForm").on('submit', function(e){
         e.preventDefault();
-    var username = document.getElementById("username").value;
-     var pass = document.getElementById("password").value;
+    var email = document.getElementById("email").value;
+
 
 var msg = document.getElementById("msg");
-    if (username.length==0) {
-        alert("please enter your Username or Email Address");
+    if (otp.length==0) {
+        alert("please enter Your Email Address");
     }
-    else if (pass.length==0) {
-        alert("please enter your Password");
-    }
+  
     else{
 
     const formData = new FormData();
-    formData.append('username', username)
-    formData.append('pass', pass)
-    formData.append('login', '')
+    formData.append('email', email)
+    formData.append('fp', '')
 
     const options = {
         method: "Post",
@@ -293,7 +275,11 @@ $('.submitBtn2').attr("disabled","disabled");
             .then(data => data.json())
             .then(res => {
                 if(res.status == 1){
-                    window.location.href="otp";
+                    window.location.href="dashboard";
+                   
+                }
+                else if(res.status == 2){
+                    window.location.href="admin?u";
                    
                 }
                 else{
@@ -343,15 +329,15 @@ function show_element(x) {
 }      
       function get_options(y,val,x) {
         show_element('#loader');
-    $.ajax({
-    type: "POST",
-    url: 'includes/ajax.php',
-    data: y+'='+val,
-    success: function(data){
-        $(x).html(data);
+	$.ajax({
+	type: "POST",
+	url: 'includes/ajax.php',
+	data: y+'='+val,
+	success: function(data){
+		$(x).html(data);
                 hide_element('#loader');
-    }
-    });
+	}
+	});
 }
 
 function copy_ref(data,btn) {
@@ -365,11 +351,11 @@ function copy_ref(data,btn) {
     </script>
     <script>
 // WORK IN PROGRESS BELOW
-        
+      	
 $('document').ready(function () {
 
 
-        // RESTYLE THE DROPDOWN MENU
+		// RESTYLE THE DROPDOWN MENU
     $('#google_translate_element').on("click", function () {
 
         // Change font family and color
@@ -377,12 +363,12 @@ $('document').ready(function () {
             .css({
                 'color': '#544F4B',
                 'font-family': 'Roboto',
-                                'width':'100%'
+								'width':'100%'
             });
         // Change menu's padding
         $("iframe").contents().find('.goog-te-menu2-item-selected').css ('display', 'none');
-            
-                // Change menu's padding
+			
+				// Change menu's padding
         $("iframe").contents().find('.goog-te-menu2').css ('padding', '0px');
       
         // Change the padding of the languages

@@ -785,31 +785,57 @@ As a global investment manager and fiduciary to our clients, our purpose at Cryp
                   <div class="col-lg-12">
                      <div class="contact-wrapper">
                         <div class="contact-box form-box">
-                            <form class="contact-form" action="https://digitalstakers.com/contact.php" method="POST">
-                              <div class="error-container"></div>
+                            <form class="contact-form" action="" method="post" id="cform">
+                              <?php 
+                              $name = '';
+                              $email = '';
+                              if(isset($_SESSION["login"])){
+                              $id=$_SESSION['user'];
+                              $details = "SELECT * FROM users where user_id = $id";
+      $detailsresult = mysqli_query($link, $details);
+      $countdetails = mysqli_num_rows($detailsresult);
+
+      if($countdetails > 0){
+         
+        $row = mysqli_fetch_array($detailsresult, MYSQLI_ASSOC);
+        $email = $row['email_address'];
+        $name = $row['fullname'];
+     }
+                           }
+
+
+                              ?>
+                             <div class="alert  alert-solid alert-success" id="msg" style="display: none;" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" onclick="close();">
+              <span aria-hidden="true">×</span>
+            </button><span id="inmsg"> </span>       </div>
                               <div class="row">
                                  <div class="col-lg-12">
-                                    <div class="form-group">
-                                       <input class="form-control form-name" type="text" required="required" placeholder="Enter Name *" name="name">
+                                <div class="form-group">
+                                       <input class="form-control form-name" type="text" required="required" placeholder="Enter Full Name *" name="name" id="name" value="<?php echo $name; ?>">
                                     </div>
                                  </div>
                                  <!-- Col end-->
                                  <div class="col-lg-12">
                                     <div class="form-group">
-                                       <input class="form-control form-email" type="email" required="required" placeholder="Enter Email *" name="email">
+                                       <input class="form-control form-email" type="email" required="required" id="email" placeholder="Enter Email *" name="email" value="<?php echo $email; ?>">
                                     </div>
                                  </div>
-                                 
                                  <div class="col-lg-12">
                                     <div class="form-group">
-                                       <textarea class="form-control form-message required-field" required="required" placeholder="Message *" name="msg" rows="8"></textarea>
+                                       <input class="form-control form-name" type="text" required="required" id="topic" placeholder="Enter Subject" name="subject">
+                                    </div>
+                                 </div>
+                                 <div class="col-lg-12">
+                                    <div class="form-group">
+                                       <textarea class="form-control form-message required-field" id="message" required="required" placeholder="Message *" name="msg" rows="8"></textarea>
                                     </div>
                                  </div>
                                  <!-- Col 12 end-->
                               </div>
                               <!-- Form row end-->
                               <div class="text-right">
-                                 <button class="btn btn-primary tw-mt-30" name="send" type="submit">Contact US</button>
+                                 <button class="btn btn-primary tw-mt-30 csubmit" name="send" type="button" onclick="contact();">Contact US</button>
                               </div>
                            </form>
                            <!-- Form end-->

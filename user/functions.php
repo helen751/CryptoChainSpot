@@ -1395,7 +1395,7 @@ else{
       $ts = $accrow["transaction_status"];
       if($ts == 0){
       	echo ("<script LANGUAGE='JavaScript'>
-				alert('A Pending Deposit is depending on this wallet. please contact the support team for Help');
+				alert('A Pending Withdrawal is depending on this wallet. please contact the support team for Help');
     window.location.href='wallet';
     </script>");
 
@@ -1492,123 +1492,265 @@ $response = array(
 		
 }
 
-// approving deposits
-// if (isset($_POST['apdep'])) {
-// 	$response = array( 
-//     'status' => 0, 
-//     'message' => 'Failed to approve, Please try again!' 
-// );
 
-// $sql = "UPDATE deposits SET approve = 1, status = 1 where deposit_id = '$did'";
+if (isset($_POST['apdep'])) {
 
-//   	$sql2 = "UPDATE transactions SET transaction_status = 1 where transaction_id = '$did'";
+	$depsql = "SELECT * from deposits where user_id='$userid' and approve != 0";
+     $depresult = mysqli_query($link,$depsql);
+     $countdep = mysqli_num_rows($depresult);
 
-// 		if((mysqli_query($link,$sql)) && (mysqli_query($link,$sql2))){
+   if($countdep != 0){
 
-// 			$depsql2 = "SELECT * from users where user_id='$uid'";
-//      $depresult2 = mysqli_query($link,$depsql2);
-//      $countdep2 = mysqli_num_rows($depresult2);
+$sql = "UPDATE deposits SET approve = 1, status = 1 where deposit_id = '$did'";
 
-//    if($countdep2 != 0){
-//    	$deprow = mysqli_fetch_array($depresult2, MYSQLI_ASSOC); 
-//       $referer = $deprow["referer_id"];
-//       if(is_null($referer)){
-// 			if($uv == "p"){
-// 			echo ("<script LANGUAGE='JavaScript'>
-// 				alert('Deposit Approved :)');
-//     window.location.href='view?pd';
-//     </script>");
+  	$sql2 = "UPDATE transactions SET transaction_status = 1 where transaction_id = '$did'";
 
-// 		}
-// 		else{
-// 		echo ("<script LANGUAGE='JavaScript'>
-// 				alert('Deposit Approved :)');
-//     window.location.href='view?ad';
-//     </script>");	
-// 		}
-// 	}
-
-// 	else{
-// 		$plansql = "SELECT * from deposits where deposit_id='$did'";
-//      $planresult = mysqli_query($link,$plansql);
-//        $countplan = mysqli_num_rows($planresult);
-
-//    if($countplan != 0){
-//      $planrow = mysqli_fetch_array($planresult, MYSQLI_ASSOC); 
-//       $planid = $planrow["plan_id"];
-
-//       $plansql2 = "SELECT * from plans where plan_id='$planid'";
-//      $planresult2 = mysqli_query($link,$plansql2);
-//        $countplan2 = mysqli_num_rows($planresult2);
-
-//    if($countplan2 != 0){
-//      $planrow = mysqli_fetch_array($planresult2, MYSQLI_ASSOC); 
-//       $per = $planrow["percentage_profit"];
-
-// 		$bon = ($per/100) * $amount;
-// $sql = "INSERT INTO bonus(user_id,bonus_type,bonus_amount) values('$referer','referal','$bon')";
-
-// 		if(mysqli_query($link,$sql)){
-// 			$refacc = "UPDATE accounts SET account_balance = account_balance+$bon WHERE user_id='$referer'";
-// 		if(mysqli_query($link,$refacc)){
-// 			// adding the referal bonus to referals
-
-// 			$sqlr = "INSERT INTO referals(user_id,refered_id,bonus_amount) values('$referer','$uid','$bon')";
-
-// 		if(mysqli_query($link,$sqlr)){
-// 			if($uv == "p"){
-// 			echo ("<script LANGUAGE='JavaScript'>
-// 				alert('Deposit Approved :)');
-//     window.location.href='view?pd';
-//     </script>");
-
-// 		}
-// 		else{
-// 		echo ("<script LANGUAGE='JavaScript'>
-// 				alert('Deposit Approved :)');
-//     window.location.href='view?ad';
-//     </script>");	
-// 		}
-// 	}
-// 	else{
-// 		if($uv == "p"){
-// 			echo ("<script LANGUAGE='JavaScript'>
-// 				alert('Deposit Approved :)');
-//     window.location.href='view?pd';
-//     </script>");
-
-// 		}
-// 		else{
-// 		echo ("<script LANGUAGE='JavaScript'>
-// 				alert('Deposit Approved :)');
-//     window.location.href='view?ad';
-//     </script>");	
-// 		}
-// 	}
-// }
-// 		}
-
-// 		else{
-// 			if($uv == "p"){
-// 			echo ("<script LANGUAGE='JavaScript'>
-// 				alert('Failed');
-//     window.location.href='view?pd';
-//     </script>");
-
-// 		}
-// 		else{
-// 		echo ("<script LANGUAGE='JavaScript'>
-// 				alert('Failed');
-//     window.location.href='view?ad';
-//     </script>");	
-// 		}
-	
-// }
+		if((mysqli_query($link,$sql)) && (mysqli_query($link,$sql2))){
 
 
+			if($uv == "p"){
+			echo ("<script LANGUAGE='JavaScript'>
+				alert('Deposit Approved :)');
+    window.location.href='view?pd';
+    </script>");
 
-// 	 echo json_encode($response);
-// }
+		}
+		else{
+		echo ("<script LANGUAGE='JavaScript'>
+				alert('Deposit Approved :)');
+    window.location.href='view?ad';
+    </script>");	
+		}
+	}
+	else{
+		if($uv == "p"){
+			echo ("<script LANGUAGE='JavaScript'>
+				alert('Error Approving Deposit :)');
+    window.location.href='view?pd';
+    </script>");
+
+		}
+		else{
+		echo ("<script LANGUAGE='JavaScript'>
+				alert('Error Approving Deposit :)');
+    window.location.href='view?ad';
+    </script>");	
+		}
+	}
+}
+
+else{
+	$depsql2 = "SELECT * from users where user_id='$userid'";
+     $depresult2 = mysqli_query($link,$depsql2);
+     $countdep2 = mysqli_num_rows($depresult2);
+
+   if($countdep2 != 0){
+   	$deprow = mysqli_fetch_array($depresult2, MYSQLI_ASSOC); 
+      $referer = $deprow["referer_id"];
+
+      if(is_null($referer)){
+      	$sql = "UPDATE deposits SET approve = 1, status = 1 where deposit_id = '$did'";
+
+  	$sql2 = "UPDATE transactions SET transaction_status = 1 where transaction_id = '$did'";
+
+		if((mysqli_query($link,$sql)) && (mysqli_query($link,$sql2))){
+
+
+			if($uv == "p"){
+			echo ("<script LANGUAGE='JavaScript'>
+				alert('Deposit Approved :)');
+    window.location.href='view?pd';
+    </script>");
+
+		}
+		else{
+		echo ("<script LANGUAGE='JavaScript'>
+				alert('Deposit Approved :)');
+    window.location.href='view?ad';
+    </script>");	
+		}
+	}
+	else{
+		if($uv == "p"){
+			echo ("<script LANGUAGE='JavaScript'>
+				alert('Error Approving Deposit :)');
+    window.location.href='view?pd';
+    </script>");
+
+		}
+		else{
+		echo ("<script LANGUAGE='JavaScript'>
+				alert('Error Approving Deposit :)');
+    window.location.href='view?ad';
+    </script>");	
+		}
+	}
+
+      }
+
+      else{
+      	$plansql = "SELECT * from plans where plan_id='$plan'";
+     $planresult = mysqli_query($link,$plansql);
+                                    $countplan = mysqli_num_rows($planresult);
+
+   if($countplan != 0){
+     $planrow = mysqli_fetch_array($planresult, MYSQLI_ASSOC); 
+      $planid = $planrow["plan_id"];
+      $coin = $planrow["coin_id"];
+      $ref = $planrow["referal_bonus"];
+      $period = $planrow["period"];
+      $min = $planrow["min_deposit"];
+      $max = $planrow["max_deposit"];
+      $per = $planrow["percentage_profit"];
+$bon = ($per/100) * $amount;
+$sql = "INSERT INTO bonus(user_id,bonus_type,bonus_amount) values('$referer','referal','$bon')";
+
+		if(mysqli_query($link,$sql)){
+			$refacc = "UPDATE accounts SET account_balance = account_balance+$bon WHERE user_id='$referer'";
+		if(mysqli_query($link,$refacc)){
+			// adding the referal bonus to referals
+
+			$sqlr = "INSERT INTO referals(user_id,refered_id,bonus_amount) values('$referer','$id','$bon')";
+
+		if(mysqli_query($link,$sqlr)){
+$sql = "UPDATE deposits SET approve = 1, status = 1 where deposit_id = '$did'";
+
+  	$sql2 = "UPDATE transactions SET transaction_status = 1 where transaction_id = '$did'";
+
+		if((mysqli_query($link,$sql)) && (mysqli_query($link,$sql2))){
+
+$uacc1 = "UPDATE accounts SET system_balance = system_balance+$amount WHERE user_id='$userid'";
+		if(mysqli_query($link,$uacc1)){
+			if($uv == "p"){
+			echo ("<script LANGUAGE='JavaScript'>
+				alert('Deposit Approved :)');
+    window.location.href='view?pd';
+    </script>");
+
+		}
+		else{
+		echo ("<script LANGUAGE='JavaScript'>
+				alert('Deposit Approved :)');
+    window.location.href='view?ad';
+    </script>");	
+		}
+	}
+	else{
+		if($uv == "p"){
+			echo ("<script LANGUAGE='JavaScript'>
+				alert('Error Approving Deposit :)');
+    window.location.href='view?pd';
+    </script>");
+
+		}
+		else{
+		echo ("<script LANGUAGE='JavaScript'>
+				alert('Error Approving Deposit :)');
+    window.location.href='view?ad';
+    </script>");	
+		}
+	}
+}
+else{
+if($uv == "p"){
+			echo ("<script LANGUAGE='JavaScript'>
+				alert('Error Approving Deposit :)');
+    window.location.href='view?pd';
+    </script>");
+
+		}
+		else{
+		echo ("<script LANGUAGE='JavaScript'>
+				alert('Error Approving Deposit :)');
+    window.location.href='view?ad';
+    </script>");	
+		}
+}
+      }
+      else{
+if($uv == "p"){
+			echo ("<script LANGUAGE='JavaScript'>
+				alert('Error Approving Deposit :)');
+    window.location.href='view?pd';
+    </script>");
+
+		}
+		else{
+		echo ("<script LANGUAGE='JavaScript'>
+				alert('Error Approving Deposit :)');
+    window.location.href='view?ad';
+    </script>");	
+		}
+      }
+  }
+  else{
+if($uv == "p"){
+			echo ("<script LANGUAGE='JavaScript'>
+				alert('Error Approving Deposit :)');
+    window.location.href='view?pd';
+    </script>");
+
+		}
+		else{
+		echo ("<script LANGUAGE='JavaScript'>
+				alert('Error Approving Deposit :)');
+    window.location.href='view?ad';
+    </script>");	
+		}
+  }
+}
+else{
+if($uv == "p"){
+			echo ("<script LANGUAGE='JavaScript'>
+				alert('Error Approving Deposit :)');
+    window.location.href='view?pd';
+    </script>");
+
+		}
+		else{
+		echo ("<script LANGUAGE='JavaScript'>
+				alert('Error Approving Deposit :)');
+    window.location.href='view?ad';
+    </script>");	
+		}
+}
+
+}
+else{
+if($uv == "p"){
+			echo ("<script LANGUAGE='JavaScript'>
+				alert('Error Approving Deposit :)');
+    window.location.href='view?pd';
+    </script>");
+
+		}
+		else{
+		echo ("<script LANGUAGE='JavaScript'>
+				alert('Error Approving Deposit :)');
+    window.location.href='view?ad';
+    </script>");	
+		}
+}
+}
+}
+else{
+if($uv == "p"){
+			echo ("<script LANGUAGE='JavaScript'>
+				alert('Error Approving Deposit :)');
+    window.location.href='view?pd';
+    </script>");
+
+		}
+		else{
+		echo ("<script LANGUAGE='JavaScript'>
+				alert('Error Approving Deposit :)');
+    window.location.href='view?ad';
+    </script>");	
+		}
+}
+}
+
+}
 
 
 
@@ -1675,14 +1817,14 @@ $sql3 = "UPDATE account_balance SET account_balance = account_balance-$wamt wher
 			if($uv == "p"){
 			echo ("<script LANGUAGE='JavaScript'>
 				alert('Withdrawal Approved :)');
-    window.location.href='view?aw';
+    window.location.href='view?pw';
     </script>");
 
 		}
 		else{
 		echo ("<script LANGUAGE='JavaScript'>
 				alert('Withdrawal Approved :)');
-    window.location.href='view?pw';
+    window.location.href='view?aw';
     </script>");	
 		}
 		}
@@ -1691,14 +1833,14 @@ $sql3 = "UPDATE account_balance SET account_balance = account_balance-$wamt wher
 			if($uv == "p"){
 			echo ("<script LANGUAGE='JavaScript'>
 				alert('Failed');
-    window.location.href='view?aw';
+    window.location.href='view?pw';
     </script>");
 
 		}
 		else{
 		echo ("<script LANGUAGE='JavaScript'>
 				alert('Failed');
-    window.location.href='view?pw';
+    window.location.href='view?aw';
     </script>");	
 		}
 	
@@ -1774,36 +1916,7 @@ $response = array(
 			$countcheckcoin2 = mysqli_num_rows($resultcheckcoin2);
 
 			if($countcheckcoin2 == 0){	
-				if(isset($file)){
-					$uploadStatus = 1; 
-                $fileName = basename($_FILES["file"]["name"]); 
-                $targetFilePath = $uploadDir . $fileName; 
-                $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION); 
-                  
-                    if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){ 
-                        $uploadedFile = $fileName; 
-                    }
-                    else{ 
-                        $uploadStatus = 0; 
-                        $response['message'] = "Sorry, there was an error uploading the coin image try again!."; 
-                    } 
-
-                     if($uploadStatus == 1){ 
-                     	$sql = "UPDATE coins SET coin_name = '$coinname', abbrev = '$abbrev', image= '$fileName', coin_wallet = '$wallet' where coin_id = '$coinid'";
-
-		if(mysqli_query($link,$sql)){
-			
-		$response['status'] = 1; 
-			$response['message'] = "Coin Details Edited Successfully ";
-	}
-	else{
-			$response['message'] = "Error Editing Coin Details";
-	
-}
-                     }
-
-				}
-				else{
+				
 $sql = "UPDATE coins SET coin_name = '$coinname', abbrev = '$abbrev', coin_wallet = '$wallet' where coin_id = '$coinid'";
 
 		if(mysqli_query($link,$sql)){
@@ -1815,7 +1928,7 @@ $sql = "UPDATE coins SET coin_name = '$coinname', abbrev = '$abbrev', coin_walle
 			$response['message'] = "Error Editing Coin Details";
 	
 }
-}
+
 	}
 	else{
 		
@@ -1833,53 +1946,113 @@ $sql = "UPDATE coins SET coin_name = '$coinname', abbrev = '$abbrev', coin_walle
 }
 
 // deleting coin
-if (isset($_POST['delplan'])) {
+if (isset($_POST['editplan'])) {
 	session_start();
-  	$sql = "DELETE FROM plans where plan_id = '$pid'";
+	$response = array( 
+    'status' => 0, 
+    'message' => 'Failed to Edit Coin, Please try again!',
+    'uv' => 'u' 
+);
+  	$sql = "UPDATE plans set plan_name='$planname', min_deposit = '#min', max_deposit='$max', percentage_profit='$profit', period = '$period', referal_bonus='$refp'";
+
+		if(mysqli_query($link,$sql)){
+			$response['status'] = 1; 
+			$response['message'] = "Plan Edited Successfully :) ";
+		}
+		else{
+			$response['message'] = "Failed to edit Plan. Please try again ";
+		}
+echo json_encode($response);
+
+}
+
+
+if (isset($_POST['editwal'])) {
+
+$sql = "UPDATE wallets SET wallet_address='$wallet', coin_id = '$coin' where wallet_id = '$walid'";
 
 		if(mysqli_query($link,$sql)){
 			echo ("<script LANGUAGE='JavaScript'>
-				alert('Plan Deleted Successfully :)');
-    window.location.href='view?coins';
+				alert('Wallet Updated Successfully');
+    window.location.href='wallet';
     </script>");
 		}
 		else{
 			echo ("<script LANGUAGE='JavaScript'>
-				alert('Failed to Delete');
-    window.location.href='view?coins';
+				alert('Error Updating Wallet Please try again');
+    window.location.href='wallet';
     </script>");
-		}
-
-
+	
+}
 }
 
-// deleting wallet
-if (isset($_POST['delwallet'])) {
-	session_start();
-  	$sql = "DELETE FROM wallets where wallet_id = '$walid'";
-	$sql2 = "UPDATE withdrawals set wallet_id = null";
 
-if(mysqli_query($link,$sql2)){
-		if(mysqli_query($link,$sql)){
-			echo ("<script LANGUAGE='JavaScript'>
-				alert('Wallet Deleted Successfully :)');
-    window.location.href='view?wallets';
-    </script>");
-		}
-		else{
-			echo ("<script LANGUAGE='JavaScript'>
-				alert('Failed to Delete');
-    window.location.href='view?wallets';
-    </script>");
-		}
-	}else{
-		echo ("<script LANGUAGE='JavaScript'>
-				alert('Failed to Delete');
-    window.location.href='view?wallets';
-    </script>");
-	}
+if (isset($_POST['fp'])) {
+	$response = array( 
+    'status' => 0, 
+    'message' => 'Failed to Send EMail, Please try again!' 
+);
 
+$checkcoin2 = "SELECT * FROM users where email_address = '$email'";
+			$resultcheckcoin2 = mysqli_query($link, $checkcoin2);
+			$countcheckcoin2 = mysqli_num_rows($resultcheckcoin2);
 
+			if($countcheckcoin > 0){
+				 
+				$row = mysqli_fetch_array($resultcheckcoin, MYSQLI_ASSOC);
+				$id = $row['user_id'];
+				$name = $row['username'];
+				$from = 'support@cryptochainspot.com';
+$to = $email; 
+$fromName = 'CryptoChainSpot'; 
+$email2 = $from;
+ 
+$subject = 'Password Reset Link'; 
+ 
+$htmlContent = ' 
+    <html> 
+    <head> 
+        <title>Hello Support</title> 
+    </head> 
+    <body> 
+        
+        <div style="border:1px solid gray"> 
+        <div style="width:100%; background-color:goldenrod">
+        <img src="../img/logo.png" width="50" height="50" />
+        </div>
+        <div style="margin-top:2%; text-align:center">
+        Hello '.$username.' <br> Here is your password reset Link. Click on the link below or copy and paste in a browser.
+        </div>
+        </div>
+        
+         </body> 
+    </html>'; 
+ 
+// Set content-type header for sending HTML email 
+$headers = "MIME-Version: 1.0" . "\r\n"; 
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
+ 
+// Additional headers 
+$headers .= 'From: '.$fromName.'<'.$from.'>' . "\r\n"; 
+$headers .= 'Cc: '.$email2 . "\r\n"; 
+$headers .= 'Bcc: '.$email2 . "\r\n"; 
+ 
+// Send email 
+if(mail($to, $subject, $htmlContent, $headers)){
+$response['status'] = 1; 
+			$response['message'] = "Message Sent Successfully:)";	
 }
+else{
+$response['message'] = "Error Sending Mail please try again!";		
+}
+}
+else{
+	$response['message'] = "Sorry We couldnt find your Account Please check the email Address!";	
+}
+
+
+	 echo json_encode($response);
+}
+
 
 ?>
