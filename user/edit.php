@@ -298,7 +298,7 @@ $sql = "UPDATE withdrawals set wallet_id = null where wallet_id = '$walid'";
               <p><small class="card-description">
                       </small></p>
               <form method="post" id="caddForm">
-                   <input type="text" hidden id="coinid" name="coinid" value="<?php echo $coinid; ?>">
+                   <input type="text" id="coinid" name="coinid" value="<?php echo $coinid; ?>">
                      
               <div class="form-group">
                     <input type="text" class="form-control" placeholder="Enter New Coin Name" name="coinname" value="<?php echo $coinname  ?>" id="coinname" required>
