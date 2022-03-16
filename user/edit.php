@@ -812,7 +812,6 @@ $('.submitBtn2').attr("disabled","disabled");
     $("#paddForm").on('submit', function(e){
         e.preventDefault();
     var pname = document.getElementById("pname").value;
-     var pcoin = document.getElementById("pcoin").value;
     var min = document.getElementById("min").value;
     var max = document.getElementById("max").value;
     var period = document.getElementById("period").value;
@@ -845,7 +844,6 @@ $('.submitBtn2').attr("disabled","disabled");
 
     const formData = new FormData();
     formData.append('pname', pname)
-    formData.append('pcoin', pcoin)
     formData.append('min', min)
     formData.append('max', max)
     formData.append('period', period2)
