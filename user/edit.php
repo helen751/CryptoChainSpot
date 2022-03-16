@@ -566,7 +566,6 @@ function googleTranslateElementInit() {
     var coinname = document.getElementById("coinname").value;
     var coinid = document.getElementById("coinid").value;
     var msg = document.getElementById("msg");
-    var mainimg = '';
     
     if (coinname.length==0) {
         alert("please enter the Coin name")
@@ -579,7 +578,6 @@ function googleTranslateElementInit() {
     }
     
     else{
-var filePath = image;
 const formData = new FormData();
     formData.append('coinname', coinname)
     formData.append('wallet', wallet)
