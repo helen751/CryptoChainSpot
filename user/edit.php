@@ -245,7 +245,7 @@ $sql = "UPDATE withdrawals set wallet_id = null where wallet_id = '$walid'";
               <h3 class="card-title">Update User Details</h3>
               <p><small class="card-description">
                       </small></p>
-              <form action="functions.php" method="post" id="uForm">
+              <form action="functions.php" method="post" id="uFormm">
                    <input type="text" hidden id="uid" name="uid" value="<?php echo $uid; ?>">
                       <input type="text" hidden id="uv" name="uv" value="<?php echo $uv ?>">
               <div class="form-group">
@@ -264,7 +264,7 @@ $sql = "UPDATE withdrawals set wallet_id = null where wallet_id = '$walid'";
                     <input type="number" class="form-control" placeholder="Enter New Account Balance" name="acc" value="<?php echo $acc; ?>" id="acc" required>
                   </div>
               
-              <button class="btn btn-primary btn-block submitBtn2" name='edituser' type="submit">Edit User</button>
+              <button class="btn btn-primary btn-block submitBtn22" name='edituser' type="submit">Edit User</button>
           </form>
             </div>
           </div>
@@ -558,6 +558,11 @@ function googleTranslateElementInit() {
                 elem.value = val4;
             }
         }
+
+         function close(){
+    document.getElementById("msg").style.display="none";
+  }
+
     </script>
     <script type="text/javascript">
       $(document).ready(function(e){
@@ -735,7 +740,7 @@ $('document').ready(function () {
 <script type="text/javascript">
 $(document).ready(function(e){
     // Submit form data via Ajax
-    $("#uForm").on('submit', function(e){
+    $("#uFormm").on('submit', function(e){
         e.preventDefault();
     var fullname = document.getElementById("fullname").value;
      var uid = document.getElementById("uid").value;
@@ -778,8 +783,8 @@ $(document).ready(function(e){
         method: "Post",
         body: formData,
     }
-$('.submitBtn2').attr("disabled","disabled");
-                $('#uForm').css("opacity",".5");
+$('.submitBtn22').attr("disabled","disabled");
+                $('#uFormm').css("opacity",".5");
 
         fetch('./functions.php', options)
             .then(data => data.json())
@@ -797,8 +802,8 @@ $('.submitBtn2').attr("disabled","disabled");
                      $('#inmsg').html(res.message);
                      window.scrollTo(0,0);
                 }
-                $('#uForm').css("opacity","");
-                $(".submitBtn2").removeAttr("disabled");
+                $('#uFormm').css("opacity","");
+                $(".submitBtn22").removeAttr("disabled");
                 
             });
     
