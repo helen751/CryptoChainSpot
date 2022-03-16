@@ -173,7 +173,7 @@ else{
       $ts = $accrow["transaction_status"];
       if($ts == 0){
         echo ("<script LANGUAGE='JavaScript'>
-                alert('A Pending Withdrawal is depending on this wallet. please contact the support team for Help');
+                alert('A Pending Withdrawal is depending on this wallet. cant be deleted!');
     window.location.href='view?wallet';
     </script>");
 

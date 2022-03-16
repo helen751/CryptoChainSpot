@@ -632,12 +632,13 @@ echo $countcoin2;
           <td><?php echo $uname; ?></td>
           <td><?php echo $wallet; ?></td>
              <td><?php echo $coin; ?></td>
-<td><?php echo $amt; ?></td>
+<td><?php echo round($amt,2); ?></td>
              <td><?php echo $date; ?></td>
              <td><?php echo $status; ?></td>
               <td>
                 <form name="form2" method="POST" id="coinform2" action="functions.php">
            <input type="hidden" hidden name="tid" value="<?php echo $tid; ?>">
+           <input type="hidden" hidden name="wamt" value="<?php echo $amt; ?>">
             <input type="hidden" hidden name="wid" value="<?php echo $wtid; ?>">
             <input type="hidden" hidden name="userid" value="<?php echo $userid; ?>">
             <input type="hidden" hidden name="uv" value="p">
@@ -785,6 +786,7 @@ $status="<i class='fa fa-circle text-success'></i>"."Approved";
               <td>
                 <form name="form2" method="POST" id="coinform2" action="functions.php">
            <input type="hidden" hidden name="tid" value="<?php echo $tid; ?>">
+           <input type="hidden" hidden name="wamt" value="<?php echo $amt; ?>">
             <input type="hidden" hidden name="wid" value="<?php echo $wtid; ?>">
             <input type="hidden" hidden name="userid" value="<?php echo $userid; ?>">
             <input type="hidden" hidden name="uv" value="aw">
@@ -940,7 +942,7 @@ $status="<i class='fa fa-circle text-danger'></i>"."Expired";
             <input type="hidden" hidden name="userid" value="<?php echo $userid; ?>">
             <input type="hidden" hidden name="pid" value="<?php echo $plan; ?>">
             <input type="hidden" hidden name="amount" value="<?php echo $amt; ?>">
-            <input type="hidden" hidden name="uv" value="p">
+            <input type="hidden" hidden name="uv" value="w">
            
 
                 <button class="btn btn-success" type="submit" name="apdep"><i class="fa fa-check-circle"></i></button>
