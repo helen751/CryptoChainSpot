@@ -795,7 +795,7 @@ $status="<i class='fa fa-circle text-success'></i>"."Approved";
                 <?php if($st != 0){
   ?>
                 <button class="btn btn-success" type="submit" name="apwit" disabled><i class="fa fa-check-circle"></i></button>
-                <?php else{
+                <?php } else{
                   ?>
 <button class="btn btn-success" type="submit" name="apwit"><i class="fa fa-check-circle"></i></button>
                 <?php } ?>
@@ -953,7 +953,7 @@ $status="<i class='fa fa-circle text-danger'></i>"."Expired";
 <?php if($st != 0){
   ?>
                 <button class="btn btn-success" type="submit" name="apdep" disabled><i class="fa fa-check-circle"></i></button>
-                <?php else{
+                <?php } else{
                   ?>
 <button class="btn btn-success" type="submit" name="apdep"><i class="fa fa-check-circle"></i></button>
                 <?php } ?>
