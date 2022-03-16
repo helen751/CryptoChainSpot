@@ -227,10 +227,7 @@ body {
                     </div>
                   </a>
                   <div class="text-center">
-                  <a href="deposit" class="btn btn-primary btn-icon-text">
-                          <i class="fas fa-upload btn-icon-prepend"></i>                                                    
-                          Deposit Now
-                        </a>
+                 
                   </div>
                   
                 </div>
@@ -240,11 +237,11 @@ body {
                     <i class="fas fa-user mx-0"></i>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-                  <a href="profile" class="dropdown-item">
+                  <a href="view?users" class="dropdown-item">
                     <i class="fa fa-cog text-primary"></i>
-                    Settings
+                    Users
                   </a>
-                  <a href="?logout=1" class="dropdown-item">
+                  <a href="logout" class="dropdown-item">
                     <i class="fas fa-sign-out-alt text-primary"></i>
                     Logout
                   </a>
@@ -252,12 +249,12 @@ body {
               </li>
               
               <li class="nav-item " style="margin-right: 0px;">
-                <a class=" btn btn-sm btn-success" href="deposit" >
+                <a class=" btn btn-sm btn-success" href="../index" >
                     <i class="fas fa-upload mx-0"></i>
                 </a>
               </li>
               <li class="nav-item ">
-                <a class=" btn btn-sm btn-warning" href="withdraw" >
+                <a class=" btn btn-sm btn-warning" href="#" >
                     <i class="fas fa-download text-white mx-0"></i>
                 </a>
               </li>
