@@ -1,6 +1,6 @@
- <footer class="footer">
+<footer class="footer">
           <div class="w-100 clearfix">
-            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © <?php echo date('Y'); ?> <a href="index" >CryptoChain Spot</a>. All rights reserved.</span>
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © <?php echo date('Y'); ?> <a href="index" >CryptoChainSpot</a>. All rights reserved.</span>
             <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Admin <i class="far fa-user text-primary"></i></span>
             <p  class="text-success"></p>
           </div>
@@ -18,6 +18,7 @@ function googleTranslateElementInit() {
 
 <!--End of Tawk.to Script-->    
   <!-- plugins:js -->
+  <script src="vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
   <script src="vendors/chart.js/Chart.min.js"></script>
@@ -243,24 +244,6 @@ $('document').ready(function () {
 </script>
 
 <script type="text/javascript">
- function showaddcoin(){
-    document.getElementById("users").style.display="none";
-    document.getElementById("sum").style.display="none";
-    document.getElementById("addcoin").style.display="block";
-    document.getElementById("addplan").style.display="none";
-  }
-  function showdash(){
-    document.getElementById("users").style.display="block";
-    document.getElementById("sum").style.display="flex";
-    document.getElementById("addcoin").style.display="none";
-    document.getElementById("addplan").style.display="none";
-  }
-  function showaddplan(){
-    document.getElementById("users").style.display="none";
-    document.getElementById("sum").style.display="none";
-    document.getElementById("addcoin").style.display="none";
-    document.getElementById("addplan").style.display="block";
-  }
   function close(){
     document.getElementById("msg").style.display="none";
   }
@@ -350,7 +333,9 @@ $('.submitBtn').attr("disabled","disabled");
    }
   })
 })
+</script>
 
+<script type="text/javascript">
 
 $(document).ready(function(e){
     // Submit form data via Ajax
