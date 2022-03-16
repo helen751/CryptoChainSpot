@@ -792,7 +792,13 @@ $status="<i class='fa fa-circle text-success'></i>"."Approved";
             <input type="hidden" hidden name="uv" value="aw">
            
 
-                <button class="btn btn-success" type="submit" name="apwit"><i class="fa fa-check-circle"></i></button>
+                <?php if($st != 0){
+  ?>
+                <button class="btn btn-success" type="submit" name="apwit" disabled><i class="fa fa-check-circle"></i></button>
+                <?php else{
+                  ?>
+<button class="btn btn-success" type="submit" name="apwit"><i class="fa fa-check-circle"></i></button>
+                <?php } ?>
                <button class="btn btn-danger" type="submit" name="delwit"><i class="fa fa-trash"></i></button>
                                           </form>
                    </td>                       
@@ -944,8 +950,14 @@ $status="<i class='fa fa-circle text-danger'></i>"."Expired";
             <input type="hidden" hidden name="amount" value="<?php echo $amt; ?>">
             <input type="hidden" hidden name="uv" value="w">
            
-
-                <button class="btn btn-success" type="submit" name="apdep"><i class="fa fa-check-circle"></i></button>
+<?php if($st != 0){
+  ?>
+                <button class="btn btn-success" type="submit" name="apdep" disabled><i class="fa fa-check-circle"></i></button>
+                <?php else{
+                  ?>
+<button class="btn btn-success" type="submit" name="apdep"><i class="fa fa-check-circle"></i></button>
+                <?php } ?>
+                
                <button class="btn btn-danger" type="submit" name="deldep"><i class="fa fa-trash"></i></button>
                                           </form>
                    </td>                       
