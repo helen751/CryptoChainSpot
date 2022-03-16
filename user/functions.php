@@ -1974,13 +1974,13 @@ $sql = "UPDATE wallets SET wallet_address='$wallet', coin_id = '$coin' where wal
 		if(mysqli_query($link,$sql)){
 			echo ("<script LANGUAGE='JavaScript'>
 				alert('Wallet Updated Successfully');
-    window.location.href='wallet';
+    window.location.href='view?wallet';
     </script>");
 		}
 		else{
 			echo ("<script LANGUAGE='JavaScript'>
 				alert('Error Updating Wallet Please try again');
-    window.location.href='wallet';
+    window.location.href='view?wallet';
     </script>");
 	
 }

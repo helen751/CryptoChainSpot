@@ -1080,6 +1080,7 @@ echo $countcoin2;
                                         
                                      
                                      <?php
+                                     $num = $num+1;
                                      } 
                                    }
                                    ?>    

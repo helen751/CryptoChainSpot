@@ -412,7 +412,7 @@ $sql = "UPDATE withdrawals set wallet_id = null where wallet_id = '$walid'";
               <p><small class="card-description">
                       </small></p>
               <form action="functions.php" method="post" id="waddForm">
-                   <input type="text" hidden id="walid" name="walid" value="<?php echo $waliid; ?>">
+                   <input type="text" hidden id="walid" name="walid" value="<?php echo $walid; ?>">
 
                    <div class="form-group">
                       <label class="form-control-label">Choose Wallet Type <span class="tx-danger">*</span></label>
@@ -426,6 +426,9 @@ $sql = "UPDATE withdrawals set wallet_id = null where wallet_id = '$walid'";
                                           while($coinrow = $coinresult->fetch_assoc()) {                                         
                                             $coinname = $coinrow["coin_name"];
                                             $coinid = $coinrow["coin_id"];
+                                            if($coinid == $cid){
+                                                continue;
+                                            }
 
 
 
