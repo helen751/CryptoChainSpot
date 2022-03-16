@@ -298,7 +298,7 @@ $sql = "UPDATE withdrawals set wallet_id = null where wallet_id = '$walid'";
               <p><small class="card-description">
                       </small></p>
               <form method="post" id="caddForm">
-                   <input type="text" id="coinid" name="coinid" value="<?php echo $coinid; ?>">
+                   <input type="text" hidden id="coinidd" name="coinid" value="<?php echo $coinid; ?>">
                      
               <div class="form-group">
                     <input type="text" class="form-control" placeholder="Enter New Coin Name" name="coinname" value="<?php echo $coinname  ?>" id="coinname" required>
@@ -564,7 +564,7 @@ function googleTranslateElementInit() {
     var abbrev = document.getElementById("abbrev").value;
      var wallet = document.getElementById("wallet").value;
     var coinname = document.getElementById("coinname").value;
-    var coinid = document.getElementById("coinid").value;
+    var coinid = document.getElementById("coinidd").value;
     var msg = document.getElementById("msg");
     
     if (coinname.length==0) {
@@ -580,6 +580,7 @@ function googleTranslateElementInit() {
     else{
 const formData = new FormData();
     formData.append('coinname', coinname)
+    formData.append('coinid', coinid)
     formData.append('wallet', wallet)
     formData.append('abbrev', abbrev)
     formData.append('editcoin', ' ')
