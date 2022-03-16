@@ -190,10 +190,10 @@ echo $countcoin2;
                       
           <td><?php echo $coinname; ?></td>
           <td><?php echo $planname; ?></td>
-             <td><?php echo $period; ?></td>
+             <td><?php echo $period/7; ?> Weeks</td>
 
-             <td><?php echo $min; ?></td>
-             <td><?php echo $max; ?></td>
+             <td><?php echo round($min,2); ?></td>
+             <td><?php echo round($max,2); ?></td>
 
             <td><?php echo $ref; ?></td>
             <td><?php echo $profit; ?></td>
@@ -779,7 +779,7 @@ $status="<i class='fa fa-circle text-success'></i>"."Approved";
           <td><?php echo $uname; ?></td>
           <td><?php echo $wallet; ?></td>
              <td><?php echo $coin; ?></td>
-<td><?php echo $amt; ?></td>
+<td><?php echo round($amt,2); ?></td>
              <td><?php echo $date; ?></td>
              <td><?php echo $status; ?></td>
               <td>
@@ -930,7 +930,7 @@ $status="<i class='fa fa-circle text-danger'></i>"."Expired";
           <td><?php echo $uname; ?></td>
           <td><?php echo $coin; ?></td>
              <td><?php echo $plan; ?></td>
-<td><?php echo $amt; ?></td>
+<td><?php echo round($amt,2); ?></td>
              <td><?php echo $date; ?></td>
              <td><?php echo $status; ?></td>
               <td>

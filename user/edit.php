@@ -364,17 +364,17 @@ $sql = "UPDATE withdrawals set wallet_id = null where wallet_id = '$walid'";
                     </div>
                     <div class="form-group">
                     <label class="form-control-label">Enter Plan Period in Weeks: <span class="tx-danger">*</span></label>
-                <input type="number" value="<?php echo $period; ?>" name='period' id="period" placeholder="30" class="form-control">
+                <input type="number" value="<?php echo $period/7; ?>" name='period' id="period" placeholder="30" class="form-control">
                     </div>
 
                     <div class="form-group">
                     <label class="form-control-label">Plan Minimum Deposit Amount: <span class="tx-danger">*</span></label>
-                <input type="text" name='min' value="<?php echo $min; ?>" id="min" placeholder="100" class="form-control" oninput="validmin(this)">
+                <input type="text" name='min' value="<?php echo round($min,2); ?>" id="min" placeholder="100" class="form-control" oninput="validmin(this)">
                     </div>
 
                     <div class="form-group">
                     <label class="form-control-label">Plan Maximum Deposit Amount: <span class="tx-danger">*</span></label>
-                <input type="text" name='max' value="<?php echo $max; ?>" id="max" placeholder="1000" class="form-control" oninput="validmax(this)">
+                <input type="text" name='max' value="<?php echo round($max,2); ?>" id="max" placeholder="1000" class="form-control" oninput="validmax(this)">
                     </div>
                     
                     
