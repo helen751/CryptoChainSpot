@@ -1953,7 +1953,7 @@ if (isset($_POST['editplan'])) {
     'message' => 'Failed to Edit Coin, Please try again!',
     'uv' => 'u' 
 );
-  	$sql = "UPDATE plans set plan_name='$planname', min_deposit = '#min', max_deposit='$max', percentage_profit='$profit', period = '$period', referal_bonus='$refp'";
+  	$sql = "UPDATE plans set plan_name='$pname', min_deposit = '$min', max_deposit='$max', percentage_profit='$profit', period = '$period', referal_bonus='$refp'";
 
 		if(mysqli_query($link,$sql)){
 			$response['status'] = 1; 
