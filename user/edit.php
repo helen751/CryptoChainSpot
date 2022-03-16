@@ -156,13 +156,13 @@ $sql = "DELETE FROM wallets where wallet_id = '$walid'";
         if(mysqli_query($link,$sql)){
             echo ("<script LANGUAGE='JavaScript'>
                 alert('Wallet Deleted Successfully');
-    window.location.href='wallet';
+    window.location.href='view?wallet';
     </script>");
         }
         else{
             echo ("<script LANGUAGE='JavaScript'>
                 alert('Error Deleting Wallet Please try again');
-    window.location.href='wallet';
+    window.location.href='view?wallet';
     </script>");
     
 }
@@ -174,7 +174,7 @@ else{
       if($ts == 0){
         echo ("<script LANGUAGE='JavaScript'>
                 alert('A Pending Withdrawal is depending on this wallet. please contact the support team for Help');
-    window.location.href='wallet';
+    window.location.href='view?wallet';
     </script>");
 
       }
@@ -187,13 +187,13 @@ $sql = "UPDATE withdrawals set wallet_id = null where wallet_id = '$walid'";
         if(mysqli_query($link,$sql2)){
             echo ("<script LANGUAGE='JavaScript'>
                 alert('Wallet Deleted Successfully');
-    window.location.href='wallet';
+    window.location.href='view?wallet';
     </script>");
         }
         else{
             echo ("<script LANGUAGE='JavaScript'>
                 alert('Error Deleting Wallet Please try again');
-    window.location.href='wallet';
+    window.location.href='view?wallet';
     </script>");
     
 }
@@ -201,7 +201,7 @@ $sql = "UPDATE withdrawals set wallet_id = null where wallet_id = '$walid'";
         else{
             echo ("<script LANGUAGE='JavaScript'>
                 alert('Error Deleting Wallet Please try again');
-    window.location.href='wallet';
+    window.location.href='view?wallet';
     </script>");
     
 }
