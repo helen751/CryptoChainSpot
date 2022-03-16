@@ -1812,7 +1812,9 @@ $sql = "UPDATE withdrawals SET transaction_status = 1 where withdrawal_id = '$wi
   	$sql2 = "UPDATE transactions SET transaction_status = 1 where transaction_id = '$tid'";
 $sql3 = "UPDATE account_balance SET account_balance = account_balance-$wamt where user_id = '$userid'";
 
-		if((mysqli_query($link,$sql)) && (mysqli_query($link,$sql2)) && (mysqli_query($link,$sql3))){
+		if((mysqli_query($link,$sql)) && (mysqli_query($link,$sql2))){
+
+			if(mysqli_query($link,$sql3)){
 
 			if($uv == "p"){
 			echo ("<script LANGUAGE='JavaScript'>
@@ -1827,6 +1829,22 @@ $sql3 = "UPDATE account_balance SET account_balance = account_balance-$wamt wher
     window.location.href='view?aw';
     </script>");	
 		}
+	}
+	else{
+	if($uv == "p"){
+			echo ("<script LANGUAGE='JavaScript'>
+				alert('Failed');
+    window.location.href='view?pw';
+    </script>");
+
+		}
+		else{
+		echo ("<script LANGUAGE='JavaScript'>
+				alert('Failed');
+    window.location.href='view?aw';
+    </script>");	
+		}	
+	}
 		}
 
 		else{
