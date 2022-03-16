@@ -214,39 +214,7 @@ $('document').ready(function () {
             }
         }
     </script>   
-    <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-  const countuser = document.querySelector('#countuser');
-  const countpw = document.querySelector('#countpw');
-  const countpd = document.querySelector('#countpd');
-  const counttr = document.querySelector('#counttr');
-  const counttc = document.querySelector('#counttc');
-  let counter = 0;
-
-  let initialCountuser = countuser.innerHTML;
-  let initialCountpw = countpw.innerHTML;
-  let initialCountpd = countpd.innerHTML;
-  let initialCounttr = counttr.innerHTML;
-  let initialCounttc = counttc.innerHTML;
-
-  const counterUp = (initialCount, screen, counter = 0) => {
-    const interval = setInterval(() => {
-      if(counter == initialCount){
-        clearInterval(interval)
-      }
-      screen.innerHTML = counter
-      counter++
-    } , 10)
-  }
-
-  counterUp(initialCountuser, countuser);
- counterUp(initialCountpw, countpw);
- counterUp(initialCountpd, countpd);
- counterUp(initialCounttr, counttr);
- counterUp(initialCounttc, counttc);
-
-  
-</script>
+ 
 
 <script type="text/javascript">
   function close(){
