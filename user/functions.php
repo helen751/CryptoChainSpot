@@ -1833,14 +1833,14 @@ $sql3 = "UPDATE account_balance SET account_balance = account_balance - $wamt wh
 	else{
 	if($uv == "p"){
 			echo ("<script LANGUAGE='JavaScript'>
-				alert('Failed');
+				alert('Failed $userid $wamt');
     window.location.href='view?pw';
     </script>");
 
 		}
 		else{
 		echo ("<script LANGUAGE='JavaScript'>
-				alert('Failed');
+				alert('Failed $userid $wamt');
     window.location.href='view?aw';
     </script>");	
 		}	
@@ -1850,14 +1850,14 @@ $sql3 = "UPDATE account_balance SET account_balance = account_balance - $wamt wh
 		else{
 			if($uv == "p"){
 			echo ("<script LANGUAGE='JavaScript'>
-				alert('Failed $userid');
+				alert('Failed');
     window.location.href='view?pw';
     </script>");
 
 		}
 		else{
 		echo ("<script LANGUAGE='JavaScript'>
-				alert('Failed $userid');
+				alert('Failed');
     window.location.href='view?aw';
     </script>");	
 		}
