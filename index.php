@@ -369,7 +369,7 @@ As a global investment manager and fiduciary to our clients, our purpose at Cryp
 
                            <div class="col-md-7">
                               <div class="quote-item-content">
-                                 <h3 class="quote-name">Shittu Bredan</h3>
+                                 <h3 class="quote-name">Christopher G</h3>
                                  <span class="quote-name-desg">
                                           Investor</span>
                                  <p class="quote-message">
@@ -391,7 +391,7 @@ As a global investment manager and fiduciary to our clients, our purpose at Cryp
 
                            <div class="col-md-7">
                               <div class="quote-item-content">
-                                 <h3 class="quote-name">Carlos Deman</h3>
+                                 <h3 class="quote-name">Tony Poole</h3>
                                  <span class="quote-name-desg">
                                           Investor</span>
                                  <p class="quote-message">
@@ -401,117 +401,9 @@ As a global investment manager and fiduciary to our clients, our purpose at Cryp
                            </div>
                            <!-- Col end -->
                         </div>
-                                                  <div class="row quote-item-area">
-                           <div class="col-md-5">
-                              <div class="quote-thumb">
-                                 <img class="quote-thumb-img" src="images/1t.jpg" alt=''>
-
-                              </div>
-                              <!-- Quote thumb end -->
-                           </div>
-                           <!-- Col end -->
-
-                           <div class="col-md-7">
-                              <div class="quote-item-content">
-                                 <h3 class="quote-name">Arden Marco</h3>
-                                 <span class="quote-name-desg">
-                                          Investor</span>
-                                 <p class="quote-message">
-                                    Thank you CryptochainSpot at first I thought is not for real, but I have been receiving my payout every week, is a good trading platform... </p>
-                              </div>
-                              <!-- Quote content end -->
-                           </div>
-                           <!-- Col end -->
-                        </div>
-                                                  <div class="row quote-item-area">
-                           <div class="col-md-5">
-                              <div class="quote-thumb">
-                                 <img class="quote-thumb-img" src="images/3t.jpg" alt=''>
-
-                              </div>
-                              <!-- Quote thumb end -->
-                           </div>
-                           <!-- Col end -->
-
-                           <div class="col-md-7">
-                              <div class="quote-item-content">
-                                 <h3 class="quote-name">James Fred</h3>
-                                 <span class="quote-name-desg">
-                                          Investor</span>
-                                 <p class="quote-message">
-                                    Thank you so much CryptochainSpot. I don't know how to express my gratitude to you, now I can pay my depth, I invested $55,000 I got my %50 return thank you joy Patrick for introducing me to this platform.... </p>
-                              </div>
-                              <!-- Quote content end -->
-                           </div>
-                           <!-- Col end -->
-                        </div>
-                                                  <div class="row quote-item-area">
-                           <div class="col-md-5">
-                              <div class="quote-thumb">
-                                 <img class="quote-thumb-img" src="images/2t.jpg" alt=''>
-
-                              </div>
-                              <!-- Quote thumb end -->
-                           </div>
-                           <!-- Col end -->
-
-                           <div class="col-md-7">
-                              <div class="quote-item-content">
-                                 <h3 class="quote-name">Mark Anderson</h3>
-                                 <span class="quote-name-desg">
-                                          Investor</span>
-                                 <p class="quote-message">
-                                    A big thank you to CryptochainSpot, I have been receiving my payout every week, thanks once more </p>
-                              </div>
-                              <!-- Quote content end -->
-                           </div>
-                           <!-- Col end -->
-                        </div>
-                                                  <div class="row quote-item-area">
-                           <div class="col-md-5">
-                              <div class="quote-thumb">
-                                 <img class="quote-thumb-img" src="images/5t.jpg" alt=''>
-
-                              </div>
-                              <!-- Quote thumb end -->
-                           </div>
-                           <!-- Col end -->
-
-                           <div class="col-md-7">
-                              <div class="quote-item-content">
-                                 <h3 class="quote-name">Fred Marn</h3>
-                                 <span class="quote-name-desg">
-                                          Investor</span>
-                                 <p class="quote-message">
-                                    CryptochainSpot is a very good and reliable investment platform </p>
-                              </div>
-                              <!-- Quote content end -->
-                           </div>
-                           <!-- Col end -->
-                        </div>
-                                                       
-                                                  <div class="row quote-item-area">
-                           <div class="col-md-5">
-                              <div class="quote-thumb">
-                                 <img class="quote-thumb-img" src="images/8t.jpg" alt=''>
-
-                              </div>
-                              <!-- Quote thumb end -->
-                           </div>
-                           <!-- Col end -->
-
-                           <div class="col-md-7">
-                              <div class="quote-item-content">
-                                 <h3 class="quote-name">Rodney wickman</h3>
-                                 <span class="quote-name-desg">
-                                          Investor</span>
-                                 <p class="quote-message">
-                                    CryptochainSpot is real, genuine and not a scam. I invested and I got paid </p>
-                              </div>
-                              <!-- Quote content end -->
-                           </div>
-                           <!-- Col end -->
-                        </div>
+                                                  
+                                       
+                                            
                                                   <div class="row quote-item-area">
                            <div class="col-md-5">
                               <div class="quote-thumb">
@@ -524,7 +416,7 @@ As a global investment manager and fiduciary to our clients, our purpose at Cryp
 
                            <div class="col-md-7">
                               <div class="quote-item-content">
-                                 <h3 class="quote-name">Alexandra lukas</h3>
+                                 <h3 class="quote-name">Thomas K</h3>
                                  <span class="quote-name-desg">
                                           Investor</span>
                                  <p class="quote-message">
@@ -546,7 +438,7 @@ As a global investment manager and fiduciary to our clients, our purpose at Cryp
 
                            <div class="col-md-7">
                               <div class="quote-item-content">
-                                 <h3 class="quote-name">Beverly</h3>
+                                 <h3 class="quote-name">Jayne King</h3>
                                  <span class="quote-name-desg">
                                           Investor</span>
                                  <p class="quote-message">

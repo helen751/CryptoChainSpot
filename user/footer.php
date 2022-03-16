@@ -15,7 +15,17 @@ function googleTranslateElementInit() {
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     
    <!--Start of Tawk.to Script-->
-
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6006fb04c31c9117cb703757/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
 <!--End of Tawk.to Script-->    
   <!-- plugins:js -->
   <script src="vendors/js/vendor.bundle.base.js"></script>
@@ -51,7 +61,118 @@ function googleTranslateElementInit() {
     <script src="js/ResizeSensor.js"></script>
     <script src="js/dashboard.js"></script>
     <script src="js/slim.js"></script>
-    <script type="text/javascript">
+        <script>
+      $(function(){
+        'use strict';
+
+        $('#datatable1').DataTable({
+          responsive: true,
+          language: {
+            searchPlaceholder: 'Search...',
+            sSearch: '',
+            lengthMenu: '_MENU_ items/page',
+          }
+        });
+
+        $('#datatable2').DataTable({
+          bLengthChange: false,
+          searching: false,
+          responsive: true
+        });
+
+        // Select2
+        $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
+
+      });
+function hide_element(x) {
+        document.querySelector(x).style.display='none';
+}
+
+function show_element(x) {
+        document.querySelector(x).style.display='block';
+}      
+      function get_options(y,val,x) {
+        show_element('#loader');
+    $.ajax({
+    type: "POST",
+    url: 'includes/ajax.php',
+    data: y+'='+val,
+    success: function(data){
+        $(x).html(data);
+                hide_element('#loader');
+    }
+    });
+}
+
+function copy_ref(data,btn) {
+  var copyText = document.getElementById(data);
+  copyText.select();
+  document.execCommand("copy");
+  $(btn).addClass('btn-success');
+  $(btn).html('Copied <i class="fa fa-check"></i>');
+  
+}
+    </script>
+    <script>
+// WORK IN PROGRESS BELOW
+        
+$('document').ready(function () {
+
+
+        // RESTYLE THE DROPDOWN MENU
+    $('#google_translate_element').on("click", function () {
+
+        // Change font family and color
+        $("iframe").contents().find(".goog-te-menu2-item div, .goog-te-menu2-item:link div, .goog-te-menu2-item:visited div, .goog-te-menu2-item:active div, .goog-te-menu2 *")
+            .css({
+                'color': '#544F4B',
+                'font-family': 'Roboto',
+                                'width':'100%'
+            });
+        // Change menu's padding
+        $("iframe").contents().find('.goog-te-menu2-item-selected').css ('display', 'none');
+            
+                // Change menu's padding
+        $("iframe").contents().find('.goog-te-menu2').css ('padding', '0px');
+      
+        // Change the padding of the languages
+        $("iframe").contents().find('.goog-te-menu2-item div').css('padding', '20px');
+      
+        // Change the width of the languages
+        $("iframe").contents().find('.goog-te-menu2-item').css('width', '100%');
+        $("iframe").contents().find('td').css('width', '100%');
+      
+        // Change hover effects
+        $("iframe").contents().find(".goog-te-menu2-item div").hover(function () {
+            $(this).css('background-color', '#4385F5').find('span.text').css('color', 'white');
+        }, function () {
+            $(this).css('background-color', 'white').find('span.text').css('color', '#544F4B');
+        });
+
+        // Change Google's default blue border
+        $("iframe").contents().find('.goog-te-menu2').css('border', 'none');
+
+        // Change the iframe's box shadow
+        $(".goog-te-menu-frame").css('box-shadow', '0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3)');
+        
+      
+      
+        // Change the iframe's size and position?
+        $(".goog-te-menu-frame").css({
+            'height': '100%',
+            'width': '100%',
+            'top': '0px'
+        });
+        // Change iframes's size
+        $("iframe").contents().find('.goog-te-menu2').css({
+            'height': '100%',
+            'overflow': 'scroll',
+            'width': '100%'
+        });
+    });
+});
+</script>
+  <script type="text/javascript">
         var RegExp = new RegExp(/^\d*\.?\d*$/);
          var val = document.getElementById("profit").value;
          var val2 = document.getElementById("refp").value;
@@ -92,124 +213,8 @@ function googleTranslateElementInit() {
                 elem.value = val4;
             }
         }
-    </script>
-        <script>
-      $(function(){
-        'use strict';
-
-        $('#datatable1').DataTable({
-          responsive: true,
-          language: {
-            searchPlaceholder: 'Search...',
-            sSearch: '',
-            lengthMenu: '_MENU_ items/page',
-          }
-        });
-
-        $('#datatable2').DataTable({
-          bLengthChange: false,
-          searching: false,
-          responsive: true
-        });
-
-        // Select2
-        $('.dataTables_length select').select2({ minimumResultsForSearch: Infinity });
-
-      });
-function hide_element(x) {
-        document.querySelector(x).style.display='none';
-}
-
-function show_element(x) {
-        document.querySelector(x).style.display='block';
-}      
-      function get_options(y,val,x) {
-        show_element('#loader');
-  $.ajax({
-  type: "POST",
-  url: 'includes/ajax.php',
-  data: y+'='+val,
-  success: function(data){
-    $(x).html(data);
-                hide_element('#loader');
-  }
-  });
-}
-
-function copy_ref(data,btn) {
-  var copyText = document.getElementById(data);
-  copyText.select();
-  document.execCommand("copy");
-  $(btn).addClass('btn-success');
-  $(btn).html('Copied <i class="fa fa-check"></i>');
-  
-}
-    </script>
-    <script>
-// WORK IN PROGRESS BELOW
-        
-$('document').ready(function () {
-
-
-    // RESTYLE THE DROPDOWN MENU
-    $('#google_translate_element').on("click", function () {
-
-        // Change font family and color
-        $("iframe").contents().find(".goog-te-menu2-item div, .goog-te-menu2-item:link div, .goog-te-menu2-item:visited div, .goog-te-menu2-item:active div, .goog-te-menu2 *")
-            .css({
-                'color': '#544F4B',
-                'font-family': 'Roboto',
-                'width':'100%'
-            });
-        // Change menu's padding
-        $("iframe").contents().find('.goog-te-menu2-item-selected').css ('display', 'none');
-      
-        // Change menu's padding
-        $("iframe").contents().find('.goog-te-menu2').css ('padding', '0px');
-      
-        // Change the padding of the languages
-        $("iframe").contents().find('.goog-te-menu2-item div').css('padding', '20px');
-      
-        // Change the width of the languages
-        $("iframe").contents().find('.goog-te-menu2-item').css('width', '100%');
-        $("iframe").contents().find('td').css('width', '100%');
-      
-        // Change hover effects
-        $("iframe").contents().find(".goog-te-menu2-item div").hover(function () {
-            $(this).css('background-color', '#4385F5').find('span.text').css('color', 'white');
-        }, function () {
-            $(this).css('background-color', 'white').find('span.text').css('color', '#544F4B');
-        });
-
-        // Change Google's default blue border
-        $("iframe").contents().find('.goog-te-menu2').css('border', 'none');
-
-        // Change the iframe's box shadow
-        $(".goog-te-menu-frame").css('box-shadow', '0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3)');
-        
-      
-      
-        // Change the iframe's size and position?
-        $(".goog-te-menu-frame").css({
-            'height': '100%',
-            'width': '100%',
-            'top': '0px'
-        });
-        // Change iframes's size
-        $("iframe").contents().find('.goog-te-menu2').css({
-            'height': '100%',
-            'overflow': 'scroll',
-            'width': '100%'
-        });
-    });
-});
-
-
-</script>
-    
+    </script>   
     <!--Start of Tawk.to Script-->
-
-<!--End of Tawk.to Script-->  
 <script type="text/javascript">
   const countuser = document.querySelector('#countuser');
   const countpw = document.querySelector('#countpw');
@@ -414,5 +419,10 @@ $('.submitBtn2').attr("disabled","disabled");
 });
 
 </script>
-</body>
+<!--End of Tawk.to Script-->  </body>
 </html>
+
+   
+       
+
+
