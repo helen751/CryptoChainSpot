@@ -31,9 +31,8 @@ $income = 0;
 $e_date = strtotime($e_date);
 $d_date = strtotime($dd);
 
-if($dep_s == 1){
 
-if($d_date >= $e_date){
+if(($dep_s == 1) && ($d_date >= $e_date)){
    echo "<script> alert('hi'); </script>";
 
    $coinsql5555 = "SELECT * from plans where plan_id ='$pl_id'";
@@ -66,8 +65,8 @@ if(mysqli_query($link,$sql5)){
   }
 
 }
-}
-else if ($dep_s == 0) {
+
+else if (($dep_s == 0) && ($d_date >= $e_date)) {
   $sql3 = "DELETE FROM deposits WHERE deposit_id = '$d_id'";
 
     if(mysqli_query($link,$sql3)){
@@ -77,6 +76,7 @@ if(mysqli_query($link,$sql4)){
     }
 }
 }
+
 }
 }
 

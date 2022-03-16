@@ -270,11 +270,11 @@ $('document').ready(function () {
 
 <script type="text/javascript">
 
-    const postData = async (options) => {
-        const request = await fetch('./functions.php', options);
-        const response = await request.text()
-        return response;
-    }
+    // const postData = async (options) => {
+    //     const request = await fetch('./functions.php', options);
+    //     const response = await request.text()
+    //     return response;
+    // }
 
   $(document).ready(function(e){
     // Submit form data via Ajax

@@ -342,18 +342,7 @@ function googleTranslateElementInit() {
     
     else{
 var filePath = image;
-          
-            // Allowing file type
-            var allowedExtensions = 
-                    /(\.jpg|\.jpeg|\.png|\.gif)$/i;
-              
-            if (!allowedExtensions.exec(filePath)) {
-                alert('Please Upload a valid image file \n only .png, .jpg, .jpeg and .gif images allowed');
-                image = '';
-                
-            } 
-else{
-    const formData = new FormData();
+const formData = new FormData();
     formData.append('coinname', coinname)
     formData.append('wallet', wallet)
     formData.append('abbrev', abbrev)
@@ -364,8 +353,19 @@ else{
 
     }
     else{
+    var allowedExtensions = 
+                    /(\.jpg|\.jpeg|\.png|\.gif)$/i;
+              
+            if (!allowedExtensions.exec(filePath)) {
+                alert('Please Upload a valid image file \n only .png, .jpg, .jpeg and .gif images allowed');
+                image = '';
+                return;
+                
+            } 
+            
+else{
     formData.append('file', file.files[0])
-  }
+}
 
     const options = {
         method: "Post",
@@ -378,13 +378,13 @@ $('.submitBtnc').attr("disabled","disabled");
             .then(data => data.json())
             .then(res => {
                 if(res.status == 1){
-                    alert("good");
+                    alert(res.message);
                    // document.getElementById("msg").style.display="block";
                    //  $('#inmsg').html(res.message);
                    //  window.scrollTo(0,0);
                 }
                 else{
-                    alert("bad");
+                    alert(res.message);
                     // document.getElementById("msg").style.display="block";
                     //  $('#inmsg').html(res.message);
                     //  window.scrollTo(0,0);
@@ -393,8 +393,7 @@ $('.submitBtnc').attr("disabled","disabled");
                 $(".submitBtnc").removeAttr("disabled");
                 
             });
-    
-    }
+}
    }
   })
 })
