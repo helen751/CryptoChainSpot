@@ -297,7 +297,7 @@ $sql = "UPDATE withdrawals set wallet_id = null where wallet_id = '$walid'";
               <h3 class="card-title">Update Coin Details</h3>
               <p><small class="card-description">
                       </small></p>
-              <form method="post" id="addForm">
+              <form method="post" id="caddForm">
                    <input type="text" hidden id="coinid" name="coinid" value="<?php echo $coinid; ?>">
                      
               <div class="form-group">
@@ -559,7 +559,7 @@ function googleTranslateElementInit() {
     <script type="text/javascript">
       $(document).ready(function(e){
     // Submit form data via Ajax
-    $("#addForm").on('submit', function(e){
+    $("#caddForm").on('submit', function(e){
         e.preventDefault();
     var abbrev = document.getElementById("abbrev").value;
      var wallet = document.getElementById("wallet").value;
@@ -590,7 +590,7 @@ const formData = new FormData();
         body: formData,
     }
 $('.submitBtnc').attr("disabled","disabled");
-                $('#addForm').css("opacity",".5");
+                $('#caddForm').css("opacity",".5");
 
         fetch('./functions.php', options)
             .then(data => data.json())
@@ -605,7 +605,7 @@ $('.submitBtnc').attr("disabled","disabled");
                      $('#inmsg').html(res.message);
                      window.scrollTo(0,0);
                 }
-                $('#addForm').css("opacity","");
+                $('#caddForm').css("opacity","");
                 $(".submitBtnc").removeAttr("disabled");
                 
             });
