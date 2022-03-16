@@ -354,11 +354,11 @@ else if(isset($_GET["c"])){
                     </div>
                     <div class="form-group">
                       <label class="form-control-label">Enter Plan Daily Profit(%): <span class="tx-danger">*</span></label>
-                <input type="text" name='profit' id="profit" placeholder="12" class="form-control" oninput="valid(this)">
+                <input type="number" name='profit' id="profit" placeholder="00.0" class="form-control">
                     </div>
                     <div class="form-group">
                       <label class="form-control-label">Enter Referral Bonus  Profit(%): <span class="tx-danger">*</span></label>
-                <input type="text" name='refp' id="refp" placeholder="5" class="form-control" oninput="validref(this)">
+                <input type="number" name='refp' id="refp" placeholder="00.0" class="form-control">
                     </div>
                     <div class="form-group">
                     <label class="form-control-label">Enter Plan Period in Weeks: <span class="tx-danger">*</span></label>
@@ -367,12 +367,12 @@ else if(isset($_GET["c"])){
 
                     <div class="form-group">
                     <label class="form-control-label">Plan Minimum Deposit Amount: <span class="tx-danger">*</span></label>
-                <input type="text" name='min' id="min" placeholder="100" class="form-control" oninput="validmin(this)">
+                <input type="number" name='min' id="min" class="form-control" placeholder="0000.00">
                     </div>
 
                     <div class="form-group">
                     <label class="form-control-label">Plan Maximum Deposit Amount: <span class="tx-danger">*</span></label>
-                <input type="text" name='max' id="max" placeholder="1000" class="form-control" oninput="validmax(this)">
+                <input type="number" name='max' id="max" placeholder="0000.00" class="form-control">
                     </div>
                     
                     
