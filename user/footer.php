@@ -15,17 +15,7 @@ function googleTranslateElementInit() {
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
     
    <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/6006fb04c31c9117cb703757/default';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
+
 <!--End of Tawk.to Script-->    
   <!-- plugins:js -->
   <script src="vendors/js/vendor.bundle.base.js"></script>
@@ -61,6 +51,7 @@ s0.parentNode.insertBefore(s1,s0);
     <script src="js/ResizeSensor.js"></script>
     <script src="js/dashboard.js"></script>
     <script src="js/slim.js"></script>
+  
         <script>
       $(function(){
         'use strict';
@@ -93,15 +84,15 @@ function show_element(x) {
 }      
       function get_options(y,val,x) {
         show_element('#loader');
-    $.ajax({
-    type: "POST",
-    url: 'includes/ajax.php',
-    data: y+'='+val,
-    success: function(data){
-        $(x).html(data);
+  $.ajax({
+  type: "POST",
+  url: 'includes/ajax.php',
+  data: y+'='+val,
+  success: function(data){
+    $(x).html(data);
                 hide_element('#loader');
-    }
-    });
+  }
+  });
 }
 
 function copy_ref(data,btn) {
@@ -119,7 +110,7 @@ function copy_ref(data,btn) {
 $('document').ready(function () {
 
 
-        // RESTYLE THE DROPDOWN MENU
+    // RESTYLE THE DROPDOWN MENU
     $('#google_translate_element').on("click", function () {
 
         // Change font family and color
@@ -127,12 +118,12 @@ $('document').ready(function () {
             .css({
                 'color': '#544F4B',
                 'font-family': 'Roboto',
-                                'width':'100%'
+                'width':'100%'
             });
         // Change menu's padding
         $("iframe").contents().find('.goog-te-menu2-item-selected').css ('display', 'none');
-            
-                // Change menu's padding
+      
+        // Change menu's padding
         $("iframe").contents().find('.goog-te-menu2').css ('padding', '0px');
       
         // Change the padding of the languages
@@ -171,50 +162,45 @@ $('document').ready(function () {
         });
     });
 });
+
+
 </script>
-  <script type="text/javascript">
-        var RegExp = new RegExp(/^\d*\.?\d*$/);
-         var val = document.getElementById("profit").value;
-         var val2 = document.getElementById("refp").value;
-         var val3 = document.getElementById("min").value;
-           var val4 = document.getElementById("max").value;
-        
+    
+    <!--Start of Tawk.to Script-->
+
+<!--End of Tawk.to Script-->  
+<script type="text/javascript">
+  const countuser = document.querySelector('#countuser');
+  const countpw = document.querySelector('#countpw');
+  const countpd = document.querySelector('#countpd');
+  const counttr = document.querySelector('#counttr');
+  const counttc = document.querySelector('#counttc');
+  let counter = 0;
+
+  let initialCountuser = countuser.innerHTML;
+  let initialCountpw = countpw.innerHTML;
+  let initialCountpd = countpd.innerHTML;
+  let initialCounttr = counttr.innerHTML;
+  let initialCounttc = counttc.innerHTML;
+
+  const counterUp = (initialCount, screen, counter = 0) => {
+    const interval = setInterval(() => {
+      if(counter == initialCount){
+        clearInterval(interval)
+      }
+      screen.innerHTML = counter
+      counter++
+    } , 10)
+  }
+
+  counterUp(initialCountuser, countuser);
+ counterUp(initialCountpw, countpw);
+ counterUp(initialCountpd, countpd);
+ counterUp(initialCounttr, counttr);
+ counterUp(initialCounttc, counttc);
 
   
-        function valid(elem) {
-           
-            if (RegExp.test(elem.value)) {
-                val = elem.value;
-            } else {
-                elem.value = val;
-            }
-        }
-        function validref(elem) {
-            
-            if (RegExp.test(elem.value)) {
-                val2 = elem.value;
-            } else {
-                elem.value = val2;
-            }
-        }
-        function validmin(elem) {
-            
-            if (RegExp.test(elem.value)) {
-                val3 = elem.value;
-            } else {
-                elem.value = val3;
-            }
-        }
-        function validmax(elem) {
-          
-            if (RegExp.test(elem.value)) {
-                val4 = elem.value;
-            } else {
-                elem.value = val4;
-            }
-        }
-    </script>   
- 
+</script>
 
 <script type="text/javascript">
   function close(){
@@ -306,9 +292,7 @@ $('.submitBtn').attr("disabled","disabled");
    }
   })
 })
-</script>
 
-<script type="text/javascript">
 
 $(document).ready(function(e){
     // Submit form data via Ajax
@@ -387,10 +371,5 @@ $('.submitBtn2').attr("disabled","disabled");
 });
 
 </script>
-<!--End of Tawk.to Script-->  </body>
+</body>
 </html>
-
-   
-       
-
-
