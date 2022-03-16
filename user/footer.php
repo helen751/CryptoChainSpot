@@ -51,6 +51,53 @@ function googleTranslateElementInit() {
     <script src="js/ResizeSensor.js"></script>
     <script src="js/dashboard.js"></script>
     <script src="js/slim.js"></script>
+    <script type="text/javascript">
+        var RegExp = new RegExp(/^\d*\.?\d*$/);
+         var val = document.getElementById("profit").value;
+         var val2 = document.getElementById("refp").value;
+         var val3 = document.getElementById("min").value;
+           var val4 = document.getElementById("max").value;
+        
+
+  
+        function valid(elem) {
+           
+            if (RegExp.test(elem.value)) {
+                val = elem.value;
+            } else {
+                elem.value = val;
+            }
+        }
+        function validref(elem) {
+            
+            if (RegExp.test(elem.value)) {
+                val2 = elem.value;
+            } else {
+                elem.value = val2;
+            }
+        }
+        function validmin(elem) {
+            
+            if (RegExp.test(elem.value)) {
+                val3 = elem.value;
+            } else {
+                elem.value = val3;
+            }
+        }
+        function validmax(elem) {
+          
+            if (RegExp.test(elem.value)) {
+                val4 = elem.value;
+            } else {
+                elem.value = val4;
+            }
+        }
+
+         function close(){
+    document.getElementById("msg").style.display="none";
+  }
+
+    </script>
   
         <script>
       $(function(){
