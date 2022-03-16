@@ -466,7 +466,7 @@ $sql = "UPDATE withdrawals set wallet_id = null where wallet_id = '$walid'";
 
  <footer class="footer">
           <div class="w-100 clearfix">
-            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © <?php echo date('Y'); ?> <a href="index" >CryptoChain Spot</a>. All rights reserved.</span>
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © <?php echo date('Y'); ?> <a href="index" >CryptoChainSpot</a>. All rights reserved.</span>
             <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Admin <i class="far fa-user text-primary"></i></span>
             <p  class="text-success"></p>
           </div>

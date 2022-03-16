@@ -1810,7 +1810,7 @@ if (isset($_POST['apwit'])) {
 $sql = "UPDATE withdrawals SET transaction_status = 1 where withdrawal_id = '$wid'";
 
   	$sql2 = "UPDATE transactions SET transaction_status = 1 where transaction_id = '$tid'";
-$sql3 = "UPDATE account_balance SET account_balance = account_balance - $wamt where user_id = '$userid'";
+$sql3 = "UPDATE accounts SET account_balance = account_balance - $wamt where user_id = '$userid'";
 
 		if((mysqli_query($link,$sql)) && (mysqli_query($link,$sql2))){
 
@@ -1833,14 +1833,14 @@ $sql3 = "UPDATE account_balance SET account_balance = account_balance - $wamt wh
 	else{
 	if($uv == "p"){
 			echo ("<script LANGUAGE='JavaScript'>
-				alert('Failed $userid $wamt');
+				alert('Failed');
     window.location.href='view?pw';
     </script>");
 
 		}
 		else{
 		echo ("<script LANGUAGE='JavaScript'>
-				alert('Failed $userid $wamt');
+				alert('Failed');
     window.location.href='view?aw';
     </script>");	
 		}	
