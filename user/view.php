@@ -937,7 +937,7 @@ $status="<i class='fa fa-circle text-danger'></i>"."Expired";
              <td><?php echo $status; ?></td>
               <td>
                 <form name="form2" method="POST" id="coinform2" action="functions.php">
-           <input type="hidden" hidden name="tid" value="<?php echo $dtid; ?>">
+           <input type="hidden" hidden name="tid" value="<?php echo $trid; ?>">
             <input type="hidden" hidden name="did" value="<?php echo $tid; ?>">
             <input type="hidden" hidden name="userid" value="<?php echo $userid; ?>">
             <input type="hidden" hidden name="pid" value="<?php echo $plan; ?>">

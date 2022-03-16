@@ -1503,7 +1503,7 @@ if (isset($_POST['apdep'])) {
 
 $sql = "UPDATE deposits SET approve = 1, status = 1 where deposit_id = '$did'";
 
-  	$sql2 = "UPDATE transactions SET transaction_status = 1 where transaction_id = '$did'";
+  	$sql2 = "UPDATE transactions SET transaction_status = 1 where transaction_id = '$tid'";
 
 		if((mysqli_query($link,$sql)) && (mysqli_query($link,$sql2))){
 
@@ -1551,7 +1551,7 @@ else{
       if(is_null($referer)){
       	$sql = "UPDATE deposits SET approve = 1, status = 1 where deposit_id = '$did'";
 
-  	$sql2 = "UPDATE transactions SET transaction_status = 1 where transaction_id = '$did'";
+  	$sql2 = "UPDATE transactions SET transaction_status = 1 where transaction_id = '$tid'";
 
 		if((mysqli_query($link,$sql)) && (mysqli_query($link,$sql2))){
 
@@ -1615,7 +1615,7 @@ $sql = "INSERT INTO bonus(user_id,bonus_type,bonus_amount) values('$referer','re
 		if(mysqli_query($link,$sqlr)){
 $sql = "UPDATE deposits SET approve = 1, status = 1 where deposit_id = '$did'";
 
-  	$sql2 = "UPDATE transactions SET transaction_status = 1 where transaction_id = '$did'";
+  	$sql2 = "UPDATE transactions SET transaction_status = 1 where transaction_id = '$tid'";
 
 		if((mysqli_query($link,$sql)) && (mysqli_query($link,$sql2))){
 
