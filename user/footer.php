@@ -1,6 +1,6 @@
-  <footer class="footer">
+ <footer class="footer">
           <div class="w-100 clearfix">
-            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © <?php date('Y'); ?><a href="index.php" >CryptochainSpot</a>. All rights reserved.</span>
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © <?php echo date('Y'); ?> <a href="index" >CryptoChain Spot</a>. All rights reserved.</span>
             <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Admin <i class="far fa-user text-primary"></i></span>
             <p  class="text-success"></p>
           </div>
@@ -18,7 +18,6 @@ function googleTranslateElementInit() {
 
 <!--End of Tawk.to Script-->    
   <!-- plugins:js -->
-  <script src="vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
   <script src="vendors/chart.js/Chart.min.js"></script>
@@ -44,8 +43,13 @@ function googleTranslateElementInit() {
     <script src="lib/jquery.cookie/js/jquery.cookie.js"></script>
     <script src="lib/select2/js/select2.min.js"></script>
     
-        <script src="lib/datatables/js/jquery.dataTables.js"></script>
-    <script src="lib/datatables-responsive/js/dataTables.responsive.js"></script>
+        <script src="lib/chartist/js/chartist.js"></script>
+    <script src="lib/d3/js/d3.js"></script>
+    <script src="lib/rickshaw/js/rickshaw.min.js"></script>
+    <script src="lib/jquery.sparkline.bower/js/jquery.sparkline.min.js"></script>
+    <script src="js/ResizeSensor.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/slim.js"></script>
     <script type="text/javascript">
         var RegExp = new RegExp(/^\d*\.?\d*$/);
          var val = document.getElementById("profit").value;
