@@ -185,8 +185,8 @@
 
             <td><?php echo $access; ?></td>
             <td><?php echo $status; ?></td>
-            <td><?php echo $acc_bal; ?></td>
-            <td><?php echo $sys_bal; ?></td>
+            <td><?php echo round($acc_bal,2); ?></td>
+            <td><?php echo round($sys_bal,2); ?></td>
                    
 
               <td>

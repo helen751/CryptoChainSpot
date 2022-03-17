@@ -446,14 +446,14 @@ $htmlContent = '
         
         <div style="border:1px solid gray"> 
         <div style="width:100%; background-color:goldenrod">
-        <img src="../img/logo.png" width="50" height="50" />
+        <img src="https://cryptochainspot.com/img/logo.png" width="50" height="50" />
         </div>
-        <div style="margin-top:2%; text-align:center">
+        <div style="margin-top:2%; padding-left:2%">
         <h1 style="color:blue; margin-bottom:1%;">Hello'.$name.'</h1>
         <div style="color:violet; margin-bottom:0.5%">
         Here is your OTP(One Time Password).<br>
         Enter the password below to complete your Login<br><br>
-        <span style="color:gray">'.$otp.'</span>
+        <span style="color:gray"><strong>'.$otp.'</strong></span>
         </div>
         </div>
         </div>
@@ -504,14 +504,14 @@ $htmlContent = '
         
         <div style="border:1px solid gray"> 
         <div style="width:100%; background-color:goldenrod">
-        <img src="../img/logo.png" width="50" height="50" />
+        <img src="https://cryptochainspot.com/img/logo.png" width="50" height="50" />
         </div>
-        <div style="margin-top:2%; text-align:center">
+        <div style="margin-top:2%; padding-left:2%">
         <h1 style="color:blue; margin-bottom:1%;">Hello'.$name.'</h1>
         <div style="color:violet; margin-bottom:0.5%">
         Here is your OTP(One Time Password).<br>
         Enter the password below to complete your Login<br><br>
-        <span style="color:gray">'.$otp.'</span>
+        <span style="color:gray"><strong>'.$otp.'</strong></span>
         </div>
         </div>
         </div>
@@ -583,14 +583,14 @@ $htmlContent = '
         
         <div style="border:1px solid gray"> 
         <div style="width:100%; background-color:goldenrod">
-        <img src="../img/logo.png" width="50" height="50" />
+        <img src="https://cryptochainspot.com/img/logo.png" width="50" height="50" />
         </div>
-        <div style="margin-top:2%; text-align:center">
+        <div style="margin-top:2%; padding-left:2%">
         <h1 style="color:blue; margin-bottom:1%;">Hello'.$name.'</h1>
         <div style="color:violet; margin-bottom:0.5%">
         Here is your OTP(One Time Password).<br>
         Enter the password below to complete your Login<br><br>
-        <span style="color:gray">'.$otp.'</span>
+        <span style="color:gray"><strong>'.$otp.'</strong></span>
         </div>
         </div>
         </div>
@@ -641,14 +641,14 @@ $htmlContent = '
         
         <div style="border:1px solid gray"> 
         <div style="width:100%; background-color:goldenrod">
-        <img src="../img/logo.png" width="50" height="50" />
+        <img src="https://cryptochainspot.com/img/logo.png" width="50" height="50" />
         </div>
-        <div style="margin-top:2%; text-align:center">
+        <div style="margin-top:2%; padding-left:2%">
         <h1 style="color:blue; margin-bottom:1%;">Hello'.$name.'</h1>
         <div style="color:violet; margin-bottom:0.5%">
         Here is your OTP(One Time Password).<br>
         Enter the password below to complete your Login<br><br>
-        <span style="color:gray">'.$otp.'</span>
+        <span style="color:gray"><strong>'.$otp.'</strong></span>
         </div>
         </div>
         </div>
@@ -762,14 +762,14 @@ $htmlContent = '
         
         <div style="border:1px solid gray"> 
         <div style="width:100%; background-color:goldenrod">
-        <img src="../img/logo.png" width="50" height="50" />
+        <img src="https://cryptochainspot.com/img/logo.png" width="50" height="50" />
         </div>
-        <div style="margin-top:2%; text-align:center">
+        <div style="margin-top:2%; padding-left:2%">
         <h1 style="color:blue; margin-bottom:1%;">Hello'.$name.'</h1>
         <div style="color:violet; margin-bottom:0.5%">
         Here is your OTP(One Time Password).<br>
         Enter the password below to complete your Login<br><br>
-        <span style="color:gray">'.$otp.'</span>
+        <span style="color:gray"><strong>'.$otp.'</strong></span>
         </div>
         </div>
         </div>
@@ -1504,8 +1504,9 @@ if (isset($_POST['apdep'])) {
 $sql = "UPDATE deposits SET approve = 1, status = 1 where deposit_id = '$did'";
 
   	$sql2 = "UPDATE transactions SET transaction_status = 1 where transaction_id = '$tid'";
+$sql3 = "UPDATE accounts SET system_balance = system_balance + $amount where user_id = '$userid'";
 
-		if((mysqli_query($link,$sql)) && (mysqli_query($link,$sql2))){
+		if((mysqli_query($link,$sql)) && (mysqli_query($link,$sql2))&& (mysqli_query($link,$sql3))){
 
 
 			if($uv == "p"){
@@ -1552,8 +1553,8 @@ else{
       	$sql = "UPDATE deposits SET approve = 1, status = 1 where deposit_id = '$did'";
 
   	$sql2 = "UPDATE transactions SET transaction_status = 1 where transaction_id = '$tid'";
-
-		if((mysqli_query($link,$sql)) && (mysqli_query($link,$sql2))){
+$sql3 = "UPDATE accounts SET system_balance = system_balance + $amount where user_id = '$userid'";
+		if((mysqli_query($link,$sql)) && (mysqli_query($link,$sql2)) && (mysqli_query($link,$sql3))){
 
 
 			if($uv == "p"){
@@ -1620,6 +1621,7 @@ $sql = "UPDATE deposits SET approve = 1, status = 1 where deposit_id = '$did'";
 		if((mysqli_query($link,$sql)) && (mysqli_query($link,$sql2))){
 
 $uacc1 = "UPDATE accounts SET system_balance = system_balance+$amount WHERE user_id='$userid'";
+
 		if(mysqli_query($link,$uacc1)){
 			if($uv == "p"){
 			echo ("<script LANGUAGE='JavaScript'>
