@@ -442,8 +442,43 @@ body {
             <div class="site-nav-inner site-navigation navdown nav-transparent">
                <div class="container">
                   <nav class="navbar navbar-expand-lg justify-content-end">
-                      <a class="btn btn-warning d-md-none" style='padding: 6px 10px; border-radius: 5px; margin-right: 3px;' href="user/login"><i class='fa fa-sign-in'></i> Login</a>
-                      <a class="btn btn-primary d-md-none" style='padding: 6px 10px; border-radius: 5px;' href="user/signup"><i class='fa fa-user-plus'></i></a>
+                    <?php 
+                           if(isset($_SESSION["login"])){
+                            ?>
+                           <a class="btn btn-warning d-md-none" style='padding: 6px 10px; border-radius: 5px; margin-right: 3px;' href="user/logout"><i class='fa fa-sign-in'></i> Logout</a>
+
+                       <?php } 
+                       else{
+                        ?>
+                        <a class="btn btn-warning d-md-none" style='padding: 6px 10px; border-radius: 5px; margin-right: 3px;' href="user/login"><i class='fa fa-sign-in'></i> Login</a>
+                        <?php
+                       }
+                       ?>
+                       <?php if ($_SESSION['login']=="user") {
+                                // code...
+
+
+                                ?>
+                                 <a class="btn btn-primary d-md-none" style='padding: 6px 10px; border-radius: 5px;' href="user/dashboard"><i class='fa fa-user'></i></a>
+                                <?php
+                            }
+                            else if ($_SESSION['login']=="admin") {
+                                // code...
+                                ?>
+                                 <a class="btn btn-primary d-md-none" style='padding: 6px 10px; border-radius: 5px;' href="user/admin?u"><i class='fa fa-user'></i></a>
+
+                                <?php
+                            }
+                            
+                             else{
+                                ?>
+                                <a class="btn btn-primary d-md-none" style='padding: 6px 10px; border-radius: 5px;' href="user/signup"><i class='fa fa-user-plus'></i></a>
+                               <?php
+                            }
+                            ?>
+                          
+                     
+                      
                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                          <span class="navbar-toggler-icon"><i class="icon icon-menu"></i></span>
@@ -522,7 +557,7 @@ body {
                             else if ($_SESSION['login']=="admin") {
                                 // code...
                                 ?>
-                                <a href="user/admin">Dashboard</a>
+                                <a href="user/admin?u">Dashboard</a>
 
                                 <?php
                             }
