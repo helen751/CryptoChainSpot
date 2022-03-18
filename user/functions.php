@@ -1494,7 +1494,7 @@ $response = array(
 
 
 if (isset($_POST['apdep'])) {
-$plansql = "SELECT * from plans where plan_id='$plan'";
+$plansql = "SELECT * from plans where plan_id='$pid'";
      $planresult = mysqli_query($link,$plansql);
                                     $countplan = mysqli_num_rows($planresult);
 $period = ' ';
@@ -1557,7 +1557,7 @@ $sql3 = "UPDATE accounts SET system_balance = system_balance + $amount where use
 }
 
 else{
-	$plansql = "SELECT * from plans where plan_id='$plan'";
+	$plansql = "SELECT * from plans where plan_id='$pid'";
      $planresult = mysqli_query($link,$plansql);
                                     $countplan = mysqli_num_rows($planresult);
 $period = ' ';
@@ -1623,7 +1623,7 @@ $sql3 = "UPDATE accounts SET system_balance = system_balance + $amount where use
       }
 
       else{
-      	$plansql = "SELECT * from plans where plan_id='$plan'";
+      	$plansql = "SELECT * from plans where plan_id='$pid'";
      $planresult = mysqli_query($link,$plansql);
                                     $countplan = mysqli_num_rows($planresult);
 
