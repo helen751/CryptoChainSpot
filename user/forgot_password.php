@@ -280,12 +280,6 @@ $('.submitBtn2').attr("disabled","disabled");
                      window.scrollTo(0,0);
                    
                 }
-                else if(res.status == 2){
-                    document.getElementById("msg").style.display="block";
-                     $('#inmsg').html(res.message);
-                     window.scrollTo(0,0);
-                   
-                }
                 else{
                     document.getElementById("msg").style.display="block";
                      $('#inmsg').html(res.message);

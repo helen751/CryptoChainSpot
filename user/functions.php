@@ -2045,16 +2045,16 @@ $sql = "UPDATE wallets SET wallet_address='$wallet', coin_id = '$coin' where wal
 if (isset($_POST['fp'])) {
 	$response = array( 
     'status' => 0, 
-    'message' => 'Failed to Send EMail, Please try again!' 
+    'message' => 'Failed to Send Email, Please try again!' 
 );
 
 $checkcoin2 = "SELECT * FROM users where email_address = '$email'";
 			$resultcheckcoin2 = mysqli_query($link, $checkcoin2);
 			$countcheckcoin2 = mysqli_num_rows($resultcheckcoin2);
 
-			if($countcheckcoin > 0){
+			if($countcheckcoin2 > 0){
 				 
-				$row = mysqli_fetch_array($resultcheckcoin, MYSQLI_ASSOC);
+				$row = mysqli_fetch_array($resultcheckcoin2, MYSQLI_ASSOC);
 				$id = $row['user_id'];
 				$name = $row['username'];
 
