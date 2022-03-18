@@ -329,7 +329,7 @@ $sql = "UPDATE withdrawals set wallet_id = null where wallet_id = '$walid'";
             </div>
     <div class="col-sm-6 " style="width: 50%; padding-top: 0px; margin-top: -5px;">
                 <div style="float: right;">
-                <small class="text-muted text-capitalize">Coin Name</small><br>
+                <small class="text-muted text-capitalize">Plan Name</small><br>
                 <b><?php echo $planname ?></b><br>
         </div>
             </div>
@@ -823,6 +823,8 @@ $('.submitBtn22').attr("disabled","disabled");
     var period = document.getElementById("period").value;
     var profit = document.getElementById("profit").value;
  var refp = document.getElementById("refp").value;
+ var planid = document.getElementById("planid").value;
+
 
     var msg = document.getElementById("msg");
     
@@ -855,6 +857,7 @@ $('.submitBtn22').attr("disabled","disabled");
     formData.append('period', period2)
     formData.append('refp', refp)
     formData.append('profit', profit)
+    formData.append('planid', planid)
     formData.append('editplan', '')
 
     const options = {

@@ -318,7 +318,7 @@ $(document).ready(function(e){
         alert("please enter the Referal Bonus Profit")
     }
     else if(period.length==0){
-        alert("please enter the Plan Duration in days")
+        alert("please enter the Plan Duration in weeks")
     }
     else if(min.length==0){
         alert("please enter the Minimum Deposit Amount")

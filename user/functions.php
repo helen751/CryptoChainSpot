@@ -1646,7 +1646,7 @@ $sql = "INSERT INTO bonus(user_id,bonus_type,bonus_amount) values('$referer','re
 		if(mysqli_query($link,$refacc)){
 			// adding the referal bonus to referals
 
-			$sqlr = "INSERT INTO referals(user_id,refered_id,bonus_amount) values('$referer','$id','$bon')";
+			$sqlr = "INSERT INTO referals(user_id,refered_id,bonus_amount) values('$referer','$userid','$bon')";
 
 		if(mysqli_query($link,$sqlr)){
 $sql = "UPDATE deposits SET approve = 1, expiry_date = '$edate', status = 1 where deposit_id = '$did'";
@@ -2005,10 +2005,10 @@ if (isset($_POST['editplan'])) {
 	session_start();
 	$response = array( 
     'status' => 0, 
-    'message' => 'Failed to Edit Coin, Please try again!',
+    'message' => 'Failed to Edit Plan, Please try again!',
     'uv' => 'u' 
 );
-  	$sql = "UPDATE plans set plan_name='$pname', min_deposit = '$min', max_deposit='$max', percentage_profit='$profit', period = '$period', referal_bonus='$refp'";
+  	$sql = "UPDATE plans set plan_name='$pname', min_deposit = '$min', max_deposit='$max', percentage_profit='$profit', period = '$period', referal_bonus='$refp' where plan_id ='$planid'";
 
 		if(mysqli_query($link,$sql)){
 			$response['status'] = 1; 
