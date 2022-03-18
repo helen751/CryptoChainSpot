@@ -2088,9 +2088,9 @@ $htmlContent = '
         <div style="background-color:goldenrod">
         <img src="https://cryptochainspot.com/img/logo.png" width="50" height="50" />
         </div>
-        <div style="margin-top:2%; text-align:center">
-        Hello '.$username.' <br> Here is your password reset Link. Click on the link below or copy and paste in a browser.
-        <b>This link can only be used once and expires within a day</b><br>
+        <div style="margin-top:2%;>
+        Hello '.$username.' <br> Here is your password reset Link. Click on the link below or copy and paste in a browser.<br><br>
+        <h3>NOTE:</h3><b>This link can only be used once and expires within a day</b><br>
          <a href="https://cryptochainspot.com/user/reset?user='.$id2.'&link='.$code2.'"> https://cryptochainspot.com/user/reset?user='.$id2.'&link='.$code2.'</a>
          
         </div>
@@ -2148,11 +2148,11 @@ $htmlContent = '
         <div style="background-color:goldenrod">
         <img src="https://cryptochainspot.com/img/logo.png" width="50" height="50" />
         </div>
-        <div style="margin-top:2%; text-align:center">
-        Hello '.$username.' <br> Here is your password reset Link. Click on the link below or copy and paste in a browser.
-        <b>This link can only be used once and expires within a day</b><br>
+        <div style="margin-top:2%;>
+        Hello '.$username.' <br> Here is your password reset Link. Click on the link below or copy and paste in a browser.<br><br>
+        <h3>NOTE:</h3><b>This link can only be used once and expires within a day</b><br>
          <a href="https://cryptochainspot.com/user/reset?user='.$id2.'&link='.$code2.'"> https://cryptochainspot.com/user/reset?user='.$id2.'&link='.$code2.'</a>
-       
+         
         </div>
         </div>
         
