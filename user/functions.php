@@ -2064,7 +2064,8 @@ $code2 = md5($code);
 			$resultcheckcoin3 = mysqli_query($link, $checkcoin3);
 			$countcheckcoin3 = mysqli_num_rows($resultcheckcoin3);
 			if($countcheckcoin3 > 0){
-				$sql = "UPDATE reset SET code='$code', status = 0 where user_id='$id'";
+				$today = date("Y-m-d H:i:s");
+				$sql = "UPDATE reset SET code='$code', status = 0, date='$today' where user_id='$id'";
 			
 
 		if(mysqli_query($link,$sql)){
@@ -2198,13 +2199,13 @@ if (isset($_POST['reset'])) {
     'status' => 0, 
     'message' => 'Failed to Reset Password, Please try again!' 
 );
-	$otpquery = "SELECT * FROM reset WHERE user_id = md5('$id') AND code=md5('$code') AND status=0 AND NOW() <= DATE_ADD(date, INTERVAL 24 HOUR)";
+	$otpquery = "SELECT * FROM reset WHERE user_id = '$id' AND code='$code' AND status=0 AND NOW() <= DATE_ADD(date, INTERVAL 24 HOUR)";
 	$otpresult=mysqli_query($link,$otpquery);
 	$count  = mysqli_num_rows($otpresult);
 	if($count > 0) {
-		$otpquery = "UPDATE resest SET status = 1 WHERE user_id=md5('$id')";
+		$otpquery = "UPDATE reset SET status = 1 WHERE user_id='$id'";
 		if(mysqli_query($link,$otpquery)){
-			$otpquery2 = "UPDATE users SET password = md5('$pass') WHERE user_id=md5('$id')";
+			$otpquery2 = "UPDATE users SET password = md5('$pass') WHERE user_id='$id'";
 		if(mysqli_query($link,$otpquery2)){
 				$response['status'] = 1; 
 			}
