@@ -76,7 +76,7 @@
                             <li class="list-group-item"><span>Max Deposit</span> <span class="float-right "><b>$</b><b id="mxd"></b></span></li>
                             <li class="list-group-item"><span>Contract Life</span> <span class="float-right "><b id="clife"></b><b> Weeks</b></span></li>
                             <li class="list-group-item"><span>Referral Bonus</span> <span class="float-right "><b id="rb"></b><b>%</b></span></li>
-                            <li class="list-group-item"><span>Withdrawal</span> <span class="float-right "><b>Monthly</b></span></li>
+                            <li class="list-group-item"><span>Withdrawal</span> <span class="float-right "><b>Weekly</b></span></li>
                           </ul>
 </div>
 </div>
@@ -289,7 +289,7 @@ if (res.status == 1) {
                      $('#md').html(res.min);
                      $('#mxd').html(res.max);
                      $('#pn').html(res.plan + " Plan for" + res.coin);
-                     $('#clife').html(res.period);
+                     $('#clife').html(res.period/7);
                      $('#rb').html(res.ref);
   }
   else{
