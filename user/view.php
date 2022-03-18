@@ -496,7 +496,7 @@ echo $countcoin2;
            <input type="hidden" hidden name="tid" value="<?php echo $dtid; ?>">
             <input type="hidden" hidden name="did" value="<?php echo $tid; ?>">
             <input type="hidden" hidden name="userid" value="<?php echo $userid; ?>">
-            <input type="hidden" hidden name="pid" value="<?php echo $plan; ?>">
+            <input type="hidden" hidden name="pid" value="<?php echo $pid; ?>">
             <input type="hidden" hidden name="amount" value="<?php echo $amt; ?>">
             <input type="hidden" hidden name="uv" value="p">
            
@@ -946,7 +946,7 @@ $status="<i class='fa fa-circle text-danger'></i>"."Expired";
            <input type="hidden" hidden name="tid" value="<?php echo $trid; ?>">
             <input type="hidden" hidden name="did" value="<?php echo $tid; ?>">
             <input type="hidden" hidden name="userid" value="<?php echo $userid; ?>">
-            <input type="hidden" hidden name="pid" value="<?php echo $plan; ?>">
+            <input type="hidden" hidden name="pid" value="<?php echo $pid; ?>">
             <input type="hidden" hidden name="amount" value="<?php echo $amt; ?>">
             <input type="hidden" hidden name="uv" value="w">
            
