@@ -2063,7 +2063,8 @@ $checkcoin2 = "SELECT * FROM users where email_address = '$email'";
 			$countcheckcoin3 = mysqli_num_rows($resultcheckcoin3);
 			if($countcheckcoin3 > 0){
 				$sql = "UPDATE reset SET code='$code', status = 0 where user_id='$id'";
-			
+$id2 = md5($id);
+$code2 = md5($code);			
 
 		if(mysqli_query($link,$sql)){
 				$from = 'support@cryptochainspot.com';
@@ -2089,7 +2090,7 @@ $htmlContent = '
         <div style="margin-top:2%; text-align:center">
         Hello '.$username.' <br> Here is your password reset Link. Click on the link below or copy and paste in a browser.
         <b>This link can only be used once and expires within a day</b><br>
-         <a href="https://cryptochainspot.com/user/reset?user='.md5($id).'&link='.md5($code).'"> https://cryptochainspot.com/user/reset?user='.md5($id).'&link='.md5($code).'</a>
+         <a href="https://cryptochainspot.com/user/reset?user='.$id2.'&link='.$code2.'"> https://cryptochainspot.com/user/reset?user='.$id2.'&link='.$code2.'</a>
         </div>
         </div>
         
@@ -2143,7 +2144,7 @@ $htmlContent = '
         <div style="margin-top:2%; text-align:center">
         Hello '.$username.' <br> Here is your password reset Link. Click on the link below or copy and paste in a browser.
         <b>This link can only be used once and expires within a day</b><br>
-        <a href="https://cryptochainspot.com/user/reset?user='.md5($id).'&link='.md5($code).'"> https://cryptochainspot.com/user/reset?user='.md5($id).'&link='.md5($code).'</a>
+        <a href="https://cryptochainspot.com/user/reset?user='.$id2.'&link='.$code2.'"> https://cryptochainspot.com/user/reset?user='.$id2.'&link='.$code2.'</a>
         </div>
         </div>
         
