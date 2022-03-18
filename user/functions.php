@@ -2117,6 +2117,11 @@ $response['message'] = "Error Sending Mail please try again!";
 }
 }
 else{
+	$response['message'] = "Failed to send Reset Link!";		
+
+}
+}
+else{
 
 $sql = "INSERT INTO reset(user_id,code) values('$id','$code')";
 			
@@ -2174,7 +2179,6 @@ $response['message'] = "Error Sending Mail please try again!";
 		else{
 			$response['message'] = "Error Sending Password Reset Link!";
 		}
-}
 }
 }
 else{
