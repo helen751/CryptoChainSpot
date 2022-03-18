@@ -2090,7 +2090,7 @@ $htmlContent = '
         <div style="margin-top:2%; text-align:center">
         Hello '.$username.' <br> Here is your password reset Link. Click on the link below or copy and paste in a browser.
         <b>This link can only be used once and expires within a day</b><br>
-         <a href="https://cryptochainspot.com/user/reset?user='.$id2.'&link='.$code2.'"> https://cryptochainspot.com/user/reset?user='.$id2.'&link='.$code2.'</a>
+         
         </div>
         </div>
         
@@ -2144,7 +2144,7 @@ $htmlContent = '
         <div style="margin-top:2%; text-align:center">
         Hello '.$username.' <br> Here is your password reset Link. Click on the link below or copy and paste in a browser.
         <b>This link can only be used once and expires within a day</b><br>
-        <a href="https://cryptochainspot.com/user/reset?user='.$id2.'&link='.$code2.'"> https://cryptochainspot.com/user/reset?user='.$id2.'&link='.$code2.'</a>
+       
         </div>
         </div>
         
