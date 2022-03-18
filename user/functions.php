@@ -2041,6 +2041,145 @@ $sql = "UPDATE wallets SET wallet_address='$wallet', coin_id = '$coin' where wal
 }
 }
 
+if (isset($_POST['fp'])) {
+	$response = array( 
+    'status' => 0, 
+    'message' => 'Failed to Send Email, Please try again!' 
+);
+
+$checkcoin2 = "SELECT * FROM users where email_address = '$email'";
+			$resultcheckcoin2 = mysqli_query($link, $checkcoin2);
+			$countcheckcoin2 = mysqli_num_rows($resultcheckcoin2);
+
+			if($countcheckcoin2 > 0){
+				 
+				$row = mysqli_fetch_array($resultcheckcoin2, MYSQLI_ASSOC);
+				$id = $row['user_id'];
+				$username = $row['username'];
+
+				$code = rand(100000,999999);
+				$checkcoin3 = "SELECT * FROM reset where user_id = '$id'";
+			$resultcheckcoin3 = mysqli_query($link, $checkcoin3);
+			$countcheckcoin3 = mysqli_num_rows($resultcheckcoin3);
+			if($countcheckcoin3 > 0){
+				$sql = "UPDATE reset SET code='$code', status = 0 where user_id='$id'";
+			
+
+		if(mysqli_query($link,$sql)){
+				$from = 'support@cryptochainspot.com';
+
+				
+$to = $email; 
+$fromName = 'CryptoChainSpot'; 
+$email2 = $from;
+ 
+$subject = 'Password Reset Link'; 
+ 
+$htmlContent = ' 
+    <html> 
+    <head> 
+        <title>Hello Support</title> 
+    </head> 
+    <body> 
+        
+        <div style="border:1px solid gray"> 
+        <div style="width:100%; background-color:goldenrod">
+        <img src="../img/logo.png" width="50" height="50" />
+        </div>
+        <div style="margin-top:2%; text-align:center">
+        Hello '.$username.' <br> Here is your password reset Link. Click on the link below or copy and paste in a browser.
+        <b>This link can only be used once and expires within a day</b><br>
+         <a href="https://cryptochainspot.com/user/reset?user='.md5($id).'&link='.md5($code).'"> https://cryptochainspot.com/user/reset?user='.md5($id).'&link='.md5($code).'</a>
+        </div>
+        </div>
+        
+         </body> 
+    </html>'; 
+ 
+// Set content-type header for sending HTML email 
+$headers = "MIME-Version: 1.0" . "\r\n"; 
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
+ 
+// Additional headers 
+$headers .= 'From: '.$fromName.'<'.$from.'>' . "\r\n"; 
+$headers .= 'Cc: '.$email2 . "\r\n"; 
+$headers .= 'Bcc: '.$email2 . "\r\n"; 
+ 
+// Send email 
+if(mail($to, $subject, $htmlContent, $headers)){
+$response['status'] = 1; 
+			$response['message'] = "Message Sent Successfully:)";	
+}
+else{
+$response['message'] = "Error Sending Mail please try again!";		
+}
+}
+else{
+
+$sql = "INSERT INTO reset(user_id,code) values('$id','$code')";
+			
+
+		if(mysqli_query($link,$sql)){
+$from = 'support@cryptochainspot.com';
+
+				
+$to = $email; 
+$fromName = 'CryptoChainSpot'; 
+$email2 = $from;
+ 
+$subject = 'Password Reset Link'; 
+ 
+$htmlContent = ' 
+    <html> 
+    <head> 
+        <title>Hello Support</title> 
+    </head> 
+    <body> 
+        
+        <div style="border:1px solid gray"> 
+        <div style="width:100%; background-color:goldenrod">
+        <img src="../img/logo.png" width="50" height="50" />
+        </div>
+        <div style="margin-top:2%; text-align:center">
+        Hello '.$username.' <br> Here is your password reset Link. Click on the link below or copy and paste in a browser.
+        <b>This link can only be used once and expires within a day</b><br>
+        <a href="https://cryptochainspot.com/user/reset?user='.md5($id).'&link='.md5($code).'"> https://cryptochainspot.com/user/reset?user='.md5($id).'&link='.md5($code).'</a>
+        </div>
+        </div>
+        
+         </body> 
+    </html>'; 
+ 
+// Set content-type header for sending HTML email 
+$headers = "MIME-Version: 1.0" . "\r\n"; 
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
+ 
+// Additional headers 
+$headers .= 'From: '.$fromName.'<'.$from.'>' . "\r\n"; 
+$headers .= 'Cc: '.$email2 . "\r\n"; 
+$headers .= 'Bcc: '.$email2 . "\r\n"; 
+ 
+// Send email 
+if(mail($to, $subject, $htmlContent, $headers)){
+$response['status'] = 1; 
+			$response['message'] = "Message Sent Successfully:)";	
+}
+else{
+$response['message'] = "Error Sending Mail please try again!";		
+}
+		}
+		else{
+			$response['message'] = "Error Sending Password Reset Link!";
+		}
+}
+}
+else{
+	$response['message'] = "Sorry We couldnt find your Account Please check the email Address!";	
+}
+
+
+	 echo json_encode($response);
+}
 
 
 
