@@ -205,8 +205,8 @@ body {
                 <h4>Reset Your Password</h4>
                 <h6 class="font-weight-light">Enter the password you wish to continue with</h6>
                                 <form class="pt-3" action='' method="post" id="paddForm">
-                                    <input type="hidden" name="" id="id" value="<?php echo $id; ?>">
-                                    <input type="hidden" name="" id="code" value="<?php echo $code; ?>">
+                                    <input type="hidden" name="" id="id" value="<?php echo md5($id); ?>">
+                                    <input type="hidden" name="" id="code" value="<?php echo md5($code); ?>">
                   <div class="form-group">
                     <input type="password" class="form-control" name='pass' placeholder="Enter Your Password" id="pass1">
                   </div>
