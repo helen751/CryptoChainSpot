@@ -203,6 +203,9 @@ body {
                   <div class="mt-3">
                     <button class="submitBtn2 btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit" name="confirm">Next</button>
                   </div>
+                  <div class="text-center mt-4 font-weight-light">
+                      Already Have an Account? <a href="login" class="text-primary">Login</a>
+                  </div>
                   </form>
                   
                 

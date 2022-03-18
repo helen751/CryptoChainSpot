@@ -2058,13 +2058,14 @@ $checkcoin2 = "SELECT * FROM users where email_address = '$email'";
 				$username = $row['username'];
 
 				$code = rand(100000,999999);
+				$id2 = md5($id);
+$code2 = md5($code);
 				$checkcoin3 = "SELECT * FROM reset where user_id = '$id'";
 			$resultcheckcoin3 = mysqli_query($link, $checkcoin3);
 			$countcheckcoin3 = mysqli_num_rows($resultcheckcoin3);
 			if($countcheckcoin3 > 0){
 				$sql = "UPDATE reset SET code='$code', status = 0 where user_id='$id'";
-$id2 = md5($id);
-$code2 = md5($code);			
+			
 
 		if(mysqli_query($link,$sql)){
 				$from = 'support@cryptochainspot.com';
@@ -2083,9 +2084,9 @@ $htmlContent = '
     </head> 
     <body> 
         
-        <div style="border:1px solid gray"> 
-        <div style="width:100%; background-color:goldenrod">
-        <img src="../img/logo.png" width="50" height="50" />
+        <div style="padding-left:5%; border:1px solid gray"> 
+        <div style="background-color:goldenrod">
+        <img src="https://cryptochainspot.com/img/logo.png" width="50" height="50" />
         </div>
         <div style="margin-top:2%; text-align:center">
         Hello '.$username.' <br> Here is your password reset Link. Click on the link below or copy and paste in a browser.
@@ -2110,7 +2111,7 @@ $headers .= 'Bcc: '.$email2 . "\r\n";
 // Send email 
 if(mail($to, $subject, $htmlContent, $headers)){
 $response['status'] = 1; 
-			$response['message'] = "Message Sent Successfully:)";	
+			$response['message'] = "Further Information has been sent to your Email Please Follow the instructions on your Mail to reset your password:)";	
 }
 else{
 $response['message'] = "Error Sending Mail please try again!";		
@@ -2143,9 +2144,9 @@ $htmlContent = '
     </head> 
     <body> 
         
-        <div style="border:1px solid gray"> 
-        <div style="width:100%; background-color:goldenrod">
-        <img src="../img/logo.png" width="50" height="50" />
+        <div style="padding-left:5%; border:1px solid gray"> 
+        <div style="background-color:goldenrod">
+        <img src="https://cryptochainspot.com/img/logo.png" width="50" height="50" />
         </div>
         <div style="margin-top:2%; text-align:center">
         Hello '.$username.' <br> Here is your password reset Link. Click on the link below or copy and paste in a browser.
@@ -2170,7 +2171,7 @@ $headers .= 'Bcc: '.$email2 . "\r\n";
 // Send email 
 if(mail($to, $subject, $htmlContent, $headers)){
 $response['status'] = 1; 
-			$response['message'] = "Message Sent Successfully:)";	
+			$response['message'] = "Further Information has been sent to your Email Please Follow the instructions on your Mail to reset your password:)";	
 }
 else{
 $response['message'] = "Error Sending Mail please try again!";		
