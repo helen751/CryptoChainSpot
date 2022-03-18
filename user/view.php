@@ -192,8 +192,8 @@ echo $countcoin2;
           <td><?php echo $planname; ?></td>
              <td><?php echo $period/7; ?> Weeks</td>
 
-             <td><?php echo round($min,2); ?></td>
-             <td><?php echo round($max,2); ?></td>
+             <td><?php echo  number_format(round($min,2)); ?></td>
+             <td><?php echo  number_format(round($max,2)); ?></td>
 
             <td><?php echo $ref; ?></td>
             <td><?php echo $profit; ?></td>
@@ -336,8 +336,8 @@ echo $countcoin2;
 
             <td><?php echo $access; ?></td>
             <td><?php echo $status; ?></td>
-            <td><?php echo round($acc_bal,2); ?></td>
-            <td><?php echo round($sys_bal,2); ?></td>
+            <td><?php echo  number_format(round($acc_bal,2)); ?></td>
+            <td><?php echo  number_format(round($sys_bal,2)); ?></td>
               <td>
             <form method="POST" action="edit.php">
                   <input type="hidden" hidden name="uid" value="<?php echo $userid; ?>">
@@ -488,7 +488,7 @@ echo $countcoin2;
           <td><?php echo $uname; ?></td>
           <td><?php echo $coin; ?></td>
              <td><?php echo $plan; ?></td>
-<td><?php echo round($amt,2); ?></td>
+<td><?php echo  number_format(round($amt,2)); ?></td>
              <td><?php echo $date; ?></td>
              <td><?php echo $status; ?></td>
               <td>
@@ -632,7 +632,7 @@ echo $countcoin2;
           <td><?php echo $uname; ?></td>
           <td><?php echo $wallet; ?></td>
              <td><?php echo $coin; ?></td>
-<td><?php echo round($amt,2); ?></td>
+<td><?php echo  number_format(round($amt,2)); ?></td>
              <td><?php echo $date; ?></td>
              <td><?php echo $status; ?></td>
               <td>
@@ -780,7 +780,7 @@ $status="<i class='fa fa-circle text-success'></i>"."Approved";
           <td><?php echo $uname; ?></td>
           <td><?php echo $wallet; ?></td>
              <td><?php echo $coin; ?></td>
-<td><?php echo round($amt,2); ?></td>
+<td><?php echo  number_format(round($amt,2)); ?></td>
              <td><?php echo $date; ?></td>
              <td><?php echo $status; ?></td>
               <td>
@@ -938,7 +938,7 @@ $status="<i class='fa fa-circle text-danger'></i>"."Expired";
           <td><?php echo $uname; ?></td>
           <td><?php echo $coin; ?></td>
              <td><?php echo $plan; ?></td>
-<td><?php echo round($amt,2); ?></td>
+<td><?php echo  number_format(round($amt,2)); ?></td>
              <td><?php echo $date; ?></td>
              <td><?php echo $status; ?></td>
               <td>

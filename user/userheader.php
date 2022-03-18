@@ -33,7 +33,6 @@ $d_date = strtotime($dd);
 
 
 if(($dep_s == 1) && ($d_date >= $e_date)){
-   echo "<script> alert('hi'); </script>";
 
    $coinsql5555 = "SELECT * from plans where plan_id ='$pl_id'";
                                     $coinresult5555 = mysqli_query($link,$coinsql5555);

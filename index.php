@@ -360,7 +360,7 @@ As a global investment manager and fiduciary to our clients, our purpose at Cryp
                                                  <div class="row quote-item-area">
                            <div class="col-md-5">
                               <div class="quote-thumb">
-                                 <img class="quote-thumb-img" src="images/9t.jpg" alt=''>
+                                 <img class="quote-thumb-img" src="images/9tt.jpg" alt=''>
 
                               </div>
                               <!-- Quote thumb end -->
@@ -382,7 +382,7 @@ As a global investment manager and fiduciary to our clients, our purpose at Cryp
                                                   <div class="row quote-item-area">
                            <div class="col-md-5">
                               <div class="quote-thumb">
-                                 <img class="quote-thumb-img" src="images/11t.jpg" alt=''>
+                                 <img class="quote-thumb-img" src="images/11tt.jpg" alt=''>
 
                               </div>
                               <!-- Quote thumb end -->
@@ -407,7 +407,7 @@ As a global investment manager and fiduciary to our clients, our purpose at Cryp
                                                   <div class="row quote-item-area">
                            <div class="col-md-5">
                               <div class="quote-thumb">
-                                 <img class="quote-thumb-img" src="images/10t.jpg" alt=''>
+                                 <img class="quote-thumb-img" src="images/10tt.jpg" alt=''>
 
                               </div>
                               <!-- Quote thumb end -->
@@ -429,7 +429,7 @@ As a global investment manager and fiduciary to our clients, our purpose at Cryp
                                                   <div class="row quote-item-area">
                            <div class="col-md-5">
                               <div class="quote-thumb">
-                                 <img class="quote-thumb-img" src="images/4t.jpg" alt=''>
+                                 <img class="quote-thumb-img" src="images/4tt.jpg" alt=''>
 
                               </div>
                               <!-- Quote thumb end -->

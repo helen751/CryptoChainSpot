@@ -15,7 +15,7 @@
     <div class="col-sm-6 " style="width: 50%; padding-top: 0px; margin-top: -5px;">
                 <div style="float: right;">
                 <small class="text-muted text-capitalize">Available Balance</small><br>
-                <b>USD </b><b id="conv"><?php echo round($accbal,2); ?></b><br>
+                <b>USD </b><b id="conv"><?php echo number_format(round($accbal,2)); ?></b><br>
         </div>
             </div>
           </div>
@@ -31,11 +31,11 @@
                   <h4 class="card-title ">Account Balance</h4>
                   <div class="row">
                     <div class="col-md-6 text-center">
-                      <h2 class="text-primary">USD <?php echo round($accbal,2); ?></h2>
+                      <h2 class="text-primary">USD <?php echo number_format(round($accbal,2)); ?></h2>
                       <p class="text-primary">Available Balance</p>
                     </div>
                     <div class="col-md-6 text-center align-items-baseline">
-                      <h4 class="text-muted">USD <?php echo round($sysbal,2); ?></h4>
+                      <h4 class="text-muted">USD <?php echo number_format(round($sysbal,2)); ?></h4>
                       <p class="text-muted">System Balance</p>
                     </div>
                   </div>
@@ -173,7 +173,7 @@
                                             $amt = $coinrow["amount"];
                                             $tot = $tot+$amt;
                                                 }
-                                                echo $tot;
+                                                echo number_format(round($tot,2));
                                         }
                                         else{
                                           echo " 0.00";
@@ -185,6 +185,7 @@
                     <div class="d-flex align-items-center">
                       <p class="mb-0 mr-2">0</p>
                       <div class="badge badge-">NAN %</div>
+
                     </div>
                   </div>
                 </div>
@@ -208,7 +209,7 @@
                                             $amt = $coinrow["bonus_amount"];
                                             $tot = $tot+$amt;
                                                 }
-                                                echo $tot;
+                                                echo number_format(round($tot,2));
                                         }
                                         else{
                                           echo " 0.00";
@@ -243,7 +244,7 @@
                                             $amt = $coinrow["transaction_amount"];
                                             $tot = $tot+$amt;
                                                 }
-                                                echo $tot;
+                                                echo  number_format(round($tot,2));
                                         }
                                         else{
                                           echo " 0.00";
@@ -296,7 +297,7 @@
 
 <tr>
   <td><?php echo $ty; ?></td>
-  <td><?php echo $amt; ?></td>
+  <td><?php echo  number_format(round($amt,2)); ?></td>
   <td><?php echo date('Y:m:d', strtotime($date)); ?></td>
   <td><?php if($st == 1){
   ?>
@@ -369,7 +370,7 @@
 
 <tr>
   <td><?php echo $rn; ?></td>
-  <td><?php echo $amt; ?></td>
+  <td><?php echo  number_format(round($amt,2)); ?></td>
   <td><?php echo date('Y:m:d', strtotime($date)); ?></td>
 </tr>
 
@@ -460,7 +461,4 @@
     </div><!-- slim-mainpanel -->
 <?php include("userfooter.php");
 ?>
-  <script type="text/javascript">
-   var num = document.getElementById("conv").innerHTML;
-   num = num.toLocaleString();
-</script>
+  

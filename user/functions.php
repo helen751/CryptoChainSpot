@@ -830,11 +830,11 @@ if(isset($_POST["deposit"])){
       $per = $planrow["percentage_profit"];
 
       if($amount < $min){
-      	$response['message'] = "Amount is Lesser than the minimum deposit Enter Amount from ". round($min,2)."-".round($max,2);
+      	$response['message'] = "Amount is Lesser than the minimum deposit Enter Amount from ".  number_format(round($min,2))."-". number_format(round($max,2));
 
       }
       else if($amount > $max){
-      	$response['message'] = "Amount Exceeds the maximum deposit Enter Amount from ". round($min,2)."-".round($max,2);
+      	$response['message'] = "Amount Exceeds the maximum deposit Enter Amount from ".  number_format(round($min,2))."-". number_format(round($max,2));
       }
       else{
       	if($choose == 1){
@@ -1006,7 +1006,7 @@ $sql29 = "INSERT INTO transactions(user_id,transaction_type,transaction_amount,t
 		if(mysqli_query($link,$sql29)){
 			$tlid78 = mysqli_insert_id($link);
 			$edate = date('Y-m-d H:i:s', strtotime($today. ' + ' . $period . 'days'));
-			$sql24 = "INSERT INTO deposits(user_id,plan_id,deposit_amount,deposit_type,expiry_date,status,approve,transaction_id) values('$id','$plan','$amount','wallet','$edate','0','0','$tlid78')";
+			$sql24 = "INSERT INTO deposits(user_id,plan_id,deposit_amount,deposit_type,status,approve,transaction_id) values('$id','$plan','$amount','wallet','0','0','$tlid78')";
 
 		if(mysqli_query($link,$sql24)){
 	$response['coin'] = $wallet;
@@ -1078,8 +1078,8 @@ $depsql2 = "SELECT * from plans where plan_id='$plid'";
       $response['coin'] = $cn;
       $response['ref'] = $planrow["referal_bonus"];
       $response['period'] = $planrow["period"];
-      $response['min'] = round($planrow["min_deposit"],2);
-      $response['max'] = round($planrow["max_deposit"],2);
+      $response['min'] =  number_format(round($planrow["min_deposit"],2));
+      $response['max'] =  number_format(round($planrow["max_deposit"],2));
       $response['per'] = $planrow["percentage_profit"];
       $response['message'] = "Successful";
   }
@@ -1494,14 +1494,30 @@ $response = array(
 
 
 if (isset($_POST['apdep'])) {
-
+$plansql = "SELECT * from plans where plan_id='$plan'";
+     $planresult = mysqli_query($link,$plansql);
+                                    $countplan = mysqli_num_rows($planresult);
+$period = ' ';
+   if($countplan != 0){
+     $planrow = mysqli_fetch_array($planresult, MYSQLI_ASSOC); 
+      $planid = $planrow["plan_id"];
+      $coin = $planrow["coin_id"];
+      $ref = $planrow["referal_bonus"];
+      $period = $planrow["period"];
+      $min = $planrow["min_deposit"];
+      $max = $planrow["max_deposit"];
+      $per = $planrow["percentage_profit"];
+$bon = ($per/100) * $amount;
+}
+$today = date("Y-m-d H:i:s");
+$edate = date('Y-m-d H:i:s', strtotime($today. ' + ' . $period . 'days'));
 	$depsql = "SELECT * from deposits where user_id='$userid' and approve != 0";
      $depresult = mysqli_query($link,$depsql);
      $countdep = mysqli_num_rows($depresult);
 
    if($countdep != 0){
 
-$sql = "UPDATE deposits SET approve = 1, status = 1 where deposit_id = '$did'";
+$sql = "UPDATE deposits SET approve = 1, expiry_date = '$edate', status = 1 where deposit_id = '$did'";
 
   	$sql2 = "UPDATE transactions SET transaction_status = 1 where transaction_id = '$tid'";
 $sql3 = "UPDATE accounts SET system_balance = system_balance + $amount where user_id = '$userid'";
@@ -1541,6 +1557,23 @@ $sql3 = "UPDATE accounts SET system_balance = system_balance + $amount where use
 }
 
 else{
+	$plansql = "SELECT * from plans where plan_id='$plan'";
+     $planresult = mysqli_query($link,$plansql);
+                                    $countplan = mysqli_num_rows($planresult);
+$period = ' ';
+   if($countplan != 0){
+     $planrow = mysqli_fetch_array($planresult, MYSQLI_ASSOC); 
+      $planid = $planrow["plan_id"];
+      $coin = $planrow["coin_id"];
+      $ref = $planrow["referal_bonus"];
+      $period = $planrow["period"];
+      $min = $planrow["min_deposit"];
+      $max = $planrow["max_deposit"];
+      $per = $planrow["percentage_profit"];
+$bon = ($per/100) * $amount;
+}
+$today = date("Y-m-d H:i:s");
+$edate = date('Y-m-d H:i:s', strtotime($today. ' + ' . $period . 'days'));
 	$depsql2 = "SELECT * from users where user_id='$userid'";
      $depresult2 = mysqli_query($link,$depsql2);
      $countdep2 = mysqli_num_rows($depresult2);
@@ -1550,7 +1583,7 @@ else{
       $referer = $deprow["referer_id"];
 
       if(is_null($referer)){
-      	$sql = "UPDATE deposits SET approve = 1, status = 1 where deposit_id = '$did'";
+      	$sql = "UPDATE deposits SET approve = 1, expiry_date = '$edate', status = 1 where deposit_id = '$did'";
 
   	$sql2 = "UPDATE transactions SET transaction_status = 1 where transaction_id = '$tid'";
 $sql3 = "UPDATE accounts SET system_balance = system_balance + $amount where user_id = '$userid'";
@@ -1604,6 +1637,8 @@ $sql3 = "UPDATE accounts SET system_balance = system_balance + $amount where use
       $max = $planrow["max_deposit"];
       $per = $planrow["percentage_profit"];
 $bon = ($per/100) * $amount;
+$today = date("Y-m-d H:i:s");
+$edate = date('Y-m-d H:i:s', strtotime($today. ' + ' . $period . 'days'));
 $sql = "INSERT INTO bonus(user_id,bonus_type,bonus_amount) values('$referer','referal','$bon')";
 
 		if(mysqli_query($link,$sql)){
@@ -1614,7 +1649,7 @@ $sql = "INSERT INTO bonus(user_id,bonus_type,bonus_amount) values('$referer','re
 			$sqlr = "INSERT INTO referals(user_id,refered_id,bonus_amount) values('$referer','$id','$bon')";
 
 		if(mysqli_query($link,$sqlr)){
-$sql = "UPDATE deposits SET approve = 1, status = 1 where deposit_id = '$did'";
+$sql = "UPDATE deposits SET approve = 1, expiry_date = '$edate', status = 1 where deposit_id = '$did'";
 
   	$sql2 = "UPDATE transactions SET transaction_status = 1 where transaction_id = '$tid'";
 

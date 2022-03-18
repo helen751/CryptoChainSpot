@@ -14,7 +14,7 @@
     <div class="col-sm-6 " style="width: 50%; padding-top: 0px; margin-top: -5px;">
                 <div style="float: right;">
                 <small class="text-muted text-capitalize">Available Balance</small><br><b>USD </b>
-                <b id="avb"><?php echo round($accbal,2); ?></b><br>
+                <b id="avb"><?php echo  number_format(round($accbal,2)); ?></b><br>
         </div>
             </div>
           </div>
