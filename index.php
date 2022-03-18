@@ -299,7 +299,7 @@ As a global investment manager and fiduciary to our clients, our purpose at Cryp
                 
                 <div class="row text-center">
                    <?php
-     $col = array(" ","goldenrod","#2154cf","#222","#666");
+     $col = array(" ","goldenrod","#2154cf","gold","royalblue");
                                     $coinsqlcc = "SELECT * from coins limit 1";
                                     $coinresultcc = mysqli_query($link,$coinsqlcc);
                                     $countcoincc = mysqli_num_rows($coinresultcc);
