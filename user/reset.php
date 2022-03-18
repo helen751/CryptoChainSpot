@@ -1,4 +1,12 @@
+<?php
+$id = ' ';
+$code = ' ';
+if((isset($_GET["link"])) && (isset($_GET["user"]))){
+    $id = $_GET["user"];
+    $code = $_GET["link"];
+}
 
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -194,11 +202,16 @@ body {
               <span aria-hidden="true">×</span>
             </button>
     <span id="inmsg"></span>        </div>
-                <h4>Enter a valid Email Address For Your Account</h4>
-                <h6 class="font-weight-light">Your Password Reset Link will be Sent to your Email</h6>
+                <h4>Reset Your Password</h4>
+                <h6 class="font-weight-light">Enter the password you wish to continue with</h6>
                                 <form class="pt-3" action='' method="post" id="paddForm">
+                                    <input type="hidden" name="" id="id" value="<?php echo $id; ?>">
+                                    <input type="hidden" name="" id="code" value="<?php echo $code; ?>">
                   <div class="form-group">
-                    <input type="text" class="form-control" name='email' placeholder="Enter Your Email Address" id="email">
+                    <input type="password" class="form-control" name='pass' placeholder="Enter Your Password" id="pass">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" name='pass2' placeholder="Confirm Your Password" id="pass2">
                   </div>
                   <div class="mt-3">
                     <button class="submitBtn2 btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" type="submit" name="confirm">Next</button>
@@ -250,19 +263,30 @@ body {
     // Submit form data via Ajax
     $("#paddForm").on('submit', function(e){
         e.preventDefault();
-    var email = document.getElementById("email").value;
+    var pass = document.getElementById("pass1").value;
+    var pass2 = document.getElementById("pass2").value;
+    var id = document.getElementById("id").value;
+    var code = document.getElementById("code").value;
 
 
 var msg = document.getElementById("msg");
-    if (email.length==0) {
-        alert("please enter Your Email Address");
+    if (pass.length==0) {
+        alert("please enter Your Password");
+    }
+    else if (pass2.length==0) {
+        alert("please Confirm your Password");
+    }
+    else if (pass != pass2) {
+        alert("please The Two Passwords does not match");
     }
   
     else{
 
     const formData = new FormData();
-    formData.append('email', email)
-    formData.append('fp', '')
+    formData.append('pass', pass)
+    formData.append('id', id)
+    formData.append('code', code)
+    formData.append('reset', '')
 
     const options = {
         method: "Post",
