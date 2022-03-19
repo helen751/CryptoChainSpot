@@ -254,21 +254,21 @@
                                            <div class="card">
                         <div class="card-header" id="heading1">
                            <h5 class="mb-0">
-                              <button class="" data-toggle="collapse" data-target="#collapsel" aria-expanded="true" aria-controls="collapsel">
-                                 <p>Learn More</p>
-                              </button>
+                              <a class="" data-toggle="collapse" data-target="#collapsel" aria-expanded="true" aria-controls="collapsel">
+                                 Learn More
+                              </a>
                            </h5>
                         </div>
-                        <div class="collapse show" id="collapsel" aria-labelledby="heading1" data-parent="#accordion">
+                        <div class="collapse" id="collapsel" aria-labelledby="heading1" data-parent="#accordion">
                            <div class="card-body">
-                              <p><h3>Who we serve</h3>
-                                 <ul>
-                             <li> Individuals and families providing choice for those investing for retirement for a new home or a child's education.</li>
-                             <li> Financial advisors Helping people at all income levels invest for their future.</li>
-                          <li> Educational and nonprofit organizations working to educate more students and solve social challenges.</li>
-                       <li> Pension plans managing the retirement savings of teachers, doctors, workers and small business owners.</li>
-                     <li>Insurance companies supporting people during life's most difficult moments. </li>
-                  <li>Goverments financing new hospitals, schools, roads and other projects helping to drive economic growth</li></ul></p>
+                              <p>--Who we serve<br>
+                                 --Individuals and families providing choice for those investing for retirement for a new home or a child's education.<br>
+                              --Financial advisors Helping people at all income levels invest for their future.<br>
+                              --Educational and nonprofit organizations working to educate more students and solve social challenges.<br>
+                           --Pension plans managing the retirement savings of teachers, doctors, workers and small business owners.
+                           <br>
+                           --Insurance companies supporting people during life's most difficult moments. <br>
+                        --Goverments financing new hospitals, schools, roads and other projects helping to drive economic growth.</p>
                            </div>
                         </div>
                      </div>
