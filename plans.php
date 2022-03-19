@@ -108,7 +108,7 @@ if (isset($_GET["p"])) {
 <div class="single-price-box col-12">
              <div class="pricing-plan">
               <div class="pricing-header border-left" style='background-color: #ff9900;'>
-                  <h2 class="plan-name">No Plan Yet For this Coin</h2>
+                  <h2 class="plan-name">No Plans Added Yet For this Coin</h2>
               </div>
           </div>
       </div>
