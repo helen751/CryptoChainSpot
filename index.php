@@ -250,17 +250,16 @@
                    <div class="col-md-4">
                   <h2 class="column-title title-white"><span>Welcome to CryptochainSpot</span> You can trust us to help make your financial dream come true</h2>
                   <p class="intro-desc">We've been operating in the United States managing Assets for U.S clients for more than 32 years. 1 Our goal is simple we want to help more and more people experience financial well-being</p>
-                   </div>
-                    <div id="accordion">
+                  <div id="accordion">
                                            <div class="card">
-                        <div class="card-header" id="headingl">
+                        <div class="card-header" id="heading1">
                            <h5 class="mb-0">
-                              <button class="btn btn-link " data-toggle="collapse" data-target="#collapsel" aria-expanded="true" aria-controls="collapsel">
+                              <button class="" data-toggle="collapse" data-target="#collapsel" aria-expanded="true" aria-controls="collapsel">
                                  <p>Learn More</p>
                               </button>
                            </h5>
                         </div>
-                        <div class="collapse show" id="collapsel" aria-labelledby="headingl" data-parent="#accordion">
+                        <div class="collapse show" id="collapsel" aria-labelledby="heading1" data-parent="#accordion">
                            <div class="card-body">
                               <p><h3>Who we serve</h3>
                                  <ul>
@@ -274,6 +273,8 @@
                         </div>
                      </div>
                   </div>
+                   </div>
+                    
                   
                   <div class="col-md-4">
                   <img class="img-center img-fluid" src="images/hs/md.jpg" alt="">
@@ -322,36 +323,29 @@
                 <div class="row text-center">
                    <?php
      $col = array(" ","goldenrod","#2154cf","gold","royalblue");
-                                    $coinsqlcc = "SELECT * from coins limit 1";
+                                    $coinsqlcc = "SELECT * from coins";
                                     $coinresultcc = mysqli_query($link,$coinsqlcc);
                                     $countcoincc = mysqli_num_rows($coinresultcc);
 
                                         if($countcoincc != 0){
-                                          $row = mysqli_fetch_array($coinresultcc, MYSQLI_ASSOC);
+                                           while($row = $coinresult->fetch_assoc()) {
                                           $coinid = $row["coin_id"];
+                                          $coinname = $coinrow["coin_name"];
 
-
-                                           $coinsql = "SELECT * from plans where coin_id = '$coinid'";
-                                    $coinresult = mysqli_query($link,$coinsql);
-                                    $countcoin = mysqli_num_rows($coinresult);
-                                            while($coinrow = $coinresult->fetch_assoc()) { 
                                              $n = rand(1,4);
-
-                                            $planname = $coinrow["plan_name"];
-                                            $planid = $coinrow["plan_id"];
 
 
 
                                      ?>
                                      <div class='col-12 mt-2'>
-                                  <a  href="plans?p=<?php echo $coinid; ?>" class="btn btn-primary" style='background-color: <?php echo $col[$n]; ?>;'> <?php echo $planname; ?></a>
+                                  <a  href="plans?p=<?php echo $coinid; ?>" class="btn btn-primary" style='background-color: <?php echo $col[$n]; ?>;'> <?php echo $coinname; ?> Plans</a>
                               </div>
                                     
                                      <?php } 
                                  }
                                      else{
                                         ?>
-                                        <div class='col-12'>No Plan Added yet!</div>
+                                        <div class='col-12'>No Coins Added yet!</div>
 
 
                                         <?php
