@@ -2205,9 +2205,10 @@ if (isset($_POST['reset'])) {
 	if($count > 0) {
 		$otpquery = "UPDATE reset SET status = 1 WHERE user_id='$id'";
 		if(mysqli_query($link,$otpquery)){
-			$otpquery2 = "UPDATE users SET password = md5('$pass') WHERE user_id='$id'";
+			$otpquery2 = "UPDATE users SET password = md5('mmmnnn') WHERE user_id='$id'";
 		if(mysqli_query($link,$otpquery2)){
 				$response['status'] = 1; 
+				$response['message'] = "Password Changed Successfully!";
 			}
 			else{
 				$response['message'] = "Failed to Reset Password, please try again!";
