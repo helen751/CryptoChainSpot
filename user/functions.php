@@ -2065,7 +2065,7 @@ $code2 = md5($code);
 			$countcheckcoin3 = mysqli_num_rows($resultcheckcoin3);
 			if($countcheckcoin3 > 0){
 				$today = date("Y-m-d H:i:s");
-				$sql = "UPDATE reset SET code='$code', status = 0, date='$today' where user_id='$id'";
+				$sql = "UPDATE reset SET code='$code2', status = 0, date='$today' where user_id='$id'";
 			
 
 		if(mysqli_query($link,$sql)){
@@ -2092,7 +2092,7 @@ $htmlContent = '
         <div style="margin-top:2%;>
         Hello '.$username.' <br> Here is your password reset Link. Click on the link below or copy and paste in a browser.<br><br>
         <h3>NOTE:</h3><b>This link can only be used once and expires within a day</b><br>
-         <a href="https://cryptochainspot.com/user/reset?user='.$id2.'&link='.$code2.'"> https://cryptochainspot.com/user/reset?user='.$id2.'&link='.$code2.'</a>
+         <a href="https://cryptochainspot.com/user/reset?user='.$id.'&link='.$code2.'"> https://cryptochainspot.com/user/reset?user='.$id.'&link='.$code2.'</a>
          
         </div>
         </div>
@@ -2125,7 +2125,7 @@ else{
 }
 else{
 
-$sql = "INSERT INTO reset(user_id,code) values('$id','$code')";
+$sql = "INSERT INTO reset(user_id,code) values('$id','$code2')";
 			
 
 		if(mysqli_query($link,$sql)){
@@ -2152,7 +2152,7 @@ $htmlContent = '
         <div style="margin-top:2%;>
         Hello '.$username.' <br> Here is your password reset Link. Click on the link below or copy and paste in a browser.<br><br>
         <h3>NOTE:</h3><b>This link can only be used once and expires within a day</b><br>
-         <a href="https://cryptochainspot.com/user/reset?user='.$id2.'&link='.$code2.'"> https://cryptochainspot.com/user/reset?user='.$id2.'&link='.$code2.'</a>
+         <a href="https://cryptochainspot.com/user/reset?user='.$id.'&link='.$code2.'"> https://cryptochainspot.com/user/reset?user='.$id.'&link='.$code2.'</a>
          
         </div>
         </div>
