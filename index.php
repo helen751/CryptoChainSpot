@@ -250,13 +250,13 @@
                    <div class="col-md-4">
                   <h2 class="column-title title-white"><span>Welcome to CryptochainSpot</span> You can trust us to help make your financial dream come true</h2>
                   <p class="intro-desc">We've been operating in the United States managing Assets for U.S clients for more than 32 years. 1 Our goal is simple we want to help more and more people experience financial well-being</p>
-                  <div id="accordion">
-                                           <div class="card">
+                  <div id="accordion" style=" background: none;">
+                                           <div class="card" style="background-color:none">
                         <div class="card-header" id="heading1">
                            <h5 class="mb-0">
-                              <a class="" data-toggle="collapse" data-target="#collapsel" aria-expanded="true" aria-controls="collapsel">
+                              <button class="btn btn-warning" data-toggle="collapse" data-target="#collapsel" aria-expanded="true" aria-controls="collapsel">
                                  Learn More
-                              </a>
+                              </button>
                            </h5>
                         </div>
                         <div class="collapse" id="collapsel" aria-labelledby="heading1" data-parent="#accordion">
