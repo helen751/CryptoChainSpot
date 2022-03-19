@@ -330,7 +330,7 @@
                                         if($countcoincc != 0){
                                            while($row = $coinresult->fetch_assoc()) {
                                           $coinid = $row["coin_id"];
-                                          $coinname = $coinrow["coin_name"];
+                                          $coinname = $row["coin_name"];
 
                                              $n = rand(1,4);
 
