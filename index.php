@@ -261,14 +261,14 @@
                         </div>
                         <div class="collapse" id="collapsel" aria-labelledby="heading1" data-parent="#accordion">
                            <div class="card-body">
-                              <p>--Who we serve<br>
+                              --Who we serve<br>
                                  --Individuals and families providing choice for those investing for retirement for a new home or a child's education.<br>
                               --Financial advisors Helping people at all income levels invest for their future.<br>
                               --Educational and nonprofit organizations working to educate more students and solve social challenges.<br>
                            --Pension plans managing the retirement savings of teachers, doctors, workers and small business owners.
                            <br>
                            --Insurance companies supporting people during life's most difficult moments. <br>
-                        --Goverments financing new hospitals, schools, roads and other projects helping to drive economic growth.</p>
+                        --Goverments financing new hospitals, schools, roads and other projects helping to drive economic growth.
                            </div>
                         </div>
                      </div>
@@ -328,7 +328,7 @@
                                     $countcoincc = mysqli_num_rows($coinresultcc);
 
                                         if($countcoincc != 0){
-                                           while($row = $coinresult->fetch_assoc()) {
+                                           while($row = $coinresultcc->fetch_assoc()) {
                                           $coinid = $row["coin_id"];
                                           $coinname = $row["coin_name"];
 
