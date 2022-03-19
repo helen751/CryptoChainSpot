@@ -276,6 +276,9 @@ var msg = document.getElementById("msg");
     if (pass.length==0) {
         alert("please enter Your Password");
     }
+    else if (pass.length<6) {
+        alert("password must be at least 6 characters");
+    }
     else if (pass2.length==0) {
         alert("please Confirm your Password");
     }
