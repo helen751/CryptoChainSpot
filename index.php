@@ -260,7 +260,7 @@
                            </h5>
                         </div>
                         <div class="collapse" id="collapsel" aria-labelledby="heading1" data-parent="#accordion">
-                           <div class="card-body text-dark">
+                           <div class="card-body">
                               --Who we serve<br>
                                  --Individuals and families providing choice for those investing for retirement for a new home or a child's education.<br>
                               --Financial advisors Helping people at all income levels invest for their future.<br>
