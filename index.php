@@ -249,9 +249,31 @@
             <div class="row">
                    <div class="col-md-4">
                   <h2 class="column-title title-white"><span>Welcome to CryptochainSpot</span> You can trust us to help make your financial dream come true</h2>
-                  <p class="intro-desc">
-As a global investment manager and fiduciary to our clients, our purpose at Cryptochainspot is to help everyone experience financial well-being. Since 2009, we've been a leading provider of financial technology, and our clients turn to us for the solutions they need when planning for their most important goals.</p>
+                  <p class="intro-desc">We've been operating in the United States managing Assets for U.S clients for more than 32 years. 1 Our goal is simple we want to help more and more people experience financial well-being</p>
                    </div>
+                    <div id="accordion">
+                                           <div class="card">
+                        <div class="card-header" id="headingl">
+                           <h5 class="mb-0">
+                              <button class="btn btn-link " data-toggle="collapse" data-target="#collapsel" aria-expanded="true" aria-controls="collapsel">
+                                 <p>Learn More</p>
+                              </button>
+                           </h5>
+                        </div>
+                        <div class="collapse show" id="collapsel" aria-labelledby="headingl" data-parent="#accordion">
+                           <div class="card-body">
+                              <p><h3>Who we serve</h3>
+                                 <ul>
+                             <li> Individuals and families providing choice for those investing for retirement for a new home or a child's education.</li>
+                             <li> Financial advisors Helping people at all income levels invest for their future.</li>
+                          <li> Educational and nonprofit organizations working to educate more students and solve social challenges.</li>
+                       <li> Pension plans managing the retirement savings of teachers, doctors, workers and small business owners.</li>
+                     <li>Insurance companies supporting people during life's most difficult moments. </li>
+                  <li>Goverments financing new hospitals, schools, roads and other projects helping to drive economic growth</li></ul></p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
                   
                   <div class="col-md-4">
                   <img class="img-center img-fluid" src="images/hs/md.jpg" alt="">
