@@ -208,7 +208,7 @@ body {
                                     <input type="hidden" name="" id="id" value="<?php echo $id; ?>">
                                     <input type="hidden" name="" id="code" value="<?php echo $code; ?>">
                   <div class="form-group">
-                    <input type="password" class="form-control" name='pass' placeholder="Enter Your Password" id="pass1">
+                    <input type="password" class="form-control" name='pass1' placeholder="Enter Your Password" id="pass1">
                   </div>
                   <div class="form-group">
                     <input type="password" class="form-control" name='pass2' placeholder="Confirm Your Password" id="pass2">
