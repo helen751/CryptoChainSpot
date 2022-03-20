@@ -39,7 +39,7 @@ if($_GET['d']== 2){
                                
                               <div class="col-lg-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/2.jpeg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/2.jpg" alt="">
                                  </div>
                               </div>
                               <!-- Col end-->
@@ -50,17 +50,17 @@ if($_GET['d']== 2){
                             <div class="row">
                               <div class="col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/2b.jpeg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/2b.jpg" alt="">
                                  </div>
                               </div>
                                 <div class="col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/2c.jpeg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/2c.jpg" alt="">
                                  </div>
                               </div>
                                 <div class=" col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/2d.jpeg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/2d.jpg" alt="">
                                  </div>
                               </div>
                               <!-- Col end-->
@@ -121,7 +121,7 @@ else if($_GET['d']== 3){
                                
                               <div class="col-lg-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/3.jpeg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/3.jpg" alt="">
                                  </div>
                               </div>
                               <!-- Col end-->
@@ -132,17 +132,17 @@ else if($_GET['d']== 3){
                             <div class="row">
                               <div class="col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/3b.jpeg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/3b.jpg" alt="">
                                  </div>
                               </div>
                                 <div class="col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/3c.jpeg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/3c.jpg" alt="">
                                  </div>
                               </div>
                                 <div class=" col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/3d.jpeg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/3d.jpg" alt="">
                                  </div>
                               </div>
                               <!-- Col end-->
@@ -204,7 +204,7 @@ else if($_GET['d']== 1){
                                
                               <div class="col-lg-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/1.jpeg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/1.jpg" alt="">
                                  </div>
                               </div>
                               <!-- Col end-->
@@ -215,17 +215,17 @@ else if($_GET['d']== 1){
                             <div class="row">
                               <div class="col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/1b.jpeg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/1b.jpg" alt="">
                                  </div>
                               </div>
                                 <div class="col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/1c.jpeg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/1c.jpg" alt="">
                                  </div>
                               </div>
                                 <div class=" col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/1d.jpeg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/1d.jpg" alt="">
                                  </div>
                               </div>
                               <!-- Col end-->
@@ -286,7 +286,7 @@ else if($_GET['d']== 1){
                                
                               <div class="col-lg-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/4.jpeg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/4.jpg" alt="">
                                  </div>
                               </div>
                               <!-- Col end-->
@@ -297,17 +297,17 @@ else if($_GET['d']== 1){
                             <div class="row">
                               <div class="col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/4b.jpeg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/4b.jpg" alt="">
                                  </div>
                               </div>
                                 <div class="col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/4c.jpeg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/4c.jpg" alt="">
                                  </div>
                               </div>
                                 <div class=" col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/4d.jpeg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/4d.jpg" alt="">
                                  </div>
                               </div>
                               <!-- Col end-->
