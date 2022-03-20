@@ -495,8 +495,7 @@ body {
                            
                            <li class="nav-item dropdown"><a class="nav-link" href="#" data-toggle="dropdown">Investments<i class="fa fa-angle-down"></i></a>
                                  <ul class="dropdown-menu" role="menu">
-                                     <li><a href="estate">Digital Real estate</a></li>
-                                      <li><a href="nfp">NFP</a></li>
+                                     
                                     <?php
                                     $coinsql = "SELECT * from coins";
                                     $coinresult = mysqli_query($link,$coinsql);
@@ -514,6 +513,8 @@ body {
                                      <?php } 
                                  }
                                      ?>
+                                     <li><a href="estate">Digital Real estate</a></li>
+                                      <li><a href="nfp">NFP Deals</a></li>
                                     
                                  </ul>
                               </li>

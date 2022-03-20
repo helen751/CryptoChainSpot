@@ -321,12 +321,7 @@
                </div>
                 
                 <div class="row text-center">
-                  <div class='col-12 mt-2'>
-                                  <a  href="estate" class="btn btn-primary"> Digital Real Estate</a>
-                              </div>
-                              <div class='col-12 mt-2'>
-                                  <a  href="nfp" class="btn btn-primary"> NFP Deal</a>
-                              </div>
+                  
                    <?php
      $col = array(" ","goldenrod","#2154cf","gold","royalblue");
                                     $coinsqlcc = "SELECT * from coins";
@@ -357,6 +352,12 @@
                                      }
 
                                      ?>
+                                     <div class='col-12 mt-2'>
+                                  <a  href="estate" class="btn btn-primary"> Digital Real Estate</a>
+                              </div>
+                              <div class='col-12 mt-2'>
+                                  <a  href="nfp" class="btn btn-primary"> NFP Deal</a>
+                              </div>
                                     
                   
                 </div><br>
