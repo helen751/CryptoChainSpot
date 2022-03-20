@@ -32,10 +32,12 @@
                   <div class="row">
                     <div class="col-md-6 text-center">
                       <h2 class="text-primary">USD <?php echo number_format(round($accbal,2)); ?></h2>
+                       <p class="mb-0 text-warning" id="ta">0.0000 BTC</p>
                       <p class="text-primary">Available Balance</p>
                     </div>
                     <div class="col-md-6 text-center align-items-baseline">
                       <h4 class="text-muted">USD <?php echo number_format(round($sysbal,2)); ?></h4>
+                       <p class="mb-0 text-warning" id="ts">0.0000 BTC</p>
                       <p class="text-muted">System Balance</p>
                     </div>
                   </div>
@@ -146,7 +148,7 @@
                                           ?></h4>
                                         
                   <div class="d-flex justify-content-between align-items-center flex-wrap">
-                    <p class="mb-0 text-warning">0.0000 BTC</p>
+                    <p class="mb-0 text-warning" id="td">0.0000 BTC</p>
                     <div class="d-flex align-items-center">
                       <p class="mb-0 mr-2">0</p>
                       <div class="badge badge-">NAN %</div>
@@ -181,7 +183,7 @@
 }
                                           ?></h4>
                   <div class="d-flex justify-content-between align-items-center flex-wrap">
-                    <p class="mb-0 text-warning">0.0000 BTC</p>
+                    <p class="mb-0 text-warning" id="tw">0.0000 BTC</p>
                     <div class="d-flex align-items-center">
                       <p class="mb-0 mr-2">0</p>
                       <div class="badge badge-">NAN %</div>
@@ -217,7 +219,7 @@
 }
                                           ?></h4>
                   <div class="d-flex justify-content-between align-items-center flex-wrap">
-                    <p class="mb-0 text-warning">0.0000 BTC</p>
+                    <p class="mb-0 text-warning" id="tb">0.0000 BTC</p>
                     <div class="d-flex align-items-center">
                       <p class="mb-0 mr-2">0</p>
                       <div class="badge badge-">NAN %</div>
@@ -252,7 +254,7 @@
 }
                                           ?></h4>
                   <div class="d-flex justify-content-between align-items-center flex-wrap">
-                    <p class="mb-0 text-warning">0.0000 BTC</p>
+                    <p class="mb-0 text-warning" id="tt">0.0000 BTC</p>
                     <div class="d-flex align-items-center">
                       <p class="mb-0 mr-2">0</p>
                       <div class="badge badge-">NAN %</div>
