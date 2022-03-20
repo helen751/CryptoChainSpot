@@ -1,7 +1,7 @@
 
   <?php include("header.php"); ?>      
 <!-- START SECTION BANNER -->
-<div class="banner-area" id="banner-area" style="background-image:url(images/banner/banner1.jpg);">
+<div class="banner-area" id="banner-area" style="background-image:url(images/banner/support.jpeg);">
          <div class="container">
             <div class="row justify-content-center">
                <div class="col">

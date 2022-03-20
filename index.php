@@ -227,7 +227,7 @@
                   <!-- feature 2 end-->
                </div>
                <!-- Col end-->
-               <div class="col-lg-4 feature-box3" style="background-image: url(images/features/feature3.jpg);">
+               <div class="col-lg-4 feature-box3" style="background-image: url(images/features/nn.jpeg);">
                   <div class="ts-feature text-center">
                      <div class="ts-feature-info"><i class="icon icon-wallet"></i>
                         <h3 class="ts-feature-title">Make Withdrawal</h3>
@@ -249,7 +249,7 @@
             <div class="row">
                    <div class="col-md-4">
                   <h2 class="column-title title-white"><span>Welcome to CryptochainSpot</span> You can trust us to help make your financial dream come true</h2>
-                  <p class="intro-desc">We've been operating in the United States managing Assets for U.S clients for more than 32 years. 1 Our goal is simple we want to help more and more people experience financial well-being</p>
+                  <p class="intro-desc">We’ve been operating in the United States and Globally managing Assets for more our clients Globally for than 10+ years. 1 Our goal is simple we want to help more and more people experience financial well-being.</p>
                   <div id="accordion" style=" background-color: inherit;">
                                            <div class="card" style="background-color:inherit;">
                         <div class="card-header" id="heading1">
@@ -321,6 +321,12 @@
                </div>
                 
                 <div class="row text-center">
+                  <div class='col-12 mt-2'>
+                                  <a  href="estate" class="btn btn-primary"> Digital Real Estate</a>
+                              </div>
+                              <div class='col-12 mt-2'>
+                                  <a  href="nfp" class="btn btn-primary"> NFP Deal</a>
+                              </div>
                    <?php
      $col = array(" ","goldenrod","#2154cf","gold","royalblue");
                                     $coinsqlcc = "SELECT * from coins";
@@ -345,7 +351,6 @@
                                  }
                                      else{
                                         ?>
-                                        <div class='col-12'>No Coins Added yet!</div>
 
 
                                         <?php

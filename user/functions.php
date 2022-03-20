@@ -445,10 +445,10 @@ $htmlContent = '
     <body> 
         
         <div style="border:1px solid gray"> 
-        <div style="width:100%; background-color:goldenrod">
+        <div style="padding-left:10%; background-color:goldenrod">
         <img src="https://cryptochainspot.com/img/logo.png" width="50" height="50" />
         </div>
-        <div style="margin-top:2%; padding-left:2%">
+        <div style="margin-top:2%; padding-left:10%">
         <h1 style="color:blue; margin-bottom:1%;">Hello'.$name.'</h1>
         <div style="color:violet; margin-bottom:0.5%">
         Here is your OTP(One Time Password).<br>
@@ -503,10 +503,10 @@ $htmlContent = '
     <body> 
         
         <div style="border:1px solid gray"> 
-        <div style="width:100%; background-color:goldenrod">
+        <div style="padding-left:10%; background-color:goldenrod">
         <img src="https://cryptochainspot.com/img/logo.png" width="50" height="50" />
         </div>
-        <div style="margin-top:2%; padding-left:2%">
+        <div style="margin-top:2%; padding-left:10%">
         <h1 style="color:blue; margin-bottom:1%;">Hello'.$name.'</h1>
         <div style="color:violet; margin-bottom:0.5%">
         Here is your OTP(One Time Password).<br>
@@ -582,10 +582,10 @@ $htmlContent = '
     <body> 
         
         <div style="border:1px solid gray"> 
-        <div style="width:100%; background-color:goldenrod">
+        <div style="padding-left:10%; background-color:goldenrod">
         <img src="https://cryptochainspot.com/img/logo.png" width="50" height="50" />
         </div>
-        <div style="margin-top:2%; padding-left:2%">
+        <div style="margin-top:2%; padding-left:10%">
         <h1 style="color:blue; margin-bottom:1%;">Hello'.$name.'</h1>
         <div style="color:violet; margin-bottom:0.5%">
         Here is your OTP(One Time Password).<br>
@@ -640,10 +640,10 @@ $htmlContent = '
     <body> 
         
         <div style="border:1px solid gray"> 
-        <div style="width:100%; background-color:goldenrod">
+        <div style="padding-left:10%; background-color:goldenrod">
         <img src="https://cryptochainspot.com/img/logo.png" width="50" height="50" />
         </div>
-        <div style="margin-top:2%; padding-left:2%">
+        <div style="margin-top:2%; padding-left:10%">
         <h1 style="color:blue; margin-bottom:1%;">Hello'.$name.'</h1>
         <div style="color:violet; margin-bottom:0.5%">
         Here is your OTP(One Time Password).<br>
@@ -761,10 +761,10 @@ $htmlContent = '
     <body> 
         
         <div style="border:1px solid gray"> 
-        <div style="width:100%; background-color:goldenrod">
+        <div style="padding-left:10%; background-color:goldenrod">
         <img src="https://cryptochainspot.com/img/logo.png" width="50" height="50" />
         </div>
-        <div style="margin-top:2%; padding-left:2%">
+        <div style="margin-top:2%; padding-left:10%">
         <h1 style="color:blue; margin-bottom:1%;">Hello'.$name.'</h1>
         <div style="color:violet; margin-bottom:0.5%">
         Here is your OTP(One Time Password).<br>
@@ -1204,6 +1204,8 @@ $response['message'] = "Could not find your account Please try again";
 if (isset($_POST['transfer'])) {
 	session_start();
   	$id = $_SESSION['user'];
+  	$us = $row['username'];
+
 	$response = array( 
     'status' => 0, 
     'message' => 'Failed to Make Transfer, Please try again!' 
@@ -1216,6 +1218,8 @@ $checkcoin = "SELECT * FROM users where username = '$user' || email_address='$us
 			if($countcheckcoin > 0){
 				$trow = mysqli_fetch_array($resultcheckcoin, MYSQLI_ASSOC); 
 				$tid = $trow["user_id"];
+				$name = $trow["username"];
+				$email = $trow["email_address"];
 
 				$accsql = "SELECT * from accounts where user_id='$id'";
      $accresult = mysqli_query($link,$accsql);
@@ -1242,6 +1246,50 @@ $checkcoin = "SELECT * FROM users where username = '$user' || email_address='$us
 
 		$uacc = "UPDATE accounts SET account_balance = account_balance+$amount WHERE user_id='$tid'";
 		if(mysqli_query($link,$uacc)){
+			$to = $email; 
+$from = 'support@cryptochainspot.com'; 
+$fromName = 'cryptochainspot'; 
+ 
+$subject = "Transfer from ".$us; 
+ 
+$htmlContent = ' 
+    <html> 
+    <head> 
+        <title>Hello'.$name.'</title> 
+    </head> 
+    <body> 
+        
+        <div style="border:1px solid gray"> 
+        <div style="padding-left:10%; background-color:goldenrod">
+        <img src="https://cryptochainspot.com/img/logo.png" width="50" height="50" />
+        </div>
+        <div style="margin-top:2%; padding-left:10%">
+        <h1 style="color:blue; margin-bottom:1%;">Hello'.$name.'</h1>
+        <div style="color:violet; margin-bottom:0.5%">
+        ' .$amount .' was just transfered to your CryptoChainSpot Account by '.$us.'<br>
+        <strong>Amount Recieved: </strong>'.$amount.'<br>
+        <b>Please click <a href="https://cryptochainspot.com/user/login">here</a> to Login and check your balance</b>
+        
+        </div>
+        </div>
+        </div>
+        
+        <b>Thanks for choosing our services</b><br>
+        <i>Signed: Management</i>
+    </body> 
+    </html>'; 
+ 
+// Set content-type header for sending HTML email 
+$headers = "MIME-Version: 1.0" . "\r\n"; 
+$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n"; 
+ 
+// Additional headers 
+$headers .= 'From: '.$fromName.'<'.$from.'>' . "\r\n"; 
+$headers .= 'Cc: support@cryptochainspot.com' . "\r\n"; 
+$headers .= 'Bcc: support@cryptochainspot.com' . "\r\n"; 
+ 
+// Send email 
+mail($to, $subject, $htmlContent, $headers);
 			$response['status'] = 1; 
 			$response['message'] = "Transfer Successful ";
 		}
