@@ -2,7 +2,7 @@
 if(isset($_GET['d'])){ 
 if($_GET['d']== 2){
 ?>
-<div class="banner-area" id="banner-area" style="background-image:url(images/hs/2.jpeg);">
+<div class="banner-area" id="banner-area" style="background-image:url(images/hs/2.jpg);">
          <div class="container">
             <div class="row justify-content-center">
                <div class="col">
