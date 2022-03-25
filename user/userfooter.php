@@ -72,12 +72,12 @@ s0.parentNode.insertBefore(s1,s0);
     fetch('https://coinlib.io/api/v1/coin?key=511d043a7ff82b14&pref=USD&symbol=BTC')
   .then(response => response.json())
   .then(response => {
-ta = Math.round(parseInt(ta)/response.price);
-tb = Math.round(parseInt(tb)/response.price);
-td = Math.round(parseInt(td)/response.price);
-tw = Math.round(parseInt(tw)/response.price);
-ts = Math.round(parseInt(ts)/response.price);
-tt = Math.round(parseInt(tt)/response.price)
+document.getElementById("ta").innerHTML = Math.round(parseFloat(ta)/response.price)+" BTC";
+document.getElementById("tb").innerHTML = Math.round(parseFloat(tb)/response.price)+" BTC";
+document.getElementById("td").innerHTML = Math.round(parseFloat(td)/response.price)+" BTC";
+document.getElementById("tw").innerHTML = Math.round(parseFloat(tw)/response.price)+" BTC";
+document.getElementById("ts").innerHTML = Math.round(parseFloat(ts)/response.price)+" BTC";
+document.getElementById("tt").innerHTML = Math.round(parseFloat(tt)/response.price)+" BTC";
   })
 </script>
     <script type="text/javascript">
