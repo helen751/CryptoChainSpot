@@ -353,7 +353,7 @@
 
                                      ?>
                                      <div class='col-12 mt-2'>
-                                  <a  href="estate" class="btn btn-primary"> Digital Real Estate</a>
+                                  <a  href="estate" class="btn btn-warning"> Digital Real Estate</a>
                               </div>
                               <div class='col-12 mt-2'>
                                   <a  href="nfp" class="btn btn-primary"> NFTs</a>
