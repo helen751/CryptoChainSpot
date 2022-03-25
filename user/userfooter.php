@@ -73,7 +73,7 @@ s0.parentNode.insertBefore(s1,s0);
   .then(response => response.json())
   .then(response => {
     alert(response.price);
-document.getElementById("ta").innerHTML = response.price+" BTC";
+document.getElementById("ta").innerHTML = (parseFloat(ta)/response.price).toFixed(4)+" BTC";
 document.getElementById("tb").innerHTML = Math.round(parseFloat(tb)/response.price)+" BTC";
 document.getElementById("td").innerHTML = Math.round(parseFloat(td)/response.price)+" BTC";
 document.getElementById("tw").innerHTML = Math.round(parseFloat(tw)/response.price)+" BTC";
