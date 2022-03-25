@@ -39,7 +39,7 @@ if($_GET['d']== 2){
                                
                               <div class="col-lg-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/g1.avif" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/g1.jpg" alt="">
                                  </div>
                               </div>
                               <!-- Col end-->
@@ -50,17 +50,17 @@ if($_GET['d']== 2){
                             <div class="row">
                               <div class="col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/g2.avif" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/g2.jpg" alt="">
                                  </div>
                               </div>
                                 <div class="col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/g3.avif" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/g3.jpg" alt="">
                                  </div>
                               </div>
                                 <div class=" col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/g4.avif" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/g4.jpg" alt="">
                                  </div>
                               </div>
                               <!-- Col end-->
@@ -114,14 +114,14 @@ else if($_GET['d']== 3){
                                  <div class="tab-content-info">
                                     <h3 class="tab-content-title">$1,450,000</h3>
                                     <p>This stunning modern-styled townhome located within the private golf and ocean club community of Kohanaiki is a 4 BR/ 4.5 BA dream with a lounge pool,spa, and detached guest ohana  </p>
-                                    <a class="btn btn-primary" href="mailto:support@digitalstakers.com"> Make An Offer</a>
+                                    <a class="btn btn-primary" href="mailto:support@cryptochainspot.com"> Make An Offer</a>
                                  </div>
                                  <!-- Tab content info end-->
                               </div>
                                
                               <div class="col-lg-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/3.jpg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/n1.jpg" alt="">
                                  </div>
                               </div>
                               <!-- Col end-->
@@ -132,17 +132,17 @@ else if($_GET['d']== 3){
                             <div class="row">
                               <div class="col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/3b.jpg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/n2.jpg" alt="">
                                  </div>
                               </div>
                                 <div class="col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/3c.jpg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/n3.jpg" alt="">
                                  </div>
                               </div>
                                 <div class=" col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/3d.jpg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/n4.jpg" alt="">
                                  </div>
                               </div>
                               <!-- Col end-->
@@ -197,14 +197,14 @@ else if($_GET['d']== 1){
                                  <div class="tab-content-info">
                                     <h3 class="tab-content-title">$350,000</h3>
                                     <p>4/5.5/2 |5,472 sqft |8,060 sqft lot Location:Afton oaks </p>
-                                    <a class="btn btn-primary" href="mailto:support@digitalstakers.com"> Make An Offer</a>
+                                    <a class="btn btn-primary" href="mailto:support@cryptochainspot.com"> Make An Offer</a>
                                  </div>
                                  <!-- Tab content info end-->
                               </div>
                                
                               <div class="col-lg-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/1.jpg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/j1.jpg" alt="">
                                  </div>
                               </div>
                               <!-- Col end-->
@@ -215,17 +215,17 @@ else if($_GET['d']== 1){
                             <div class="row">
                               <div class="col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/1b.jpg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/j2.jpg" alt="">
                                  </div>
                               </div>
                                 <div class="col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/1c.jpg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/j3.jpg" alt="">
                                  </div>
                               </div>
                                 <div class=" col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/1d.jpg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/j4.jpg" alt="">
                                  </div>
                               </div>
                               <!-- Col end-->
@@ -286,7 +286,7 @@ else if($_GET['d']== 1){
                                
                               <div class="col-lg-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/4.jpg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/r1.jpg" alt="">
                                  </div>
                               </div>
                               <!-- Col end-->
@@ -297,17 +297,17 @@ else if($_GET['d']== 1){
                             <div class="row">
                               <div class="col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/4b.jpg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/r2.jpg" alt="">
                                  </div>
                               </div>
                                 <div class="col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/4c.jpg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/r3.jpg" alt="">
                                  </div>
                               </div>
                                 <div class=" col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/4d.jpg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/r4.jpg" alt="">
                                  </div>
                               </div>
                               <!-- Col end-->
@@ -388,7 +388,7 @@ Hawaii</p>
                                
                               <div class="col-lg-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/2.jpg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/g1.jpg" alt="">
                                  </div>
                               </div>
                               <!-- Col end-->
@@ -417,7 +417,7 @@ Hawaii</p>
                               <!-- Col end-->
                               <div class="col-lg-4 align-self-center">
                                  <div class="bg-contain-verticle align-self-center">
-                                    <img class="img-center img-fluid" src="images/hs/3.jpg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/n1.jpg" alt="">
                                  </div>
                               </div>
                               <!-- Col end-->
@@ -431,7 +431,7 @@ Hawaii</p>
                            <div class="row">
                               <div class="col-lg-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/1.jpg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/j1.jpg" alt="">
                                  </div>
                               </div>
                               <!-- Col end-->
@@ -457,7 +457,7 @@ Hawaii</p>
                            <div class="row">
                               <div class="col-lg-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/4.jpg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/r1.jpg" alt="">
                                  </div>
                               </div>
                               <!-- Col end-->
