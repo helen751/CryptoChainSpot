@@ -39,7 +39,7 @@ if($_GET['d']== 2){
                                
                               <div class="col-lg-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/2.jpg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/g1.avif" alt="">
                                  </div>
                               </div>
                               <!-- Col end-->
@@ -50,17 +50,17 @@ if($_GET['d']== 2){
                             <div class="row">
                               <div class="col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/2b.jpg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/g2.avif" alt="">
                                  </div>
                               </div>
                                 <div class="col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/2c.jpg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/g3.avif" alt="">
                                  </div>
                               </div>
                                 <div class=" col-md-4 align-self-center">
                                  <div class="bg-contain-verticle">
-                                    <img class="img-center img-fluid" src="images/hs/2d.jpg" alt="">
+                                    <img class="img-center img-fluid" src="images/hs/g4.avif" alt="">
                                  </div>
                               </div>
                               <!-- Col end-->

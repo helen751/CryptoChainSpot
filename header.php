@@ -514,7 +514,7 @@ body {
                                  }
                                      ?>
                                      <li><a href="estate">Digital Real estate</a></li>
-                                      <li><a href="nfp">NFP Deals</a></li>
+                                      <li><a href="nfp">NFTs</a></li>
                                     
                                  </ul>
                               </li>

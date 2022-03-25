@@ -1,7 +1,7 @@
 
     <footer class="footer">
           <div class="w-100 clearfix">
-            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © <?php echo date('Y'); ?> <a href="index" >CryptoChain Spot</a>. All rights reserved.</span>
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2019<?php //echo date('Y'); ?> <a href="index" >CryptoChain Spot</a>. All rights reserved.</span>
             <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"><?php echo $username; ?> <i class="far fa-user text-primary"></i></span>
             <p  class="text-success"></p>
           </div>
@@ -62,6 +62,24 @@ s0.parentNode.insertBefore(s1,s0);
     <script src="js/ResizeSensor.js"></script>
     <script src="js/dashboard.js"></script>
     <script src="js/slim.js"></script>
+    <script type="text/javascript">
+        var ta = document.getElementById("ta").innerHTML;
+        var tb = document.getElementById("tb").innerHTML;
+        var td = document.getElementById("td").innerHTML;
+        var tw = document.getElementById("tw").innerHTML;
+        var tt = document.getElementById("tt").innerHTML;
+        var ts = document.getElementById("ts").innerHTML;
+    fetch('https://coinlib.io/api/v1/coin?key=511d043a7ff82b14&pref=USD&symbol=BTC')
+  .then(response => response.json())
+  .then(response => {
+ta = Math.round(parseInt(ta)/response.price);
+tb = Math.round(parseInt(tb)/response.price);
+td = Math.round(parseInt(td)/response.price);
+tw = Math.round(parseInt(tw)/response.price);
+ts = Math.round(parseInt(ts)/response.price);
+tt = Math.round(parseInt(tt)/response.price)
+  })
+</script>
     <script type="text/javascript">
         function contact(){
     var name = document.getElementById("name").value;
