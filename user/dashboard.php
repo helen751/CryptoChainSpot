@@ -31,12 +31,14 @@
                   <h4 class="card-title ">Account Balance</h4>
                   <div class="row">
                     <div class="col-md-6 text-center">
-                      <h2 class="text-primary">USD <?php echo number_format(round($accbal,2)); ?></h2>
+                      <h2 class="text-primary">USD
+                      <span id="ta2" style="display:none;"><?php echo round($accbal,2); ?></span> <?php echo number_format(round($accbal,2)); ?></h2>
                        <p class="mb-0 text-warning" id="ta">0.0000</p>
                       <p class="text-primary">Available Balance</p>
                     </div>
                     <div class="col-md-6 text-center align-items-baseline">
-                      <h4 class="text-muted">USD <?php echo number_format(round($sysbal,2)); ?></h4>
+   <h4 class="text-muted">USD
+    <span id="ts2" style="display:none;"><?php echo round($sysbal,2); ?></span><?php echo number_format(round($sysbal,2)); ?></h4>
                        <p class="mb-0 text-warning" id="ts">0.0000</p>
                       <p class="text-muted">System Balance</p>
                     </div>
@@ -84,7 +86,7 @@
                       <small><?php echo $ref3; ?> %</small>
                     </div>
                     <div class="progress progress-sm mt-2">
-                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="<?php echo $planname * 3; ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="progress-bar bg-danger" style="width:<?php echo $ref3; ?>%;" role="progressbar" aria-valuenow="<?php echo $ref3; ?>" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                    <?php } 
                    }
@@ -128,7 +130,7 @@
                     <p class="card-title mb-1">Total Deposits</p>
                   </div>
 
-                  <h4 class="mb-2 mt-1">USD <?php
+                  <h4 class="mb-2 mt-1">USD <span id="td2" style="display:none"><?php
                     $coinsql7 = "SELECT * from deposits where user_id ='$id' and approve = 1";
                                     $coinresult7 = mysqli_query($link,$coinsql7);
                                     $countcoin7 = mysqli_num_rows($coinresult7);
@@ -142,7 +144,24 @@
                                                 echo $tot;
                                         }
                                         else{
-                                          echo " 0.00";
+                                          echo "0.00";
+
+}
+                                          ?></span><?php
+                    $coinsql7 = "SELECT * from deposits where user_id ='$id' and approve = 1";
+                                    $coinresult7 = mysqli_query($link,$coinsql7);
+                                    $countcoin7 = mysqli_num_rows($coinresult7);
+
+                                        if($countcoin7 != 0){
+                                          $tot = 0;
+                                          while($coinrow = $coinresult7->fetch_assoc()) {                                         
+                                            $amt = $coinrow["deposit_amount"];
+                                            $tot = $tot+$amt;
+                                                }
+                                                echo number_format(round($tot,2));
+                                        }
+                                        else{
+                                          echo "0.00";
 
 }
                                           ?></h4>
@@ -164,7 +183,24 @@
                     <i class="fas fa-circle text-warning mr-2 fa-sm"></i>
                     <p class="card-title mb-1">Total Withdrawals</p>
                   </div>
-                  <h4 class="mb-2 mt-1">USD <?php
+                  <h4 class="mb-2 mt-1">USD <span id="tw2" style="display:none"><?php
+                    $coinsql2 = "SELECT * from withdrawals where user_id ='$id' and transaction_status = 1";
+                                    $coinresult2 = mysqli_query($link,$coinsql2);
+                                    $countcoin2 = mysqli_num_rows($coinresult2);
+
+                                        if($countcoin2 != 0){
+                                          $tot = 0;
+                                          while($coinrow = $coinresult2->fetch_assoc()) {                                         
+                                            $amt = $coinrow["amount"];
+                                            $tot = $tot+$amt;
+                                                }
+                                                echo $tot;
+                                        }
+                                        else{
+                                          echo "0.00";
+
+}
+                                          ?></span><?php
                     $coinsql2 = "SELECT * from withdrawals where user_id ='$id' and transaction_status = 1";
                                     $coinresult2 = mysqli_query($link,$coinsql2);
                                     $countcoin2 = mysqli_num_rows($coinresult2);
@@ -178,7 +214,7 @@
                                                 echo number_format(round($tot,2));
                                         }
                                         else{
-                                          echo " 0.00";
+                                          echo "0.00";
 
 }
                                           ?></h4>
@@ -200,7 +236,24 @@
                     <i class="fas fa-circle text-danger mr-2 fa-sm"></i>
                     <p class="card-title mb-1">Total Bonuses</p>
                   </div>
-                  <h4 class="mb-2 mt-1">USD <?php
+                  <h4 class="mb-2 mt-1">USD <span id="tb2" style="display:none"><?php
+                    $coinsql3 = "SELECT * from bonus where user_id ='$id'";
+                                    $coinresult3 = mysqli_query($link,$coinsql3);
+                                    $countcoin3 = mysqli_num_rows($coinresult3);
+
+                                        if($countcoin3 != 0){
+                                          $tot = 0;
+                                          while($coinrow = $coinresult3->fetch_assoc()) {                                         
+                                            $amt = $coinrow["bonus_amount"];
+                                            $tot = $tot+$amt;
+                                                }
+                                                echo $tot;
+                                        }
+                                        else{
+                                          echo "0.00";
+
+}
+                                          ?></span><?php
                     $coinsql3 = "SELECT * from bonus where user_id ='$id'";
                                     $coinresult3 = mysqli_query($link,$coinsql3);
                                     $countcoin3 = mysqli_num_rows($coinresult3);
@@ -214,7 +267,7 @@
                                                 echo number_format(round($tot,2));
                                         }
                                         else{
-                                          echo " 0.00";
+                                          echo "0.00";
 
 }
                                           ?></h4>
@@ -235,7 +288,24 @@
                     <i class="fas fa-circle text-primary mr-2 fa-sm"></i>
                     <p class="card-title mb-1">Total Transactions</p>
                   </div>
-                  <h4 class="mb-2 mt-1">USD <?php
+                  <h4 class="mb-2 mt-1">USD <span id="tt2" style="display:none"><?php
+                    $coinsql4 = "SELECT * from transactions where user_id ='$id' and transaction_status = 1";
+                                    $coinresult4 = mysqli_query($link,$coinsql4);
+                                    $countcoin4 = mysqli_num_rows($coinresult4);
+
+                                        if($countcoin4 != 0){
+                                          $tot = 0;
+                                          while($coinrow = $coinresult4->fetch_assoc()) {                                         
+                                            $amt = $coinrow["transaction_amount"];
+                                            $tot = $tot+$amt;
+                                                }
+                                                echo $tot;
+                                        }
+                                        else{
+                                          echo "0.00";
+
+}
+                                          ?></span><?php
                     $coinsql4 = "SELECT * from transactions where user_id ='$id' and transaction_status = 1";
                                     $coinresult4 = mysqli_query($link,$coinsql4);
                                     $countcoin4 = mysqli_num_rows($coinresult4);
@@ -249,7 +319,7 @@
                                                 echo  number_format(round($tot,2));
                                         }
                                         else{
-                                          echo " 0.00";
+                                          echo "0.00";
 
 }
                                           ?></h4>

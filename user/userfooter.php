@@ -63,12 +63,12 @@ s0.parentNode.insertBefore(s1,s0);
     <script src="js/dashboard.js"></script>
     <script src="js/slim.js"></script>
     <script type="text/javascript">
-        var ta = document.getElementById("ta").innerHTML;
-        var tb = document.getElementById("tb").innerHTML;
-        var td = document.getElementById("td").innerHTML;
-        var tw = document.getElementById("tw").innerHTML;
-        var tt = document.getElementById("tt").innerHTML;
-        var ts = document.getElementById("ts").innerHTML;
+        var ta = document.getElementById("ta2").innerHTML;
+        var tb = document.getElementById("tb2").innerHTML;
+        var td = document.getElementById("td2").innerHTML;
+        var tw = document.getElementById("tw2").innerHTML;
+        var tt = document.getElementById("tt2").innerHTML;
+        var ts = document.getElementById("ts2").innerHTML;
     fetch('https://coinlib.io/api/v1/coin?key=511d043a7ff82b14&pref=USD&symbol=BTC')
   .then(response => response.json())
   .then(response => {
