@@ -1204,7 +1204,7 @@ $response['message'] = "Could not find your account Please try again";
 if (isset($_POST['transfer'])) {
 	session_start();
   	$id = $_SESSION['user'];
-  	$us = $_SESSION['username'];
+  	$us = $_SESSION['name'];
 
 	$response = array( 
     'status' => 0, 
