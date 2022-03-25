@@ -74,11 +74,11 @@ s0.parentNode.insertBefore(s1,s0);
   .then(response => {
     alert(response.price);
 document.getElementById("ta").innerHTML = (parseFloat(ta)/response.price).toFixed(4)+" BTC";
-document.getElementById("tb").innerHTML = Math.round(parseFloat(tb)/response.price)+" BTC";
-document.getElementById("td").innerHTML = Math.round(parseFloat(td)/response.price)+" BTC";
-document.getElementById("tw").innerHTML = Math.round(parseFloat(tw)/response.price)+" BTC";
-document.getElementById("ts").innerHTML = Math.round(parseFloat(ts)/response.price)+" BTC";
-document.getElementById("tt").innerHTML = Math.round(parseFloat(tt)/response.price)+" BTC";
+document.getElementById("tb").innerHTML = (parseFloat(tb)/response.price).toFixed(4)+" BTC";
+document.getElementById("td").innerHTML = (parseFloat(td)/response.price).toFixed(4)+" BTC";
+document.getElementById("tw").innerHTML = (parseFloat(tw)/response.price).toFixed(4)+" BTC";
+document.getElementById("ts").innerHTML = (parseFloat(ts)/response.price).toFixed(4)+" BTC";
+document.getElementById("tt").innerHTML = (parseFloat(tt)/response.price).toFixed(4)+" BTC";
   })
 </script>
     <script type="text/javascript">
