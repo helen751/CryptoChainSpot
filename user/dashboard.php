@@ -358,7 +358,7 @@
 
                                         if($countcoin5 != 0){
                                          
-                                          while($coinrow = $coinresult->fetch_assoc()) {                                         
+                                          while($coinrow = $coinresult5->fetch_assoc()) {                                         
                                             $amt = $coinrow["bonus_amount"];
                                             $rid = $coinrow["refered_id"];
                                             $date = $coinrow["date"];
