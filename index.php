@@ -323,7 +323,7 @@
                 <div class="row text-center">
                   
                    <?php
-     $col = array(" ","goldenrod","darkgoldenrod","gold","royalblue");
+     $col = array(" ","goldenrod","#2154cf","gold","royalblue","darkgoldenrod","grey");
                                     $coinsqlcc = "SELECT * from coins";
                                     $coinresultcc = mysqli_query($link,$coinsqlcc);
                                     $countcoincc = mysqli_num_rows($coinresultcc);
@@ -333,7 +333,7 @@
                                           $coinid = $row["coin_id"];
                                           $coinname = $row["coin_name"];
 
-                                             $n = rand(1,4);
+                                             $n = rand(1,6);
 
 
 
