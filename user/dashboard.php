@@ -69,7 +69,7 @@
                       <div class="template-demo">
                           
                         <?php 
-                 $plansql = "SELECT * from plans limit 3";
+                 $plansql = "SELECT * from plans";
                                     $planresult = mysqli_query($link,$plansql);
                                     $countplan = mysqli_num_rows($planresult);
 
