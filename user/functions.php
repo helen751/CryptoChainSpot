@@ -1204,7 +1204,7 @@ $response['message'] = "Could not find your account Please try again";
 if (isset($_POST['transfer'])) {
 	session_start();
   	$id = $_SESSION['user'];
-  	$us = $row['username'];
+  	$us = $_SESSION['username'];
 
 	$response = array( 
     'status' => 0, 
@@ -1255,7 +1255,7 @@ $subject = "Transfer from ".$us;
 $htmlContent = ' 
     <html> 
     <head> 
-        <title>Hello'.$name.'</title> 
+        <title>Hello '.$name.'</title> 
     </head> 
     <body> 
         
