@@ -335,7 +335,7 @@ else if($_GET['d']== 1){
 else{
 ?>
 
-<div class="banner-area" id="banner-area" style="background-image:url(images/hs/big1.jpg);">
+<div class="banner-area" id="banner-area" style="background-image:url(images/hs/mm.jpeg);">
          <div class="container">
             <div class="row justify-content-center">
                <div class="col">
