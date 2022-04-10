@@ -231,7 +231,11 @@ s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
-<!--End of Tawk.to Script-->    
+<!--End of Tawk.to Script-->   
+<script language="javascript">
+   var t = <?php echo $_SESSION['name']; ?>;
+    document.title = "Deposit | "+ t;
+</script> 
   <!-- plugins:js -->
   <script src="vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->

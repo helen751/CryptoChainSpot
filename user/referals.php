@@ -104,6 +104,9 @@
     </div>
     </div>
       </div><!-- slim-mainpanel -->
-
+<script language="javascript">
+   var t = <?php echo $_SESSION['name']; ?>;
+    document.title = "Referals | "+ t;
+</script>
   <?php include("userfooter.php");
 ?>
