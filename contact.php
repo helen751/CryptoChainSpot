@@ -1,5 +1,7 @@
 
-  <?php include("header.php"); ?>      
+  <?php
+$title = "Contact Us | CryptoChainSpot | Cryptocurrency Investment";
+   include("header.php"); ?>      
 <!-- START SECTION BANNER -->
 <div class="banner-area" id="banner-area" style="background-image:url(images/banner/support.jpeg);">
          <div class="container">

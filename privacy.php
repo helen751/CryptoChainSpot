@@ -1,4 +1,6 @@
-<?php include("header.php"); ?>
+<?php 
+$title = "Privacy Policy | CryptoChainSpot | Cryptocurrency Investment";
+include("header.php"); ?>
 <!-- START SECTION BANNER -->
 <div class="banner-area" id="banner-area" style="background-image:url(images/banner/policy.jpeg);">
          <div class="container">

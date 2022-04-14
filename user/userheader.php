@@ -66,7 +66,7 @@ $row = mysqli_fetch_array($accountresult, MYSQLI_ASSOC);
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
-  <title>Dashboard | <?php echo $_SESSION['name'] ?></title>
+  <title><?php echo $title; ?> | <?php echo $_SESSION['name'] ?></title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/font-awesome/css/all.min.css">
   <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">

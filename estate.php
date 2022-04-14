@@ -1,4 +1,6 @@
-<?php require_once("header.php");
+<?php
+$title = "Digital Estate | CryptoChainSpot | Cryptocurrency Investment";
+ require_once("header.php");
 if(isset($_GET['d'])){ 
 if($_GET['d']== 2){
 ?>

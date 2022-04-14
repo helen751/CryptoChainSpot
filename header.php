@@ -21,7 +21,7 @@ $_SESSION['ref'] = $ref;
     ==================================================
     -->
    <meta charset="utf-8">
-   <title>Welcome | CryptoChainSpot | Cryptocurrency Investment</title>
+   <title><?php echo $title; ?></title>
    <!--
     Mobile Specific Metas
     ==================================================

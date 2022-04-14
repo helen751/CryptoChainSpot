@@ -1,4 +1,6 @@
-<?php include("header.php"); 
+<?php
+$title = "Plans | CryptoChainSpot | Cryptocurrency Investment";
+ include("header.php"); 
 $coin=' ';
 $coinname=' ';
 if (isset($_GET["p"])) {

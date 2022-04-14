@@ -1,4 +1,7 @@
-<?php include("header.php");
+
+<?php
+$title = "Home page | CryptoChainSpot | Cryptocurrency Investment";
+ include("header.php");
 
  ?>
         <div id="box-slide" class="owl-carousel owl-theme page-slider mrt-110">

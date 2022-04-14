@@ -1,4 +1,6 @@
-<?php include("userheader.php");
+<?php
+$title = "Wallets";
+ include("userheader.php");
 ?> 
     <div id="#tr<?php echo $tid; ?>" class="modal fade">
       <div class="modal-dialog modal-sm" role="document">
@@ -245,10 +247,7 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
-<script language="javascript">
-   var t = <?php echo $_SESSION['name']; ?>;
-    document.title = "Wallets | "+ t;
-</script>
+
   <!-- plugins:js -->
   <script src="vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->

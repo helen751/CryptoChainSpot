@@ -1,4 +1,6 @@
-<?php include("userheader.php");
+<?php
+$title = "withdrawal";
+ include("userheader.php");
 ?>    
     <div class="container-fluid page-body-wrapper">
       <div class="main-panel">
@@ -159,10 +161,7 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
-<script language="javascript">
-   var t = <?php echo $_SESSION['name']; ?>;
-    document.title = "Withdrawal | "+ t;
-</script>
+
   <!-- plugins:js -->
   <script src="vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->

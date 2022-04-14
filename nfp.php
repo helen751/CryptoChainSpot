@@ -1,4 +1,6 @@
-<?php require_once("header.php"); ?>
+<?php 
+$title = "NFP page | CryptoChainSpot | Cryptocurrency Investment";
+require_once("header.php"); ?>
 
 <div class="banner-area" id="banner-area" style="background-image:url(images/banner/banner1.jpg);">
          <div class="container">

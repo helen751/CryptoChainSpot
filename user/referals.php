@@ -1,4 +1,6 @@
-<?php include("userheader.php");
+<?php
+$title = "Referals";
+ include("userheader.php");
 ?>
     <div class="container-fluid page-body-wrapper">
       <div class="main-panel">
@@ -104,9 +106,6 @@
     </div>
     </div>
       </div><!-- slim-mainpanel -->
-<script language="javascript">
-   var t = <?php echo $_SESSION['name']; ?>;
-    document.title = "Referals | "+ t;
-</script>
+
   <?php include("userfooter.php");
 ?>
